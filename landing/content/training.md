@@ -50,7 +50,7 @@ hidemeta: true
 }
 
 .tag::before {
-  background: #fff;
+  background: var(--theme);
   border-radius: 10px;
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
   content: '';
@@ -62,7 +62,7 @@ hidemeta: true
 }
 
 .tag::after {
-  background: #fff;
+  background: var(--theme);
   border-bottom: 13px solid transparent;
   border-left: 10px solid #eee;
   border-top: 13px solid transparent;
