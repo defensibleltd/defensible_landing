@@ -86,8 +86,6 @@ params:
         url: training
       - name: Schools
         url: schools
-      - name: iNOG ↪
-        url: "https://inog.net"
 
   # home-info mode
   homeInfoParams:
