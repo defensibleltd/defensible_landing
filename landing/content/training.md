@@ -1,5 +1,5 @@
 ---
-title: "Network, Systems, and CyberSec"
+title: "Networks, Systems, and CyberSec"
 url: "/training"
 description: "Recommended Online Training from Partners"
 hidemeta: true
