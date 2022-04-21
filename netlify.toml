@@ -1,0 +1,40 @@
+[build]
+base = "landing"
+publish = "landing/public"
+command = "hugo --enableGitInfo"
+
+[context.production.environment]
+HUGO_VERSION = "0.47.1"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+command = "hugo --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.47.1"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.deploy-preview]
+command = "hugo --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.47.1"
+HUGO_ENABLEGITINFO = "true"
+
+[context.branch-deploy]
+command = "hugo -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.47.1"
+HUGO_ENABLEGITINFO = "true"
+
+[context.next.environment]
+HUGO_ENABLEGITINFO = "true"
+
+[[headers]]
+  for = "/plugins/themefisher-font/fonts/*.woff|/plugins/themefisher-font/fonts/*.ttf"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Type = "application/font-woff"
