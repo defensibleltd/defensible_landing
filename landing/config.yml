@@ -76,14 +76,18 @@ params:
     buttons:
       - name: PanSift
         url: pansift
-      - name: Engage
-        url: engage
       - name: Contact
         url: contact
-      - name: iNOG
-        url: inog
+      - name: Engage
+        url: engage
+      - name: Team
+        url: team
+      - name: Training
+        url: training
       - name: Schools
         url: schools
+      - name: iNOG ↪
+        url: "https://inog.net"
 
   # home-info mode
   homeInfoParams:
@@ -134,15 +138,23 @@ menu:
     - identifier: engage
       name: Engage
       url: /engage/
-      weight: 20
-    - identifier: PanSift
+      weight: 30
+    - identifier: panSift
       name: PanSift
       url: pansift
       weight: 10
-    - identifier: Search
+    - identifier: team
+      name: Team
+      url: /team/
+      weight: 40
+    - identifier: training
+      name: Training
+      url: /training/
+      weight: 40
+    - identifier: search
       name: Search
       url: /search/
-      weight: 30
+      weight: 50
 
 outputs:
     home:
