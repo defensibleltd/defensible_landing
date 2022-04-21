@@ -1,6 +1,6 @@
 [build]
 base = "landing"
-publish = "landing/public"
+publish = "/public"
 command = "hugo --enableGitInfo"
 
 [context.production.environment]
