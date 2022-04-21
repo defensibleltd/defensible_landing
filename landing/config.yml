@@ -31,7 +31,7 @@ params:
   # keywords: [Blog, Portfolio, PaperMod]
   author: Donal
   # author: ["Me", "You"] # multiple authors
-  images: [""] 
+  images: ["og_v1.png"] 
   # Images are for Opengraph
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
