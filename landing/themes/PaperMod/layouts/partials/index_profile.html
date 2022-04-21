@@ -1,47 +1,48 @@
 <div class="profile">
-    {{- with .Site.Params.profileMode }}
-    <div class="profile_inner">
-        {{- if .imageUrl -}}
-        <img src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}"
-            height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
-        {{- end }}
-        <h1>{{ .title | default $.Site.Title | markdownify }}</h1>
-        <span>{{ .subtitle | markdownify }}</span>
-        {{- partial "social_icons.html" $.Site.Params.socialIcons -}}
+	{{- with .Site.Params.profileMode }}
+	<div class="profile_inner">
+		{{- if .imageUrl -}}
+		<img src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}"
+																				height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
+		{{- end }}
+		<h1>{{ .title | default $.Site.Title | markdownify }}</h1>
+		<span>{{ .subtitle | markdownify }}</span>
 
-        {{- with .buttons }}
-        <div class="buttons">
-            {{- range . }}
-            <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name | title }}">
-                <span class="button-inner">{{ .name | title }}</span>
-            </a>
-            {{- end }}
-        </div>
-        {{- end }}
-    </div>
-    {{- end}}
+		{{- with .buttons }}
+		<div class="buttons">
+			{{- range . }}
+			<a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name | title }}">
+				<span class="button-inner">{{ .name | title }}</span>
+			</a>
+			{{- end }}
+		</div>
+		{{- end }}
+	</div>
+	{{- end}}
 </div>
-
+<br>
+<div class="">
 <h4>A Small Selection of Clients (Multinationals, Local Startups, Coworking SME's...)</h4>
 <br>
-<div style="background-color: #222;border-radius: 20px;padding: 40px; width: 100%;">
-<center>
-<a href="/engage/"><img loading="lazy" style="display: inline;padding: 20px;" class="img-fluid m-4" src="/images/juniper.png"></img></a>
-<a href="/engage/"><img loading="lazy" style="display: inline;padding: 20px;" class="img-fluid m-4" src="/images/tito.png"></img></a>
-<a href="/engage/"><img loading="lazy" style="display: inline;padding: 20px;" class="img-fluid m-4" src="/images/hub.png"></img></a>
-<a href="/engage/"><img loading="lazy" style="display: inline;padding: 20px;" class="img-fluid m-4" src="/images/betahaus.png"></img></a>
-<a href="/engage/"><img loading="lazy" style="display: inline;padding: 20px;" class="img-fluid m-4" src="/images/dogpatchlabs.png"></img></a>
-</center>
+<div style="background-color: #222;border-radius: 20px;padding: 20px; width: 100%;">
+	<center>
+		<a href="/engage/"><img loading="lazy" style="display: inline;padding: 10px;" class="img-fluid m-4" src="/images/juniper.png"></img></a>
+		<a href="/engage/"><img loading="lazy" style="display: inline;padding: 10px;" class="img-fluid m-4" src="/images/tito.png"></img></a>
+		<a href="/engage/"><img loading="lazy" style="display: inline;padding: 10px;" class="img-fluid m-4" src="/images/hub.png"></img></a>
+		<a href="/engage/"><img loading="lazy" style="display: inline;padding: 10px;" class="img-fluid m-4" src="/images/betahaus.png"></img></a>
+		<a href="/engage/"><img loading="lazy" style="display: inline;padding: 10px;" class="img-fluid m-4" src="/images/dogpatchlabs.png"></img></a>
+	</center>
 </div>
 <small>* HubAustralia work performed under the brand Podomere.</small>
 
-<br>
 <br>
 <br>
 
 <h4>Network Operator Group Organization / Experimental Interactive Visualizations</h4>
 <br>
 <center>
-<a target="_blank" href="https://inog.net/"><img loading="lazy" style="border-radius: 50px; display: inline;padding: 5px;" class="img-fluid" src="/images/inog.png"></img></a>
-<a target="_blank" href="https://secviz.defensible.ie/test/"><img loading="lazy" style="border-radius: 50px; display: inline;padding: 5px;" class="img-fluid" src="/images/ripeviz.png"></img></a>
+	<a target="_blank" href="https://inog.net/"><img loading="lazy" style="border-radius: 50px; display: inline;padding: 5px;" class="img-fluid" src="/images/inog.png"></img></a>
+	<a target="_blank" href="https://secviz.defensible.ie/test/"><img loading="lazy" style="border-radius: 50px; display: inline;padding: 5px;" class="img-fluid" src="/images/ripeviz.png"></img></a>
 </center>
+</div>
+<center>{{- partial "social_icons.html" $.Site.Params.socialIcons -}}</center>
