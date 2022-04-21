@@ -1,7 +1,7 @@
 baseURL = "https://www.defensible.ie/"
 languageCode = "en-us"
 title = "Defensible Limited"
-theme = ""
+#theme = ""
 summaryLength = 37
 enableGitInfo = true
 # buildDrafts = false
