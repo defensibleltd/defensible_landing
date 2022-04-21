@@ -27,7 +27,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: "Defensible Limited"
-  description: "Make it so with independent Information Security, Network Reliability Engineering, and solid no bullshit Technical Marketing from the trenches."
+  description: "Make it so with independent Information Security, Network Reliability Engineering, and solid no bullshit Technical Marketing from the trenches. By the numbers!"
   # keywords: [Blog, Portfolio, PaperMod]
   author: Donal
   # author: ["Me", "You"] # multiple authors
@@ -53,11 +53,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
 
   label:
     text: "Defensible"
@@ -68,7 +68,7 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: "Is your position Defensible?"
-    subtitle: "Make it <strong>so</strong> with independent <strong>Information Security</strong>, <strong>Network Reliability Engineering</strong>, and solid <i>no bullshit</i> <strong>Technical Marketing</strong> from the trenches and by the numbers."
+    subtitle: "Make it <strong>so</strong> with independent <strong>Information Security</strong>, <strong>Network Reliability Engineering</strong>, and solid <i>no bullshit</i> <strong>Technical Marketing</strong> from the trenches. By the numbers!"
     imageUrl: "/d_logo.png"
     imageWidth: 128
     imageHeight: 128
