@@ -1,3 +1,15 @@
 baseURL = "https://www.defensible.ie/"
 languageCode = "en-us"
 title = "Defensible Limited"
+theme = ""
+summaryLength = 37
+enableGitInfo = true
+# buildDrafts = false
+
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0
+
+[markup.goldmark.renderer]
+unsafe = true
