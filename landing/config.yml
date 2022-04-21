@@ -68,7 +68,7 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: "Is your position Defensible?"
-    subtitle: "Make it <strong>so</strong> with independent <strong>Information Security</strong>, <strong>Network Reliability Engineering</strong>, and solid, <i>no bullshit</i> <strong>Technical Marketing</strong> and Automation from the trenches."
+    subtitle: "Make it <strong>so</strong> with independent <strong>Information Security</strong>, <strong>Network Reliability Engineering</strong>, and solid, <i>no bullshit</i> <strong>Technical Marketing</strong> and <strong>Automation</strong> from the trenches."
     imageUrl: "/d_logo.png"
     imageWidth: 128
     imageHeight: 128
