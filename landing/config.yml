@@ -60,9 +60,9 @@ params:
     safari_pinned_tab: "/safari-pinned-tab.svg"
 
   label:
-    text: "Defensible"
+    text: ""
     icon: /logo_bandw.png
-    iconHeight: 35
+    iconHeight: 20
 
   # profile-mode
   profileMode:
@@ -149,10 +149,6 @@ menu:
       name: Training
       url: /training/
       weight: 40
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 50
 
 outputs:
     home:
