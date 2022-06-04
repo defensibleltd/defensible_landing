@@ -1,7 +1,7 @@
 ---
 title: "Support Work From Anywhere" # in any language you want
 url: "/pansift"
-description: "With Instant remote troubleshooting for forward thinking technical teams."
+description: "With instant remote troubleshooting for forward thinking technical teams."
 hidemeta: true
 ---
 
