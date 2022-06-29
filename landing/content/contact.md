@@ -5,4 +5,25 @@ description: "Drop us a line about anything!"
 # Migrate this to Netlify forms?
 hidemeta: true
 ---
-<div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/1wA2H8r6P9OK1sVqAnV1lDRyquh9brWpozEkffIw3vsfrUxvmbAFDSqO6IZMwsoQr"><script src="https://webforms.pipedrive.com/f/loader"></script></div>
+<center>
+<form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Your Role: <select name="role[]" multiple>
+      <option value="leader">Leader</option>
+      <option value="follower">Follower</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
+</center>
