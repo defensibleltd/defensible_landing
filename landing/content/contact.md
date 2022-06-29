@@ -45,7 +45,7 @@ hidemeta: true
 /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
 @media (max-width: 800px) {
   .form-inline input {
-    margin: 10px 0;
+    margin: 5px 5px 5px 5px;
   }
 
   .form-inline {
