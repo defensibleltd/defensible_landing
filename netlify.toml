@@ -32,3 +32,15 @@ HUGO_ENABLEGITINFO = "true"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
+
+[[redirects]]
+  from = "https://zoom.defensible.ie/phonenumbers"
+  to = "https://zoom.us/u/aegmwQNMt5"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "https://zoom.defensible.ie"
+  to = "https://zoom.us/j/8927508943"
+  status = 302
+  force = true
