@@ -4,7 +4,7 @@
 
 * The Strategic ROI of IPAM
 * Grow ROI and Control with Micetro IPAM
-* Upgrade your IPAM.
+* Upgrade your IPAM
 * An IPAM Buyers Guide
 * Uniting Teams and Unifying Processes with IPAM
 * Better Microsoft Operations with a Flexible IPAM
@@ -18,11 +18,11 @@
 * Automate your IP space with IPAM
 * Automating and Unifying IPAM for Microsoft Services
 * Automate and Audit Your IP Space
-* Put an API on it. Modern IPAM for your IP Space.
+* Put an API on it. Modern IPAM for your IP Space
 * Rethinking DDI, what is it?
 * IPAM for Multicloud
 * IPAM for all the things?
-* Still Manually Managing IP Addresses? Automate your IPAM for better ROI.
+* Still Manually Managing IP Addresses? Automate your IPAM for better ROI
 * Never turn back once you've used
 
 # SEMRush

@@ -6,7 +6,7 @@ There are 3-4 main IPAM alternatives i.e. Microsoft Excel, Microsoft IPAM, Solar
 * Fine grained RBAC (over and above configuring limited GPOs)
 * Choice of database (PostgreSQL, SQLite, MS SQL)
 * Centralized auditing and logging (without additional configuration of servers)
-* No limits to numbers of DHCP servers, scopes, DNS servers, or zones.
+* No limits to numbers of DHCP servers, scopes, DNS servers, or zones
 * Utilization and trending across both IPv6 and IPv4
 * Next free address across IPv6 and IPv4
 * Discovery and scanning of IPs across routers and switches

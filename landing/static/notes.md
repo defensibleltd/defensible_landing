@@ -30,13 +30,13 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * "efficacy/efficiency" time-to-value / acceleration of tasks
 * **Benefits**:
   * Unified views, fresh not stale data, less errors, better outcomes.
-  * Ease of deployment, coverage, and management.
+  * Ease of deployment, coverage, and management
   * Faster provisioning of IP assets and services (more time for other higher impact work)
   * Automation with standard REST APIs across all assets versus UI or PowerShell
-  * No additional training required.
+  * No additional training required
   * Rapid integation with other ticketing and workflow platforms and projects 
-  * "Meets you where you are and helps you get to where you need to go."
-  * Technology agnostic and futureproof.
+  * "Meets you where you are and helps you get to where you need to go"
+  * Technology agnostic and futureproof
 * **Issues/Objections**:
   * IPAM is optional and not business critical
   * IPAM involves licensing
