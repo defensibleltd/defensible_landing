@@ -24,7 +24,7 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * **Differentiated value** (e.g. vs Excel, MS IPAM, Efficient IP, Infoblox, etc)
   * Highlight features like network discovery, reporting, and IPv6 support that other alternatives don't do/have
   * But, it's still mainly an education piece on not just the ROI of IPAM, but the ROI of Micetro?
-* **Levers/emotional touch points**: 
+* **Levers/Emotional touch points**: 
   * "control" standard which works by highlighting existing lack of control(s)
   * "next step" career wise, champion, aspirational, personal  
   * "efficacy/efficiency" time-to-value / acceleration of tasks
