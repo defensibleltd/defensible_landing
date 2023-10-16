@@ -1,4 +1,4 @@
-There are 3-4 main IPAM alternatives i.e. Excel, default Microsoft IPAM, Solarwinds, OSS projects
+There are 3-4 main IPAM alternatives i.e. Microsoft Excel, Microsoft IPAM, Solarwinds, OSS projects
 
 # E.g. Why use Micetro vs Microsoft IPAM
 * Single global IPAM can be used across multiple forests e.g. multiple prod, multiple test 
