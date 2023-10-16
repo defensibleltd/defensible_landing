@@ -44,9 +44,3 @@ HUGO_ENABLEGITINFO = "true"
   to = "https://zoom.us/j/8927508943"
   status = 302
   force = true
-
-[[redirects]]
-  from = "https://bluecat.defensible.ie/61b62f0a-647f-4d36-b86b-23b4c4c7d7e7.html"
-  to = "/61b62f0a-647f-4d36-b86b-23b4c4c7d7e7.html"
-  status = 302
-  force = true
