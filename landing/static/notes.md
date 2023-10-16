@@ -41,3 +41,4 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * IPAM is optional and not business critical
   * IPAM involves licensing
   * Cost effective compared to what? 
+  * Why Micetro vs EfficientIP?
