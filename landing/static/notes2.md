@@ -1,8 +1,9 @@
-**Note:** I started somewhat in reverse thinking about catchy titles and tried to deprecate the use of "DDI" and leave the Micetro name out of H1 titles (as those searching for Micetro already know something about Micetro). Also wanting to not have TLAs (or FLAs) in the title as much as possible (other than IPAM which is more well known). I wonder if we could mix and match the below as H1s and H2s but they're definitely the "hook" in to actually reading or engaging with the thing... e.g. this is also where humour could play a role especially if targeting Reddit ads or social media with something "fresh" or
+**Note:** I started somewhat in reverse, thinking about catchy titles and tried to deprecate the use of the term "DDI" and leave the Micetro name out of H1 titles (as those searching for Micetro already know something about Micetro). Also wanted to not have TLAs (or FLAs) in the title as much as possible (other than IPAM which is more well known). I wonder if we could mix and match the below as H1s and H2s but they're definitely going to be the "hook" in to actually reading or engaging with the thing... e.g. this is also where humour could play a role especially if targeting **Reddit** ads or **social media** with something "fresh"!
 
 # Spitballing some Titles for H1 and H2 Mixes
 
 * The Strategic ROI of IPAM
+* Grow ROI and Control with Micetro IPAM
 * Upgrade your IPAM.
 * An IPAM Buyers Guide
 * Uniting Teams and Unifying Processes with IPAM
@@ -23,3 +24,7 @@
 * IPAM for all the things?
 * Still Manually Managing IP Addresses? Automate your IPAM for better ROI.
 * Never turn back once you've used
+
+# SEMRush
+
+**Note:** I do need to upgrade my SEMRush account and access the MenAndMice info + keyword statistics again.

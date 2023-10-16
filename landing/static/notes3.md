@@ -1,9 +1,7 @@
-# Incumbents / Alternatives
+There are 3 main *native* alternatives i.e. Excel, default Microsoft IPAM, Solarwinds
 
-There are 2 main *native* alternatives i.e. Excel and the default Microsoft IPAM
-
-# Why use Micetro vs Mirosoft IPAM
-* Single global IPAM across multiple forests e.g. multiple prod, multiple test (ask Lauren)
+# E.g. Why use Micetro vs Microsoft IPAM
+* Single global IPAM can be used across multiple forests e.g. multiple prod, multiple test 
 * Future-proofed overlay that is DNS and DHCP agnostic
 * Fine grained RBAC (over and above configuring limited GPOs)
 * Choice of database (PostgreSQL, SQLite, MS SQL)
@@ -12,3 +10,11 @@ There are 2 main *native* alternatives i.e. Excel and the default Microsoft IPAM
 * Utilization and trending across both IPv6 and IPv4
 * Next free address across IPv6 and IPv4
 * Discovery and scanning of IPs across routers and switches
+
+# IDC Report Highlighted Incumbents
+
+* Solarwinds
+* Spreadsheets (Excel)
+* Open Source IPAM? (Which one: Netbox, NPIP, phpIPAM?)
+
+**Note:** There's a lot to dig in to in the IDC report!

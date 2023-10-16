@@ -1,7 +1,7 @@
 Hi **Lauren**, I've been reviewing docs, web, and starting to crystallize some thinking.
 <br>
 <br>
-**TL;DR:** I need a little more time to digest + come up with something solid (I know you are on PTO Tue-Fri). The below is where I am currently at. I keep coming back to your basic requirements mixed with some of my own digging and the perceived "dryness" of the segment/industry + anything ROI implies dollar figures! Not sure how we can even allude to objective "cost savings" and "payback time" other than at least 1 customer giving us some quotable numbers around saving billable time / headcount. It should be noted that EfficientIP seem to have taken down their ROI calculator but their whitepaper was 50 surveys across customer base with ROI calculated over 3 year period. Can we quote other sources?
+**TL;DR:** I need a little more time to digest + come up with something solid (I know you are on PTO Tue 17th - Fri 20th Oct this week). The below is where I am currently at. I keep coming back to your basic requirements mixed with some of my own digging and the perceived "dryness" of the segment/industry (and also that **ROI** implies **dollar** figures!) Not sure how we can even allude to objective "cost savings" and "payback time" other than at least 1 customer giving us some quotable numbers around savings or billable time / headcount reduction. It should be noted that _EfficientIP_ seem to have taken down their ROI calculator (albeit their whitepaper speaks volumes). They had 50 surveys across their customer base with ROI calculated over a 3 year period. I wonder if we can find other, and more neutral sources for numbers?
 <br>
 <br>
 # Audience
@@ -15,9 +15,11 @@ Hi **Lauren**, I've been reviewing docs, web, and starting to crystallize some t
   * Orgs with more dynamic networks and a higher cadence of change (more static = manual methods, more change = pain points/opportunity)
 * **SEO/Keywords**: 
   * Ad hoc research of use of term 'DDI' in #neteng groups (spoiler: hardly known/used and mainly vendor/Gartner created jargon however IPAM is well known!)
+    * this runs counter to the IDC / Bluecat paper asking an existing customer base about familiarity with the term
+    * presumption is we want to reach **net new** logos, right?
   * Long term ROI on content/titles (should be webified and indexable)
 * **Content**: 
-  * Microsoft and IPAM focused
+  * Primarily Microsoft and IPAM focused
   * Lean in to ROI with quantitive/objective metrics (without doing much novel research/interviews?)
   * **Differentiated value** (e.g. vs Excel, MS IPAM, Efficient IP, Infoblox, etc)
   * Highlight features like network discovery, reporting, and IPv6 support that other alternatives don't do/have
