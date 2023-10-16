@@ -23,3 +23,5 @@ There are 3-4 main IPAM alternatives i.e. Microsoft Excel, Microsoft IPAM, Solar
 **Note_II:** The IDC report is also not clear what facets of security relate to DDI? IR(Inicident Response), IP enrichment, micro-segmentation/policy enforcement, general SSoT/SoR?
 
 **Note_II:** There also seems to be some ambiguous use of SSoT(Single Source of Truth) and SoR (System of Record)
+
+**Note_III:** I found this Tines report very inspiring: [Voice of the SOC Analyst](https://www.tines.com/reports/voice-of-the-soc-analyst) in terms of content, presentation, and medium.
