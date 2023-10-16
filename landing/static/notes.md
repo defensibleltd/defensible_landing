@@ -15,7 +15,7 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * Orgs with more dynamic networks and a higher cadence of change (more static = manual methods, more change = pain points/opportunity)
 * **SEO/Keywords**: 
   * Ad hoc research of use of term 'DDI' in #neteng groups (spoiler: hardly known/used and mainly vendor/Gartner created jargon however IPAM is well known!)
-    * this runs counter to the IDC / Bluecat paper asking an existing customer base about familiarity with the term
+    * this runs counter to the IDC / Bluecat paper asking about familiarity with the term
     * presumption is we want to reach **net new** logos, right?
   * Long term ROI on content/titles (should be webified and indexable)
 * **Content**: 
