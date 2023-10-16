@@ -1,4 +1,4 @@
-There are 3 main *native* alternatives i.e. Excel, default Microsoft IPAM, Solarwinds
+There are 3-4 main IPAM alternatives i.e. Excel, default Microsoft IPAM, Solarwinds, OSS projects
 
 # E.g. Why use Micetro vs Microsoft IPAM
 * Single global IPAM can be used across multiple forests e.g. multiple prod, multiple test 
@@ -14,7 +14,7 @@ There are 3 main *native* alternatives i.e. Excel, default Microsoft IPAM, Solar
 # IDC Report Highlighted Incumbents
 
 * Solarwinds
-* Spreadsheets (Excel)
+* Microsoft IPAM or Spreadsheets (Excel)
 * Open Source IPAM? (Which one: Netbox, NPIP, phpIPAM?)
 
 **Note:** There's a lot to dig in to in the IDC report!

@@ -33,7 +33,7 @@ Hi **Lauren**, I've been reviewing docs, web, and starting to crystallize some t
   * Ease of deployment, coverage, and management.
   * Faster provisioning of IP assets and services (more time for other higher impact work)
   * Automation with standard REST APIs across all assets versus UI or PowerShell
-  * No Additional training required.
+  * No additional training required.
   * Rapid integation with other ticketing and workflow platforms and projects 
   * "Meets you where you are and helps you get to where you need to go."
   * Technology agnostic and futureproof.
