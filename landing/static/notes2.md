@@ -1,6 +1,6 @@
 **Note:** I started somewhat in reverse, thinking about catchy titles and tried to deprecate the use of the term "DDI" and leave the Micetro name out of H1 titles (as those searching for Micetro already know something about Micetro). Also wanted to not have TLAs (or FLAs) in the title as much as possible (other than **IPAM** which is more well known). I wonder if we could mix and match the below as H1s and H2s but they're definitely going to be the "hook" in to actually reading or engaging with the thing... e.g. this is also where humour could play a role especially if targeting **Reddit** ads or **social media** with something "fresh"!
 
-# Spitballing some H1 and H2 Mixes
+## Spitballing some H1 and H2 Mixes
 
 * The Strategic ROI of IPAM
 * Grow ROI and Control with Micetro IPAM
@@ -25,6 +25,28 @@
 * Still Manually Managing IP Addresses? Automate your IPAM for better ROI
 * Unify your IPAM and Unlock Lost Time
 
-# SEMRush
+## The "Tipping Point" Series Idea
+
+**Note:** Rather than one monolithic document (and keeping "PathFactory" + agility in mind!), am thinking about a fast series of 1 pagers that speak to the "tipping points" for <blah>. This means we are helping engineers and managers know not just what, but when. As you state, many are SMB/SME and the biggest competitor is a spreadsheet or OSS, so let's lay out a path for them and play on their own pain points and point of need e.g:
+
+* The Tipping Point for IPAM
+  * Futureproof, Grow, and Control Your ROI 
+* The Tipping Point for an Overlay IPAM
+* The Tipping Point for IPAM Automation
+* The Tipping Point for DDI Automation
+* The Security Tipping Point for Overlay DDI
+* The Mircosoft Tipping Point for Overlay IPAM
+  * IPv6, forests, zone limits, endpoint config
+* The Amazon AWS Tipping Point for Overlay IPAM
+* The Multicloud Tipping Point for Overlay IPAM
+* The Engineers Tipping Point for DNS, DHCP, and IPAM
+  * Uptime, errors, toil, quality of life, career, oncall, security
+* The Managers Tipping Point for DNS, DHCP, and IPAM
+
+**Note:** Each of the selected titles could also form a "path", compliment each other, and branch off with separate CTAs for engineer, manager, IPAM convert, Microsoft shop, AWS shop, hybrid/multicloud etc.
+
+> "Every business reaches a tipping point where asset management stops being a nice to have and starts being business critical. Physical and virtual assets multiply, move, and morph requiring tracking, management, and allocation. Accountability and responsiblity for assets equally maps to the digital domain where IP addresses, VLANS, identities, and tokens support services and operations...",
+
+## SEMRush
 
 **Note:** I need to get my SEMRush account and access upgraded w.r.t. MenAndMice info + keyword statistics again.
