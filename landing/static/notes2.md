@@ -27,7 +27,7 @@
 
 ## The "Tipping Point" Series Idea
 
-**Note:** Rather than one monolithic document (and keeping "PathFactory" + agility in mind!), am thinking about a fast series of 1 pagers that speak to the "tipping points" for <blah>. This means we are helping engineers and managers know not just what, but when. As you state, many are SMB/SME and the biggest competitor is a spreadsheet or OSS, so let's lay out a path for them and play on their own pain points and point of need e.g:
+**Note:** Rather than one monolithic document (and keeping "PathFactory" + agility in mind!), am thinking about a fast series of 1 pagers that speak to the "tipping points" for 'blah'. This means we are helping engineers and managers know not just what, but when. As you state, many are SMB/SME and the biggest competitor is a spreadsheet or OSS, so let's lay out a path for them and play on their own pain points and point of need. Additionally, the idea of "Controlling your ROI" which changes as your future does which might get us away from figures a little e.g:
 
 * The Tipping Point for IPAM
   * Futureproof, Grow, and Control Your ROI 
