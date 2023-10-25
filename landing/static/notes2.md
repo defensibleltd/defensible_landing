@@ -1,9 +1,9 @@
-**Note:** I started somewhat in reverse, thinking about catchy titles and tried to deprecate the use of the term "DDI" and leave the Micetro name out of H1 titles (as those searching for Micetro already know something about Micetro). Also wanted to not have TLAs (or FLAs) in the title as much as possible (other than **IPAM** which is more well known). I wonder if we could mix and match the below as H1s and H2s but they're definitely going to be the "hook" in to actually reading or engaging with the thing... e.g. this is also where humour could play a role especially if targeting **Reddit** ads or **social media** with something "fresh"!
+**Note:** I started somewhat in reverse, thinking about catchy titles and tried to deprecate the use of the term "DDI" and leave "Micetro" out of H1 titles (as those searching for Micetro already know something about Micetro). Also wanted to not have TLAs (or FLAs) in the title as much as possible (other than **IPAM** which is more well known). I wonder if we could mix and match the below as H1s and H2s but they're definitely going to be the "hook" in to actually reading or engaging with the thing... e.g. this is also where humour could play a role especially if targeting **Reddit** ads or **social media** with something "fresh"!
 
-## Spitballing some H1 and H2 Mixes
+## Spitballing some H1 and H2 For a Monolithic Paper
 
 * The Strategic ROI of IPAM
-* Grow ROI and Control with Micetro IPAM
+* Grow ROI and Control with Micetro IPAM (example: used above in hero H1)
 * Upgrade your IPAM
 * An IPAM Buyers Guide
 * Uniting Teams and Unifying Processes with IPAM
@@ -25,7 +25,7 @@
 * Still Manually Managing IP Addresses? Automate your IPAM for better ROI
 * Unify your IPAM and Unlock Lost Time
 
-## The "Tipping Point" Series Idea
+## The "Tipping Point" Series Idea (Microlithic / Faster?)
 
 **Note:** Rather than one monolithic document (and keeping "PathFactory" + agility in mind!), am thinking about a fast series of 1 pagers that speak to the "tipping points" for 'blah'. This means we are helping engineers and managers know not just what, but when. As you state, many are SMB/SME and the biggest competitor is a spreadsheet or OSS, so let's lay out a path for them and play on their own pain points and point of need. Additionally, the idea of "Controlling your ROI" which changes as your future does which might get us away from figures a little e.g:
 
@@ -43,7 +43,7 @@
   * Uptime, errors, toil, quality of life, career, oncall, security
 * The Managers Tipping Point for DNS, DHCP, and IPAM
 
-**Note:** Each of the selected titles could also form a "path", compliment each other, and branch off with separate CTAs for engineer, manager, IPAM convert, Microsoft shop, AWS shop, hybrid/multicloud etc.
+**Note:** Each of the selected titles could also form a "path", compliment each other, and branch off with separate CTAs for engineer, manager, IPAM overlays, Microsoft shop, AWS shop, hybrid/multicloud etc.
 
 > "Every business reaches a tipping point where asset management stops being a nice to have and starts being business critical. Physical and virtual assets multiply, move, and morph requiring tracking, management, and allocation. Accountability and responsiblity for assets equally maps to the digital domain where IP addresses, VLANS, identities, and tokens support services and operations...",
 

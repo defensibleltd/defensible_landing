@@ -13,7 +13,7 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
 * **Org Persona**: 
   * 100-1000ppl (SMB/SME), < 10k active IPs, any vertical/sector
   * Orgs with more dynamic networks and a higher cadence of change (more static = manual methods, more change = pain points/opportunity)
-* **SEO/Keywords**: 
+* **SEO / Keywords**: 
   * Ad hoc research of use of term 'DDI' in #neteng groups (spoiler: hardly known/used and mainly vendor/Gartner created jargon however IPAM is well known!)
     * this runs counter to the IDC / Bluecat paper asking about familiarity with the term
     * presumption is we want to reach **net new** logos, right?
@@ -22,10 +22,10 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * Primarily Microsoft and IPAM focused
   * Lean in to ROI with quantitive/objective metrics (without doing much novel research/interviews?)
   * **Differentiated value** (e.g. vs Excel, MS IPAM, Efficient IP, Infoblox, etc)
-  * Highlight features like network discovery, reporting, and IPv6 support that other alternatives don't do/have
+  * Highlight features like network discovery, reporting, and IPv6 support that other alternatives don't have
   * But, it's still mainly an education piece on not just the ROI of IPAM, but the ROI of Micetro?
-* **Levers/Emotional touch points**: 
-  * "control" standard which works by highlighting existing lack of control(s)
+* **Levers / Emotional touch points**: 
+  * "control" as standard language which works by highlighting existing lack of control(s)
   * "next step" career wise, champion, aspirational, personal  
   * "efficacy/efficiency" time-to-value / acceleration of tasks
 * **Benefits**:
@@ -37,7 +37,7 @@ Hi, I've been reviewing docs, web, and starting to crystallize some thinking.
   * Rapid integation with other ticketing and workflow platforms and projects 
   * "Meets you where you are and helps you get to where you need to go"
   * Technology agnostic and futureproof
-* **Issues/Objections**:
+* **Issues / Objections and Differentiated Value**:
   * IPAM is optional and not business critical
   * IPAM involves licensing
   * Cost effective compared to what? 
