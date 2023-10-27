@@ -29,14 +29,25 @@
 
 **Note:** Rather than one monolithic document (and keeping "PathFactory" + agility in mind!), am thinking about a fast series of 1 pagers that speak to the "tipping points" for 'blah'. This means we are helping engineers and managers know not just what, but when. As you state, many are SMB/SME and the biggest competitor is a spreadsheet or OSS, so let's lay out a path for them and play on their own pain points and point of need. Additionally, the idea of "Controlling your ROI" which changes as your future does which might get us away from figures a little e.g:
 
+Pattern:
+
+* Main heading (H1): The Tipping Point for "BLAH"
+ * Subheading: Futureproof, Grow, and Control Your ROI
+
+E.g:
+
 * The Tipping Point for IPAM
   * Futureproof, Grow, and Control Your ROI 
 * The Tipping Point for an Overlay IPAM
+  * Futureproof, Grow, and Control Your ROI 
 * The Tipping Point for IPAM Automation
+  * Futureproof, Grow, and Control Your ROI 
 * The Tipping Point for DDI Automation
+	* ...
 * The Security Tipping Point for Overlay DDI
 * The Mircosoft Tipping Point for Overlay IPAM
-  * IPv6, forests, zone limits, endpoint config
+  * Futureproof, Grow, and Control Your ROI 
+    * IPv6, forests, zone limits, endpoint config
 * The Amazon AWS Tipping Point for Overlay IPAM
 * The Multicloud Tipping Point for Overlay IPAM
 * The Engineers Tipping Point for DNS, DHCP, and IPAM
