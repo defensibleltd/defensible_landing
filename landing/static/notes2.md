@@ -41,7 +41,7 @@ E.g:
 * The Tipping Point for an Overlay DDI
 * The Tipping Point for DDI Automation
 	* ...
-* The Mircosoft Tipping Point for Overlay DDI
+* The Microsoft Tipping Point for Overlay DDI
   * Futureproof, Grow, and Control Your ROI 
     * IPv6, forests, zone limits, endpoint config
 * The Amazon AWS Tipping Point for Overlay DDI
