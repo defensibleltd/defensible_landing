@@ -38,21 +38,18 @@ E.g:
 
 * The Tipping Point for IPAM
   * Futureproof, Grow, and Control Your ROI 
-* The Tipping Point for an Overlay IPAM
-  * Futureproof, Grow, and Control Your ROI 
-* The Tipping Point for IPAM Automation
-  * Futureproof, Grow, and Control Your ROI 
+* The Tipping Point for an Overlay DDI
 * The Tipping Point for DDI Automation
 	* ...
-* The Security Tipping Point for Overlay DDI
-* The Mircosoft Tipping Point for Overlay IPAM
+* The Mircosoft Tipping Point for Overlay DDI
   * Futureproof, Grow, and Control Your ROI 
     * IPv6, forests, zone limits, endpoint config
-* The Amazon AWS Tipping Point for Overlay IPAM
-* The Multicloud Tipping Point for Overlay IPAM
-* The Engineers Tipping Point for DNS, DHCP, and IPAM
+* The Amazon AWS Tipping Point for Overlay DDI
+* The Multicloud Tipping Point for Overlay DDI
+* The Security Tipping Point for Overlay DDI
+* The Engineers Tipping Point for Overlay DDI
   * Uptime, errors, toil, quality of life, career, oncall, security
-* The Managers Tipping Point for DNS, DHCP, and IPAM
+* The Managers Tipping Point for Overlay DDI
 
 **Note:** Each of the selected titles could also form a "path", compliment each other, and branch off with separate CTAs for engineer, manager, IPAM overlays, Microsoft shop, AWS shop, hybrid/multicloud etc.
 
