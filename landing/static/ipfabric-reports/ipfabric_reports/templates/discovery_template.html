@@ -1,0 +1,29 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+
+    <!-- Discovery Details -->
+    {% for section_name, section_data in sections.items() %}
+    <div class="container page-break">
+        <div class="main-title-container">
+            <div class="numbers">{{ loop.index }}</div>
+            <h2 class="main-titles">{{ section_name }} {% if site_filter %} for site {{ site_filter }}{% endif %}</h2>
+        </div>
+        <table class="table-spacing">
+            {% for item_name, item_value in section_data %}
+                <tr>
+                    <th class="table-cell-width-even">{{ item_name }}</th>
+                    <td class="table-cell-width">{{ item_value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<!-- Second page content -->
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+    
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+    
+    {% if site_filter %}
+        <!-- Per Site Summary -->
+        {{ macros.per_site_summary(site_summary, site_filter) }}
+    {% endif %}
+    
+    {% for section_name, section_data in sections.items() %}
+    <div class="container page-break">
+        <div class="main-title-container">
+          <div class="numbers">{{ loop.index }}</div>
+          <h2 class="main-titles">{{ section_name }} {% if site_filter %} for site {{ site_filter }}{% endif %}</h2>
+        </div>
+        {% if section_name in ['Vendors Overview', 'Device Types'] %}
+        <table class="table-spacing">
+            <thead>
+                <tr>
+                    <th class="table-cell-width-even">{{ section_name.rstrip('s') }}</th>
+                    <th class="table-cell-width-even">Count</th>
+                    <th class="table-cell-width-even">Ratio (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item, stats in section_data %}
+                <tr>
+                    <td>{{ item }}</td>
+                    <td>{{ stats.count }}</td>
+                    <td>{{ stats.percentage|round(2) }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <table class="table-spacing">
+            {% for item_name, item_value in section_data %}
+                <tr>
+                    <th class="table-cell-width-even">{{ item_name }}</th>
+                    <td class="table-cell-width">{{ item_value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

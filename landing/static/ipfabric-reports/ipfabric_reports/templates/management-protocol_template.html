@@ -1,0 +1,51 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<!-- Specific content for management protocol report -->
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+
+    {% if site_filter %}
+        <!-- Per Site Summary -->
+        {{ macros.per_site_summary(site_summary, site_filter) }}
+    {% endif %}
+
+    {% for proto in mgmt_protocols %}
+    <div class="main-title-container">
+        <div class="numbers">
+            {{ loop.index }}
+        </div>
+        <h2 class="main-titles">{{ proto.name }} {% if site_filter %} for site {{ site_filter }} {% endif %}</h2>
+    </div>
+    <div class="section-2">
+        {{ proto.description }}
+    </div>
+    <div class="chart-container">
+        <img src="{{ proto.plot }}" alt="{{ proto.name }} distribution" class="pie-chart">
+    </div>
+    <h3 class="main-titles">{{ proto.server_name }} distribution details {% if site_filter %} for site {{ site_filter }} {% endif %}</h3>
+    <table class="table-spacing">
+        <thead>
+            <tr>
+                <th class="table-cell-width-even">{{ proto.server_name }} IP</th>
+                <th class="table-cell-width-even">Count</th>
+                <th class="table-cell-width-even">Ratio (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for server, stats in proto.distribution.items() %}
+            <tr>
+                <td>{{ server }}</td>
+                <td>{{ stats.count }}</td>
+                <td>{{ stats.percentage|round(2) }}%</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

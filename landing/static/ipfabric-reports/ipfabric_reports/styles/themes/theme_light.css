@@ -1,0 +1,36 @@
+/* Light Theme Colors */
+
+:root {
+    --main-title-color: #143352;
+    --site-name-color: #0f766e;
+    --site-label-color: #0f766e;
+    --site-border-color: #0f766e;
+    --site-background-color: #f0fdfa;
+
+    --button-background-color: #a6b0b2;
+    --alert-text-color: #f01c72;
+    --page-background-color: #ffffff;
+    --body-text-color: #08132A;
+    --table-row-even-background: #e5e4e4;
+    --table-row-odd-background: #f0f0f0;
+    --report-header-background: #ffffff;
+
+    --numbers-color: #ffffff;
+    --numbers-background: #e9e9e9e8;
+
+    --summary-label-color: #475569;
+    --summary-value-color: #1e293b;
+    --summary-stats-background: #e9e9e9;
+    --summary-stats-box-background: #ffffff;
+    --summary-row-border-bottom: #e2e8f0;
+
+    --stat-box-span-first: #64748b;
+    --stat-box-span-last: #1e293b;
+    --severity-analysis-background: #ffffff;
+    --severity-analysis-th-background: #f8fafc;
+    --severity-analysis-th-text: #475569;
+
+    --footer-color: #c0c0c0;
+    --footer-border-top-color: #ebebeb;
+    --footer-a-color: #808080;
+}

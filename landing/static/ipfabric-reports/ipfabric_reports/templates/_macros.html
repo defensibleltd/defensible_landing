@@ -1,0 +1,139 @@
+{% macro header(report_name, site_filter) %}
+<header class="report-header">
+    <div class="logo-container">
+        <!-- image_path is set in ReportRenderer class -->
+        <img alt="IP Fabric logo" class="logo" src="file://{{ image_path }}"/>
+    </div>
+    <div class="title-container">
+        <h1 class="report-title">{{ report_name|upper }}</h1>
+        {% if site_filter %}
+        <div class="site-info">
+            <span class="site-label">for site</span>
+            <span class="site-name">{{ site_filter }}</span>
+        </div>
+        {% endif %}
+    </div>
+</header>
+{% endmacro %}
+
+{% macro network_summary(network_summary_data) %}
+<div class="network-summary-section">
+    <h2>Snapshot Data Summary</h2>
+    <div class="summary-table">
+        <table>
+            <tbody>
+                {% for key, data in network_summary_data.items() %}
+                <tr class="summary-row">
+                    <th class="summary-label">{{ data.name }}</th>
+                    <td class="summary-value">{{ data.value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro per_site_summary(per_site_summary_data, site_filter) %}
+<div class="network-summary-section main-title-container">
+    <h2>Site {{ site_filter }} Summary</h2>
+    <div class="summary-table">
+        <table>
+            <tbody>
+                {% for key, data in per_site_summary_data.items() %}
+                <tr class="summary-row">
+                    <th class="summary-label">{{ data.name }}</th>
+                    <td class="summary-value">{{ data.value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro footer(report_name, current_time) %}
+<div class="footer">
+    IP Fabric {{ report_name }} report generated with [<a href="https://gitlab.com/ip-fabric/integrations/scripts/ipfabric-reports">ipfabric-reports</a>] package at {{ current_time }}
+</div>
+{% endmacro %}
+
+{% macro stat_table(data, headers=['Item', 'Count', 'Ratio (%)']) %}
+<table class="table-spacing">
+    <thead>
+        <tr>
+            {% for header in headers %}
+            <th class="table-cell-width-even">{{ header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for item, stats in data %}
+        <tr>
+            <td>{{ item }}</td>
+            <td>{{ stats.count }}</td>
+            <td>{{ stats.percentage|round(2) }}%</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endmacro %}
+
+{% macro key_value_table(data) %}
+<table class="table-spacing">
+    {% for item_name, item_value in data %}
+        <tr>
+            <th class="table-cell-width-even">{{ item_name }}</th>
+            <td class="table-cell-width">{{ item_value }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endmacro %}
+
+{% macro section_title(title, index, site_filter=None) %}
+<div class="main-title-container">
+    <div class="numbers">{{ index }}</div>
+    <h2 class="main-titles">{{ title }} {% if site_filter %} for site {{ site_filter }}{% endif %}</h2>
+</div>
+{% endmacro %}
+
+{% macro report_introduction(report_details) %}
+<div class="section-1">
+    <div class="icon-container">
+        <div class="section-title">
+            Report Introduction
+        </div>
+    </div>
+    <div>
+        {% for text in report_details.introduction %}
+        <p>{{ text }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro standard_summary_section(network_summary_data, site_summary_data=None, site_filter=None) %}
+<!-- Network Data Summary -->
+{{ network_summary(network_summary_data) }}
+
+{% if site_filter and site_summary_data %}
+    <!-- Per Site Summary -->
+    {{ per_site_summary(site_summary_data, site_filter) }}
+{% endif %}
+{% endmacro %}
+
+{% macro stats_grid(stats_data, heading=None) %}
+<div class="summary-stats">
+    {% if heading %}
+    <h2>{{ heading }}</h2>
+    {% endif %}
+    <div class="stats-grid">
+        {% for stat in stats_data %}
+        <div class="stat-box">
+            <span>{{ stat.label }}</span>
+            <span>{{ stat.value }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}

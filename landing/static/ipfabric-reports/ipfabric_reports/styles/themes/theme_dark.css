@@ -1,0 +1,36 @@
+/* Dark Theme Colors */
+
+:root {
+    --main-title-color: #a6b0b2;
+    --site-name-color: #8d999b;
+    --site-label-color: #8d999b;
+    --site-border-color: #8d999b;
+    --site-background-color: #2b2b2b;
+
+    --button-background-color: #64748b;
+    --alert-text-color: #f01c72;
+    --page-background-color: #08132A;
+    --body-text-color: #ffffff;
+    --table-row-even-background: #3c3c3c;
+    --table-row-odd-background: #2b2b2b;
+    --report-header-background: #08132A;
+
+    --numbers-color: #ffffff;
+    --numbers-background: #2ecc71;  
+
+    --summary-label-color: #c0c0c0;
+    --summary-value-color: #ffffff;
+    --summary-stats-background: #2b2b2b;
+    --summary-stats-box-background: #3c3c3c;
+    --summary-row-border-bottom: #475569;
+
+    --stat-box-span-first: #c0c0c0;
+    --stat-box-span-last: #ffffff;
+    --severity-analysis-background: #2b2b2b;
+    --severity-analysis-th-background: #3c3c3c;
+    --severity-analysis-th-text: #c0c0c0;
+
+    --footer-color: #808080;
+    --footer-border-top-color: #64748b;
+    --footer-a-color: #c0c0c0;
+}

@@ -1,0 +1,133 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+    
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+
+    {% if site_filter %}
+        <!-- Per Site Summary -->
+        {{ macros.per_site_summary(site_summary, site_filter) }}
+    {% endif %}
+    
+    <!-- Device Summary -->
+    <div class="main-title-container">
+        <div class="numbers">1</div>
+        <h2 class="main-titles">Device Overview {% if site_filter %} for site {{ site_filter }} {% endif %}</h2>
+    </div>
+    <div class="section-2">
+        Summary of devices and their vulnerability status
+    </div>
+    <table class="table-spacing">
+        <thead>
+            <tr>
+                <th class="table-cell-width">Hostname</th>
+                <th class="table-cell-width">Vendor</th>
+                <th class="table-cell-width">Family</th>
+                <th class="table-cell-width">Version</th>
+                <th class="table-cell-width">CVE Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in cve_summary %}
+            <tr>
+                <td>{{ device.hostname }}</td>
+                <td>{{ device.vendor }}</td>
+                <td>{{ device.family }}</td>
+                <td>{{ device.version }}</td>
+                <td>{{ device.cve_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if total_cves == 0 %}
+    <div class="alert alert-info" style="margin: 20px 0; padding: 15px; background-color: #d1ecf1; border: 1px solid #bee5eb; border-radius: 4px; color: #0c5460;">
+        <strong>Information:</strong> No vulnerabilities were found for any of the devices in the network{% if site_filter %} at site {{ site_filter }}{% endif %}. 
+        This could mean either:
+        <ul style="margin-top: 10px; margin-bottom: 0;">
+            <li>The devices are up to date and have no known vulnerabilities</li>
+            <li>The devices are not in the NVD database</li>
+            <li>The vulnerability data could not be retrieved from the NVD API</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Summary CVE Information -->
+    <div class="main-title-container">
+        <div class="numbers">2</div>
+        <h2 class="main-titles">Summary Vulnerability Analysis {% if site_filter %} for site {{ site_filter }} {% endif %}</h2>
+    </div>
+
+    {{ macros.stats_grid([
+        {'label': 'Total CVEs', 'value': total_cves},
+        {'label': 'Critical/High CVEs', 'value': critical_high_cves},
+        {'label': 'Avg CVSS Score', 'value': avg_cvss_score|round(2)}
+    ]) }}
+
+    <div class="severity-analysis">
+        <h3>Vulnerability Severity Distribution</h3>
+        <table>
+            <tr>
+                <th>Severity</th>
+                <th>Count</th>
+                <th>Percentage</th>
+            </tr>
+            {% for severity in severity_stats %}
+            <tr>
+                <td>{{ severity.level }}</td>
+                <td>{{ severity.count }}</td>
+                <td>{{ severity.percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Detailed CVE Information -->
+    <div class="main-title-container">
+        <div class="numbers">3</div>
+        <h2 class="main-titles">Detailed Vulnerability Analysis {% if site_filter %} for site {{ site_filter }} {% endif %}</h2>
+    </div>
+
+    {% for os in cve_details %}
+    <div class="device-section">
+        <h3>{{ os.vendor|upper }} {{ os.family|upper }} ( {{ os.version }} ) Details</h3>
+        <h4>Affected Hostnames:</h4>
+            [{% for hostname in os.hostname_list %}{{ ', ' if not loop.first }}{{ hostname }}{% endfor %}]
+        <h4>CVE List:</h4>
+            [{% for cve in os.cves %}{{ ', ' if not loop.first }}{{ cve.cve_id }}{% endfor %}]
+        <h4>CVE Details:</h4>
+        {%  for cve in os.cves %}
+            <dl>
+                <dt>CVE ID: <b>{{ cve.cve_id }}</b></dt>
+                <dt>Severity:
+                    {%- if cve.v3_baseSeverity -%}
+                        &nbsp;metric_v3 <b>{{ cve.v3_baseSeverity }}</b>
+                    {%- elif cve.v2_baseSeverity -%}
+                        &nbsp;metric_v2 <b>{{ cve.v2_baseSeverity }}</b>
+                    {%- else -%}
+                        &nbsp;N/A
+                    {%- endif -%}
+                </dt>
+                <dt>Impact Score:
+                    {%- if cve.v3_impactScore is not none and cve.v3_impactScore|string != 'nan' -%}
+                        &nbsp;metric_v3 <b>{{ cve.v3_impactScore|float|round(2) }}</b>
+                    {%- elif cve.v2_impactScore is not none and cve.v2_impactScore|string != 'nan' -%}
+                        &nbsp;metric_v2 <b>{{ cve.v2_impactScore|float|round(2) }}</b>
+                    {%- else -%}
+                        &nbsp;N/A
+                    {%- endif -%}
+                </dt>
+                <dt>URL: {% if cve.url %}<a href="{{ cve.url }}" target="_blank">{{ cve.url }}</a>{% else %}N/A{% endif %}</dt>
+                <dt>Description</dt>
+                <dd>{{ cve.description }}</dd>
+            </dl>
+        {% endfor %}
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

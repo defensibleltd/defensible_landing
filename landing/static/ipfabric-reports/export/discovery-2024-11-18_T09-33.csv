@@ -1,0 +1,61 @@
+Log File,Error Type,Discovery Source,Error Reasons,Object ID,MAC Address,MAC Vendor,Discovery Status,Error Message,Virtual Context,API Slug,DNS Name,IP Address,Attempts,xDP Local Device,xDP Local Interface,xDP Remote Interface,xDP Remote Device,xDP Remote IP,xDP Remote IPv6,xDP Capabilities,Matrix OSPF,Matrix BGP,Matrix EIGRP
+False,,arp,[],,5254.0044.42af,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.49,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.0018,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.124,0,,,,,,,,N,N,N
+False,,arp,[],,5254.005a.0587,IPF Entry: juniper,notInIncludeList,,,,user14-61.lab.ipfabric.io,172.16.14.61,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.0056.e66a,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.14,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0087.4e7b,IPF Entry: juniper,notInIncludeList,,,,,172.16.43.61,0,,,,,,,,N,N,N
+False,,arp,[],,5254.003d.dc75,IPF Entry: juniper,notInIncludeList,,,,,172.16.43.60,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,172.16.44.41,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00bd.3d01,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.46,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00b1.8f0d,IPF Entry: juniper,notInIncludeList,,,,server34-61.lab.ipfabric.io,172.16.34.61,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,172.16.41.41,0,,,,,,,,N,N,N
+False,,routes,[],,,,notInIncludeList,,,,,10.0.0.13,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a946.a7c9,"Cisco Systems, Inc",notInIncludeList,,,,,172.16.34.29,0,,,,,,,,N,N,N
+False,,arp,[],,5254.001f.25ff,IPF Entry: juniper,notInIncludeList,,,,server32-60.lab.ipfabric.io,172.16.32.60,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00ac.8089,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.145,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0081.d371,IPF Entry: juniper,notInIncludeList,,,,server34-60.lab.ipfabric.io,172.16.34.60,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,172.16.42.41,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,10.1.0.109,0,,,,,,,,N,N,N
+False,,xdp,[],,,,notInIncludeList,,,,,10.0.0.41,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00d3.2092,IPF Entry: juniper,notInIncludeList,,,,server31-61.lab.ipfabric.io,172.16.31.61,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00f5.04f5,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.42,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,172.16.43.41,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0015.ee3c,IPF Entry: juniper,notInIncludeList,,,,mgmt22-20.lab.ipfabric.io,172.16.22.20,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00fd.7e94,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.54,0,,,,,,,,N,N,N
+False,,arp,[],,5254.006c.e11e,IPF Entry: juniper,notInIncludeList,,,,,172.16.32.61,0,,,,,,,,N,N,N
+False,,arp,[],,5254.001e.a71e,IPF Entry: juniper,notInIncludeList,,,,server33-60.lab.ipfabric.io,172.16.33.60,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00ac.3458,IPF Entry: juniper,notInIncludeList,,,,user13-60.lab.ipfabric.io,172.16.13.60,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0080.e361,IPF Entry: juniper,notInIncludeList,,,,user11-60.lab.ipfabric.io,172.16.11.60,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00ef.9570,IPF Entry: juniper,notInIncludeList,,,,user13-61.lab.ipfabric.io,172.16.13.61,0,,,,,,,,N,N,N
+False,,routes,[],,,,notInIncludeList,,,,,10.0.0.51,0,,,,,,,,N,N,N
+False,,routes,[],,,,notInIncludeList,,,,,10.0.0.55,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.003f.a433,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.85,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00f3.ffe8,IPF Entry: juniper,notInIncludeList,,,,vxlan41-60.lab.ipfabric.io,172.16.41.60,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00f9.ed40,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.81,0,,,,,,,,N,N,N
+False,,arp,[],,5254.003e.6932,IPF Entry: juniper,notInIncludeList,,,,,172.16.44.60,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0065.4159,IPF Entry: juniper,notInIncludeList,,,,,172.16.44.61,0,,,,,,,,N,N,N
+False,,arp,[],,5254.006c.7b77,IPF Entry: juniper,notInIncludeList,,,,server31-60.lab.ipfabric.io,172.16.31.60,0,,,,,,,,N,N,N
+False,,routes,[],,5254.00c6.d10c,IPF Entry: juniper,notInIncludeList,,,,mgmt21-20.lab.ipfabric.io,172.16.21.20,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0028.45c5,IPF Entry: juniper,notInIncludeList,,,,user11-61.lab.ipfabric.io,172.16.11.61,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.0039,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.157,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.0071.baad,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.142,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0086.7a7c,IPF Entry: juniper,notInIncludeList,,,,vxlan42-60.lab.ipfabric.io,172.16.42.60,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.0026,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.138,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.0017,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.123,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00d8.3f0d,IPF Entry: juniper,inExcludeList,,,,,192.168.1.1,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.0030,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.148,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0080.5943,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.17,0,,,,,,,,N,N,N
+False,,arp,[],,5254.005c.08de,IPF Entry: juniper,notInIncludeList,,,,vxlan42-61.lab.ipfabric.io,172.16.42.61,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00e2.2c9e,IPF Entry: juniper,notInIncludeList,,,,vxlan41-61.lab.ipfabric.io,172.16.41.61,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.00f3.db81,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.150,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00cf.1e59,IPF Entry: juniper,notInIncludeList,,,,server33-61.lab.ipfabric.io,172.16.33.61,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,10.1.0.105,0,,,,,,,,N,N,N
+False,,arp,[],,5254.006a.c015,IPF Entry: juniper,notInIncludeList,,,,user12-61.lab.ipfabric.io,172.16.12.61,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00bc.a040,IPF Entry: juniper,notInIncludeList,,,,user14-60.lab.ipfabric.io,172.16.14.60,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a9f3.3e2c,"Cisco Systems, Inc",notInIncludeList,,,,,10.1.0.94,0,,,,,,,,N,N,N
+False,,arp,[],,5254.0082.41d0,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.38,0,,,,,,,,N,N,N
+False,,arp,[],,5254.00d2.7d97,IPF Entry: juniper,notInIncludeList,,,,user12-60.lab.ipfabric.io,172.16.12.60,0,,,,,,,,N,N,N
+False,,xdp,[],,5254.009e.3cd7,IPF Entry: juniper,notInIncludeList,,,,,10.1.0.34,0,,,,,,,,N,N,N
+False,,arp,[],,084f.a900.001b,"Cisco Systems, Inc",inExcludeList,,,,,192.168.1.127,0,,,,,,,,N,N,N
+False,,routes,[],,,,notInIncludeList,,,,,10.0.0.9,0,,,,,,,,N,N,N
+False,,arp,[],,5254.000d.e540,IPF Entry: juniper,notInIncludeList,,,,mgmt23-20.lab.ipfabric.io,172.16.23.20,0,,,,,,,,N,N,N

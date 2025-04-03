@@ -1,0 +1,371 @@
+/* Uncomment the desired theme to apply */
+/* @import url('themes/default_colors.css'); */
+@import url('themes/theme_light.css');
+/* @import url('themes/theme_dark.css'); */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+/* Style for the first page */
+@page {
+    margin: 5px 5px 5px 5px;
+    size: A4;
+}
+
+/* Style for the table */
+table {
+    margin: 0;
+    width: 100%;
+    border-spacing: 2px;
+}
+
+tr {
+    margin: 5px 0 5px 0;
+}
+
+th,
+td {
+    padding: 7px 5px 7px 5px;
+    text-align: left;
+    border-radius: 4px;
+}
+
+/* Path SVG */
+.path_svg{
+    max-width: 100%!important;
+    height: auto;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row-even-background);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--table-row-odd-background);
+}
+
+.logo {
+    /*display: flex;*/
+    text-align: center;
+    margin-top: 50%;
+}
+.logo img {
+    width: 30%;
+    height: 30%;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.section-1 {
+    padding: 0 10px 0 10px;
+}
+
+.section-2 {
+    padding: 0 10px 0 10px;
+}
+
+.section-3 {
+    padding: 0 10px 20px 10px;
+}
+
+.section-4 {
+    padding: 0 10px 20px 10px;
+}
+
+.section-5 {
+    padding: 0 10px 20px 10px;
+}
+
+.section-6 {
+    padding: 0 10px 20px 10px;
+}
+
+.section-7 {
+    padding: 0 10px 20px 10px;
+}
+
+.section-8 {
+    padding: 0 10px 20px 10px;
+}
+
+.main-titles {
+    padding: 0 10px 0 10px;
+}
+
+.container {
+    margin: 0 40px 0 40px;
+    padding: 0;
+}
+
+/* Macro Header */
+.report-header {
+    padding: 4rem 2rem;
+    background: var(--report-header-background);
+    border-radius: 0.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Main Title */
+.main-title {
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 70px;
+    margin-top: -30px;
+    color: var(--main-title-color);
+}
+
+.main-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    margin: 20px 10px 5px 10px;
+    page-break-before: always;
+}
+
+/* Section Title */
+.section-title {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 10px 0 15px 0;
+    page-break-before: always;
+}
+
+/* Site Info if applicable */
+.site-info {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.site-label {
+    color: var(--site-label-color);
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.site-name {
+    color: var(--site-name-color);
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    background-color: var(--site-background-color);
+    border-radius: 0.25rem;
+    border: 1px solid var(--site-border-color);
+}
+
+.table-cell-width {
+    width: 20%;
+}
+
+.table-spacing {
+    margin: 40px 0 20px -10px;
+}
+
+.table-cell-width-even {
+    background-color: var(--table-row-even-background);
+}
+
+/* Report Title */
+.report-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--main-title-color);
+    margin: 1rem 0;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+}
+
+.title-container {
+    text-align: center;
+}
+
+/* Section Numbers */
+.numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--numbers-background);
+    color: var(--numbers-color);
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Chart Container */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pie-chart {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjust this value as needed */
+}
+
+
+/* Macro Network Summary */
+.summary-stats {
+   margin: 2rem 0;
+   padding: 1.5rem;
+   background: var(--summary-stats-background);
+   border-radius: 0.5rem;
+}
+
+.stats-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 1.5rem;
+   margin: 1rem 0;
+}
+
+.stat-box {
+   background: var(--summary-stats-box-background);
+   border-radius: 0.5rem;
+   padding: 1.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+   text-align: center;
+}
+
+.stat-box span:first-child {
+   display: block;
+   font-size: 0.875rem;
+   color: var(--stat-box-span-first);
+   margin-bottom: 0.5rem;
+}
+
+.stat-box span:last-child {
+   display: block;
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: var(--stat-box-span-last);
+}
+
+/* Severity Analysis Section */
+.severity-analysis {
+   margin: 2rem 0;
+   padding: 1.5rem;
+   background: var(--severity-analysis-background);
+   border-radius: 0.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.severity-analysis table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 1rem;
+}
+
+.severity-analysis th,
+.severity-analysis td {
+   padding: 0.75rem;
+   text-align: left;
+   border-bottom: 1px solid #e2e8f0;
+}
+
+.severity-analysis th {
+   background-color: var(--severity-analysis-th-background);
+   font-weight: 600;
+   color: var(--severity-analysis-th-text);
+}
+
+.severity-analysis tr:last-child td {
+   border-bottom: none;
+}
+
+/* Network Summary Section */
+.network-summary-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--summary-stats-box-background);
+    border-radius: 0.5rem;
+}
+
+.summary-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.summary-row {
+    border-bottom: 1px solid var(--summary-row-border-bottom);
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    padding: 1rem;
+    text-align: left;
+    color: var(--summary-label-color);
+    font-weight: 600;
+    width: 40%;
+}
+
+.summary-value {
+    padding: 1rem;
+    text-align: left;
+    color: var(--summary-value-color);
+}
+
+/* Footer */
+@page {
+    @bottom-center {
+        content: element(footer);
+        /* Make the bottom margin area full width */
+        width: 100%;
+        /* Reset the margins for the footer area */
+        margin: 0;
+        /* Add padding for content */
+        padding: 15px 0;
+    }
+    /* Reduce bottom margin to bring footer closer */
+    margin-bottom: 1cm;
+}
+
+.footer {
+    position: running(footer);
+    font-size: 8pt;
+    text-align: center;
+    color: var(--footer-color);
+    border-top: 1px solid var(--footer-border-top-color);
+    /* Full width settings */
+    width: 100vw;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px 0;
+    /* Fix positioning */
+    position: running(footer);
+    box-sizing: border-box;
+}
+
+.footer a {
+    color: var(--footer-a-color);
+    text-decoration: none;
+}

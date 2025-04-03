@@ -1,0 +1,37 @@
+/* Default Color Variables for the Reports */
+
+:root {
+    --main-title-color: #178566;
+    --site-name-color: #0f766e;
+    --site-label-color: #0f766e;
+    --site-border-color: #0f766e;
+    --site-background-color: #f0fdfa;
+
+    --button-background-color: #2ecc71;
+    --alert-text-color: #e74c3c;
+    --page-background-color: #ecf0f1;
+    --body-text-color: #2c3e50;
+    --table-row-even-background: #E5E5E5;
+    --table-row-odd-background: #F6F6F6;
+    --report-header-background: #ffffff;
+
+    --numbers-color: #ffffff;
+    --numbers-background: #178566; 
+
+    --summary-label-color: #475569;
+    --summary-value-color: #1e293b;
+    --summary-stats-background: #e9e9e9;
+    --summary-stats-box-background: #ffffff;
+    --summary-row-border-bottom: #e2e8f0;
+
+    --stat-box-span-first: #64748b;
+    --stat-box-span-last: #1e293b;
+    --severity-analysis-background: #ffffff;
+    --severity-analysis-th-background: #f8fafc;
+    --severity-analysis-th-text: #475569;
+
+    --footer-color: #c0c0c0;
+    --footer-border-top-color: #ebebeb;
+    --footer-a-color: #808080;
+}
+

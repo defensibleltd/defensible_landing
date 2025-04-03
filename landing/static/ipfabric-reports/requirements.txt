@@ -1,0 +1,28 @@
+# IP Fabric Reports Generator - Dependencies
+#
+# Core Dependencies
+ipfabric      # IP Fabric SDK
+python-dotenv>=1.0.0  # Environment variable management
+requests>=2.0.0       # HTTP requests
+
+# Report Generation
+Jinja2>=3.1.0        # HTML template engine
+WeasyPrint>=60.1     # PDF generation
+matplotlib>=3.7.0    # Data visualization
+
+# Data Processing
+pandas>=2.0.0        # Data manipulation and analysis
+openpyxl>=3.0.0      # Excel file handling
+
+# Development & Utilities
+setuptools>=65.0.0   # Package management
+loguru>=0.7.0        # Logging utility
+
+# Notes:
+# - Version numbers should be adjusted based on your specific needs
+# - Use `pip install -r requirements.txt` to install
+# - For development, consider adding:
+#   - black: Code formatting
+#   - pylint: Code analysis
+#   - pytest: Testing
+#   - mypy: Type checking

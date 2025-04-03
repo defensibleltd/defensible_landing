@@ -1,0 +1,57 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+    {% if site_filter %}
+        <!-- Per Site Summary -->
+        {{ macros.per_site_summary(site_summary, site_filter) }}
+    {% endif %}
+    
+    <h2>Port Capacity Summary {% if site_filter %} for site {{ site_filter }}{% endif %}</h2>
+    <table>
+        {% for key, value in port_summary.items() %}
+        <tr>
+            <th>{{ key }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Device Tables by Site -->
+    {% for site in site_report %}
+    <div class="container page-break">
+        <div class="main-title-container">
+            <div class="numbers">
+                {{ loop.index }}
+            </div>
+            <h2 class="main-titles">Port Capacity Details - {{ site.siteName }}</h2>
+        </div>
+        <table class="table-spacing">
+            <thead>
+                <tr>
+                    <th class="table-cell-width-even">Hostname</th>
+                    <th class="table-cell-width-even">Total Ports</th>
+                    <th class="table-cell-width-even">Port Util (%)</th>
+                    <th class="table-cell-width-even">Port Avail (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in interfaces_report if device.siteName == site.siteName %}
+                <tr>
+                    <td class="table-cell-width">{{ device.hostname }}</td>
+                    <td class="table-cell-width">{{ device.total }}</td>
+                    <td class="table-cell-width">{{ device['port utilisation (%)']|round(2) }}</td>
+                    <td class="table-cell-width">{{ device['port availability (%)']|round(2) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

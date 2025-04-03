@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ report_details.name }}{% endblock %}</title>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <!-- Logo and Title -->
+        {{ macros.header(report_details.name, site_filter) }}
+        <!-- Footer -->
+        {{ macros.footer(report_details.name, current_time) }}        
+        <!-- Main Content -->
+        {% block content %}{% endblock %}
+        
+
+    </body>
+</html>

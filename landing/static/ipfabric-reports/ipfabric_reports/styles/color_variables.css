@@ -1,0 +1,15 @@
+/* Color Variables for the Application */
+
+:root {
+    --main-title-color: #178566;
+    --button-background-color: #2ecc71;
+    --alert-text-color: #e74c3c;
+    --page-background-color: #ecf0f1;
+    --body-text-color: #2c3e50;
+    --table-row-even-background: #E5E5E5;
+    --table-row-odd-background: #F6F6F6;
+    --report-header-background: #ffffff;
+    --summary-value-color: #1e293b;
+}
+
+/* Add more color variables as needed */

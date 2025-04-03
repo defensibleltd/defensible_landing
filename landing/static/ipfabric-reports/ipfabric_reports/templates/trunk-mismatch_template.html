@@ -1,0 +1,100 @@
+{% extends 'base_template.html' %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<div class="container">
+    {{ macros.report_introduction(report_details) }}
+
+    <!-- Network Data Summary -->
+    {{ macros.network_summary(network_summary) }}
+    {% if site_filter %}
+        <!-- Per Site Summary -->
+        {{ macros.per_site_summary(site_summary, site_filter) }}
+    {% endif %}
+    
+    <!-- Trunk Mismatch Summary -->
+    <div class="main-title-container">
+        <div class="numbers">1</div>
+        <h2> Trunk Mismatch Analysis {% if site_filter %}for site {{ site_filter }}{% endif %}</h2>
+    </div>
+
+    <div class="summary-stats">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span>Total Affected Devices</span>
+                <span>{{ trunk_mismatch_summary_pdf | length }}</span>
+            </div>
+            <div class="stat-box">
+                <span>Total Mismatched Links</span>
+                <span>{{ trunk_mismatch_details_pdf | length }}</span>
+            </div>
+            <div class="stat-box">
+                <span>Average Links per Device</span>
+                <span>
+                    {{ "%.1f" | format(trunk_mismatch_details_pdf | length / trunk_mismatch_summary_pdf | length) }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Device Summary Table -->
+    <div class="main-title-container">
+        <div class="numbers">2</div>
+        <h2> Trunk Mismatch per device summary {% if site_filter %}for site {{ site_filter }}{% endif %}</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Site Name</th>
+                <th>Device Name</th>
+                <th>Total Affected Ports</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in trunk_mismatch_summary_pdf.to_dict('records') %}
+            <tr>
+                <td>{{ device.siteName }}</td>
+                <td>{{ device.localHost }}</td>
+                <td>{{ device.affected_ports }}</td>
+                <td>
+                    <span class="{{ device.severity | lower }}">{{ device.severity }}</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Detailed Analysis -->
+    <div class="page-break">
+        <div class="main-title-container">
+            <div class="numbers">3</div>
+            <h2> Mismatched Trunk Links {% if site_filter %}for site {{ site_filter }}{% endif %}</h2>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Local Device</th>
+                    <th>Local Interface</th>
+                    <th>Local VLANs</th>
+                    <th>Remote VLANs</th>
+                    <th>Remote Interface</th>
+                    <th>Remote Device</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in trunk_mismatch_details_pdf.to_dict('records') %}
+                    <tr>
+                        <td>{{ link.srcHostname }}</td>
+                        <td>{{ link.srcIntName }}</td>
+                        <td>{{ link.srcVlanCount }}</td>
+                        <td>{{ link.dstVlanCount }}</td>
+                        <td>{{ link.dstIntName }}</td>
+                        <td>{{ link.dstHostname }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "ipfabric-reports"
+version = "1.0.4"
+description = "A package to generate reports from IP Fabric data"
+authors = ["Milan Zapletal <milan.zapletal@ipfabric.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.9.7,<4.0"
+ipfabric = ">=7.0.0b9"
+python-dotenv = ">=1.0.1"
+requests = ">=2.0.0"
+jinja2 = ">=3.1.0"
+weasyprint = ">=60.1"
+matplotlib = ">=3.7.0"
+pandas = ">=2.0.0"
+openpyxl = ">=3.0.0"
+loguru = ">=0.7.0"
+setuptools = ">=65.0.0"
+streamlit = { version = "^1.41.1", optional = true }
+invoke = "^2.2.0"
+
+[tool.poetry.extras]
+streamlit = ["streamlit"]
+
+[tool.poetry.scripts]
+ipfabric-reports = "ipfabric_reports.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
