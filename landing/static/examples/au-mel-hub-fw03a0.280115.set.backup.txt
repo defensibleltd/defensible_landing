@@ -1,0 +1,1161 @@
+set version 12.1R7.9
+set groups node0 system host-name au-mel-hub-fw03a0
+set groups node0 interfaces fxp0 unit 0 family inet address 1.1.1.2/24
+set groups node0 protocols rstp bridge-priority 4k
+set groups node1 system host-name au-mel-hub-fw03a1
+set groups node1 interfaces fxp0 unit 0 family inet address 1.1.1.3/24
+set groups node1 protocols rstp bridge-priority 8k
+set apply-groups "${node}"
+set system host-name au-mel-hub-fw03a0
+set system time-zone Australia/Melbourne
+set system location country-code AU
+set system location postal-code 3000
+set system location latitude  XXXXXXX
+set system location longitude XXXXXXX
+set system location floor 3
+set system location rack 1
+set system root-authentication encrypted-password "XXXXXXX"
+set system name-server 139.130.4.4
+set system name-server 8.8.8.8
+set system login class super-user-local idle-timeout 10
+set system login class super-user-local permissions all
+set system login user backup uid 2003
+set system login user backup class super-user-local
+set system login user backup authentication encrypted-password "XXXXXXX"
+set system login user hub uid 2001
+set system login user hub class operator
+set system login user hub authentication encrypted-password "XXXXXXX"
+set system login user podomere uid 2002
+set system login user podomere class super-user
+set system login user podomere authentication encrypted-password "XXXXXXX"
+set system services ssh root-login allow
+set system services ssh protocol-version v2
+set system services ssh connection-limit 10
+set system services ssh rate-limit 10
+set system services dns
+set system services web-management http interface vlan.1
+set system services web-management https port 443
+set system services web-management https system-generated-certificate
+set system services web-management https interface vlan.33
+set system services web-management https interface vlan.52
+set system services web-management https interface pp0.2
+set system services dhcp router 10.0.33.1
+set system services dhcp router 10.0.40.1
+set system services dhcp router 10.0.48.1
+set system services dhcp router 192.168.1.1
+set system services dhcp router 10.0.50.1
+set system services dhcp router 192.168.52.1
+set system services dhcp router 10.0.38.1
+set system services dhcp router 10.0.34.1
+set system services dhcp router 10.0.34.65
+set system services dhcp router 10.0.34.129
+set system services dhcp router 10.0.34.193
+set system services dhcp router 10.0.35.1
+set system services dhcp router 10.0.35.65
+set system services dhcp router 10.0.35.129
+set system services dhcp router 10.0.35.193
+set system services dhcp router 10.0.36.1
+set system services dhcp router 10.0.36.65
+set system services dhcp router 10.0.36.129
+set system services dhcp router 10.0.36.193
+set system services dhcp router 10.0.37.1
+set system services dhcp router 10.0.37.65
+set system services dhcp router 10.0.37.129
+set system services dhcp router 10.0.37.193
+set system services dhcp router 10.0.39.1
+set system services dhcp router 10.0.39.65
+set system services dhcp router 10.0.39.129
+set system services dhcp router 10.0.39.193
+set system services dhcp traceoptions file dhcp_logs
+set system services dhcp traceoptions file size 5m
+set system services dhcp traceoptions file files 10
+set system services dhcp traceoptions level info
+set system services dhcp traceoptions flag all
+set system services dhcp pool 192.168.1.0/24 address-range low 192.168.1.50
+set system services dhcp pool 192.168.1.0/24 address-range high 192.168.1.254
+set system services dhcp pool 192.168.1.0/24 default-lease-time 604800
+set system services dhcp pool 192.168.1.0/24 name-server 139.130.4.4
+set system services dhcp pool 192.168.1.0/24 name-server 8.8.8.8
+set system services dhcp pool 192.168.1.0/24 router 192.168.1.1
+set system services dhcp pool 10.0.33.0/24 address-range low 10.0.33.50
+set system services dhcp pool 10.0.33.0/24 address-range high 10.0.33.254
+set system services dhcp pool 10.0.33.0/24 default-lease-time 604800
+set system services dhcp pool 10.0.33.0/24 name-server 139.130.4.4
+set system services dhcp pool 10.0.33.0/24 name-server 8.8.8.8
+set system services dhcp pool 10.0.33.0/24 router 10.0.33.1
+set system services dhcp pool 10.0.40.0/22 address-range low 10.0.40.50
+set system services dhcp pool 10.0.40.0/22 address-range high 10.0.43.254
+set system services dhcp pool 10.0.40.0/22 default-lease-time 604800
+set system services dhcp pool 10.0.40.0/22 name-server 139.130.4.4
+set system services dhcp pool 10.0.40.0/22 name-server 8.8.8.8
+set system services dhcp pool 10.0.40.0/22 router 10.0.40.1
+set system services dhcp pool 10.0.48.0/23 address-range low 10.0.48.50
+set system services dhcp pool 10.0.48.0/23 address-range high 10.0.49.254
+set system services dhcp pool 10.0.48.0/23 default-lease-time 86400
+set system services dhcp pool 10.0.48.0/23 name-server 139.130.4.4
+set system services dhcp pool 10.0.48.0/23 name-server 8.8.8.8
+set system services dhcp pool 10.0.48.0/23 router 10.0.48.1
+set system services dhcp pool 10.0.50.0/24 address-range low 10.0.50.50
+set system services dhcp pool 10.0.50.0/24 address-range high 10.0.50.254
+set system services dhcp pool 10.0.50.0/24 default-lease-time 604800
+set system services dhcp pool 10.0.50.0/24 name-server 139.130.4.4
+set system services dhcp pool 10.0.50.0/24 name-server 8.8.8.8
+set system services dhcp pool 10.0.50.0/24 router 10.0.50.1
+set system services dhcp pool 192.168.52.1/24 address-range low 192.168.52.50
+set system services dhcp pool 192.168.52.1/24 address-range high 192.168.52.254
+set system services dhcp pool 192.168.52.1/24 default-lease-time 604800
+set system services dhcp pool 192.168.52.1/24 name-server 139.130.4.4
+set system services dhcp pool 192.168.52.1/24 name-server 8.8.8.8
+set system services dhcp pool 192.168.52.1/24 router 192.168.52.1
+set system services dhcp pool 10.0.38.0/24 address-range low 10.0.38.50
+set system services dhcp pool 10.0.38.0/24 address-range high 10.0.38.254
+set system services dhcp pool 10.0.38.0/24 default-lease-time 604800
+set system services dhcp pool 10.0.38.0/24 name-server 139.130.4.4
+set system services dhcp pool 10.0.38.0/24 name-server 8.8.8.8
+set system services dhcp pool 10.0.38.0/24 router 10.0.38.1
+set system services dhcp pool 10.0.34.0/26 address-range low 10.0.34.20
+set system services dhcp pool 10.0.34.0/26 address-range high 10.0.34.62
+set system services dhcp pool 10.0.34.0/26 default-lease-time 604800
+set system services dhcp pool 10.0.34.0/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.34.0/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.34.0/26 router 10.0.34.1
+set system services dhcp pool 10.0.34.64/26 address-range low 10.0.34.84
+set system services dhcp pool 10.0.34.64/26 address-range high 10.0.34.126
+set system services dhcp pool 10.0.34.64/26 default-lease-time 604800
+set system services dhcp pool 10.0.34.64/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.34.64/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.34.64/26 router 10.0.34.65
+set system services dhcp pool 10.0.34.128/26 address-range low 10.0.34.148
+set system services dhcp pool 10.0.34.128/26 address-range high 10.0.34.190
+set system services dhcp pool 10.0.34.128/26 default-lease-time 604800
+set system services dhcp pool 10.0.34.128/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.34.128/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.34.128/26 router 10.0.34.129
+set system services dhcp pool 10.0.34.192/26 address-range low 10.0.34.212
+set system services dhcp pool 10.0.34.192/26 address-range high 10.0.34.254
+set system services dhcp pool 10.0.34.192/26 default-lease-time 604800
+set system services dhcp pool 10.0.34.192/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.34.192/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.34.192/26 router 10.0.34.193
+set system services dhcp pool 10.0.35.0/26 address-range low 10.0.35.20
+set system services dhcp pool 10.0.35.0/26 address-range high 10.0.35.62
+set system services dhcp pool 10.0.35.0/26 default-lease-time 604800
+set system services dhcp pool 10.0.35.0/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.35.0/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.35.0/26 router 10.0.35.1
+set system services dhcp pool 10.0.35.64/26 address-range low 10.0.35.84
+set system services dhcp pool 10.0.35.64/26 address-range high 10.0.35.126
+set system services dhcp pool 10.0.35.64/26 default-lease-time 604800
+set system services dhcp pool 10.0.35.64/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.35.64/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.35.64/26 router 10.0.35.65
+set system services dhcp pool 10.0.35.128/26 address-range low 10.0.35.148
+set system services dhcp pool 10.0.35.128/26 address-range high 10.0.35.190
+set system services dhcp pool 10.0.35.128/26 default-lease-time 604800
+set system services dhcp pool 10.0.35.128/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.35.128/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.35.128/26 router 10.0.35.129
+set system services dhcp pool 10.0.35.192/26 address-range low 10.0.35.212
+set system services dhcp pool 10.0.35.192/26 address-range high 10.0.35.254
+set system services dhcp pool 10.0.35.192/26 default-lease-time 604800
+set system services dhcp pool 10.0.35.192/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.35.192/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.35.192/26 router 10.0.35.193
+set system services dhcp pool 10.0.36.0/26 address-range low 10.0.36.20
+set system services dhcp pool 10.0.36.0/26 address-range high 10.0.36.62
+set system services dhcp pool 10.0.36.0/26 default-lease-time 604800
+set system services dhcp pool 10.0.36.0/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.36.0/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.36.0/26 router 10.0.36.1
+set system services dhcp pool 10.0.36.64/26 address-range low 10.0.36.84
+set system services dhcp pool 10.0.36.64/26 address-range high 10.0.36.126
+set system services dhcp pool 10.0.36.64/26 default-lease-time 604800
+set system services dhcp pool 10.0.36.64/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.36.64/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.36.64/26 router 10.0.36.65
+set system services dhcp pool 10.0.36.128/26 address-range low 10.0.36.148
+set system services dhcp pool 10.0.36.128/26 address-range high 10.0.36.190
+set system services dhcp pool 10.0.36.128/26 default-lease-time 604800
+set system services dhcp pool 10.0.36.128/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.36.128/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.36.128/26 router 10.0.36.129
+set system services dhcp pool 10.0.36.192/26 address-range low 10.0.36.212
+set system services dhcp pool 10.0.36.192/26 address-range high 10.0.36.254
+set system services dhcp pool 10.0.36.192/26 default-lease-time 604800
+set system services dhcp pool 10.0.36.192/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.36.192/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.36.192/26 router 10.0.36.193
+set system services dhcp pool 10.0.37.0/26 address-range low 10.0.37.20
+set system services dhcp pool 10.0.37.0/26 address-range high 10.0.37.62
+set system services dhcp pool 10.0.37.0/26 default-lease-time 604800
+set system services dhcp pool 10.0.37.0/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.37.0/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.37.0/26 router 10.0.37.1
+set system services dhcp pool 10.0.37.64/26 address-range low 10.0.37.84
+set system services dhcp pool 10.0.37.64/26 address-range high 10.0.37.126
+set system services dhcp pool 10.0.37.64/26 default-lease-time 604800
+set system services dhcp pool 10.0.37.64/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.37.64/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.37.64/26 router 10.0.37.65
+set system services dhcp pool 10.0.37.128/26 address-range low 10.0.37.148
+set system services dhcp pool 10.0.37.128/26 address-range high 10.0.37.190
+set system services dhcp pool 10.0.37.128/26 default-lease-time 604800
+set system services dhcp pool 10.0.37.128/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.37.128/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.37.128/26 router 10.0.37.129
+set system services dhcp pool 10.0.37.192/26 address-range low 10.0.37.212
+set system services dhcp pool 10.0.37.192/26 address-range high 10.0.37.254
+set system services dhcp pool 10.0.37.192/26 default-lease-time 604800
+set system services dhcp pool 10.0.37.192/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.37.192/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.37.192/26 router 10.0.37.193
+set system services dhcp pool 10.0.39.0/26 address-range low 10.0.39.20
+set system services dhcp pool 10.0.39.0/26 address-range high 10.0.39.62
+set system services dhcp pool 10.0.39.0/26 default-lease-time 604800
+set system services dhcp pool 10.0.39.0/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.39.0/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.39.0/26 router 10.0.39.1
+set system services dhcp pool 10.0.39.64/26 address-range low 10.0.39.84
+set system services dhcp pool 10.0.39.64/26 address-range high 10.0.39.126
+set system services dhcp pool 10.0.39.64/26 default-lease-time 604800
+set system services dhcp pool 10.0.39.64/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.39.64/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.39.64/26 router 10.0.39.65
+set system services dhcp pool 10.0.39.128/26 address-range low 10.0.39.148
+set system services dhcp pool 10.0.39.128/26 address-range high 10.0.39.190
+set system services dhcp pool 10.0.39.128/26 default-lease-time 604800
+set system services dhcp pool 10.0.39.128/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.39.128/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.39.128/26 router 10.0.39.129
+set system services dhcp pool 10.0.39.192/26 address-range low 10.0.39.212
+set system services dhcp pool 10.0.39.192/26 address-range high 10.0.39.254
+set system services dhcp pool 10.0.39.192/26 default-lease-time 604800
+set system services dhcp pool 10.0.39.192/26 name-server 139.130.4.4
+set system services dhcp pool 10.0.39.192/26 name-server 8.8.8.8
+set system services dhcp pool 10.0.39.192/26 router 10.0.39.193
+set system syslog archive size 10m
+set system syslog archive files 3
+set system syslog user * any emergency
+set system syslog host 192.168.52.20 authorization notice
+set system syslog host 192.168.52.20 daemon error
+set system syslog host 192.168.52.20 ntp notice
+set system syslog host 192.168.52.20 kernel notice
+set system syslog host 192.168.52.20 user notice
+set system syslog host 192.168.52.20 pfe notice
+set system syslog host 192.168.52.20 conflict-log notice
+set system syslog host 192.168.52.20 change-log notice
+set system syslog host 192.168.52.20 interactive-commands notice
+set system syslog host 192.168.52.20 allow-duplicates
+set system syslog host 192.168.52.20 explicit-priority
+set system syslog file messages authorization notice
+set system syslog file messages daemon error
+set system syslog file messages ntp error
+set system syslog file messages kernel notice
+set system syslog file messages user notice
+set system syslog file messages pfe notice
+set system syslog file messages conflict-log notice
+set system syslog file messages change-log notice
+set system syslog file messages interactive-commands notice
+set system syslog file messages explicit-priority
+set system syslog file interactive-commands interactive-commands any
+set system syslog time-format year
+set system syslog time-format millisecond
+set system max-configurations-on-flash 5
+set system max-configuration-rollbacks 20
+set system archival configuration transfer-on-commit
+set system archival configuration archive-sites "pasvftp://backup@XXXXXXX/au-mel-hub-fw03a" password "XXXXXXX"
+set system license autoupdate url https://ae1.juniper.net/junos/key_retrieval
+set system ntp boot-server 192.168.52.20
+set system ntp server 192.168.52.20
+set system ntp server 203.14.0.251
+set chassis aggregated-devices ethernet device-count 20
+set chassis cluster reth-count 8
+set chassis cluster redundancy-group 0 node 0 priority 100
+set chassis cluster redundancy-group 0 node 1 priority 1
+set chassis cluster redundancy-group 1 node 0 priority 100
+set chassis cluster redundancy-group 1 node 1 priority 1
+set chassis cluster redundancy-group 2 node 1 priority 1
+set chassis cluster redundancy-group 2 node 0 priority 100
+set chassis cluster redundancy-group 3 node 0 priority 100
+set chassis cluster redundancy-group 3 node 1 priority 1
+set interfaces ge-0/0/0 description "=== reth3: TPG Cisco2960 gi0/1 to Fibre ==="
+set interfaces ge-0/0/0 gigether-options redundant-parent reth3
+set interfaces ge-0/0/1 description "=== Mesh to pp0.1 Iinet ADSL reth ==="
+set interfaces ge-0/0/1 gigether-options redundant-parent reth7
+set interfaces ge-0/0/2 description "=== channel to au-mel-hub-sw03a ==="
+set interfaces ge-0/0/2 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members TeamI_App_239
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members TeamI_Voice_539
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members TeamJ_App_839
+set interfaces ge-0/0/2 unit 0 family ethernet-switching vlan members TeamJ_Voice_1139
+set interfaces ge-0/0/2 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-0/0/3 description "=== channel to au-mel-hub-sw03b ==="
+set interfaces ge-0/0/3 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamA_App_234
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamA_Voice_534
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamB_App_834
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamB_Voice_1134
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamC_App_235
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamC_Voice_535
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamD_App_835
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamD_Voice_1135
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamE_App_236
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamE_Voice_536
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamF_App_836
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamF_Voice_1136
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamG_App_237
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamG_Voice_537
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamH_App_837
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members TeamH_Voice_1137
+set interfaces ge-0/0/3 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-0/0/4 description "=== channel to au-mel-hub-sw03c ==="
+set interfaces ge-0/0/4 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamA_App_234
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamA_Voice_534
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamB_App_834
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamB_Voice_1134
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamC_App_235
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamC_Voice_535
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamD_App_835
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamD_Voice_1135
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamE_App_236
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamE_Voice_536
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamF_App_836
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamF_Voice_1136
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamG_App_237
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamG_Voice_537
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamH_App_837
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members TeamH_Voice_1137
+set interfaces ge-0/0/4 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-0/0/5 description "=== fab L3fabric ==="
+set interfaces ge-3/0/0 description "=== PPPoE Iinet ISP Second link ==="
+set interfaces ge-3/0/0 gigether-options redundant-parent reth7
+set interfaces ge-3/0/1 description "=== reth3: TPG Cisco2960 gi0/2 to Fibre ==="
+set interfaces ge-3/0/1 gigether-options redundant-parent reth3
+set interfaces ge-3/0/2 description "=== channel to au-mel-hub-sw03a ==="
+set interfaces ge-3/0/2 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members TeamI_App_239
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members TeamI_Voice_539
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members TeamJ_App_839
+set interfaces ge-3/0/2 unit 0 family ethernet-switching vlan members TeamJ_Voice_1139
+set interfaces ge-3/0/2 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-3/0/3 description "=== channel to au-mel-hub-sw03b ==="
+set interfaces ge-3/0/3 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamA_App_234
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamA_Voice_534
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamB_App_834
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamB_Voice_1134
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamC_App_235
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamC_Voice_535
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamD_App_835
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamD_Voice_1135
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamE_App_236
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamE_Voice_536
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamF_App_836
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamF_Voice_1136
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamG_App_237
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamG_Voice_537
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamH_App_837
+set interfaces ge-3/0/3 unit 0 family ethernet-switching vlan members TeamH_Voice_1137
+set interfaces ge-3/0/3 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-3/0/4 description "=== channel to au-mel-hub-sw03c ==="
+set interfaces ge-3/0/4 unit 0 family ethernet-switching port-mode trunk
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members Data_40
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members Guest_48
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members Management_33
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TPresence_50
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members Security_52
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members Voice_38
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamA_App_234
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamA_Voice_534
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamB_App_834
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamB_Voice_1134
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamC_App_235
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamC_Voice_535
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamD_App_835
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamD_Voice_1135
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamE_App_236
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamE_Voice_536
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamF_App_836
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamF_Voice_1136
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamG_App_237
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamG_Voice_537
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamH_App_837
+set interfaces ge-3/0/4 unit 0 family ethernet-switching vlan members TeamH_Voice_1137
+set interfaces ge-3/0/4 unit 0 family ethernet-switching native-vlan-id 1
+set interfaces ge-3/0/5 description "=== fab L3fabric ==="
+set interfaces fab0 fabric-options member-interfaces ge-0/0/5
+set interfaces fab1 fabric-options member-interfaces ge-3/0/5
+set interfaces pp0 unit 1 ppp-options chap default-chap-secret "XXXXXXX"
+set interfaces pp0 unit 1 ppp-options chap local-name "XXXXXXX"
+set interfaces pp0 unit 1 ppp-options chap passive
+set interfaces pp0 unit 1 ppp-options pap local-name "XXXXXXX"
+set interfaces pp0 unit 1 ppp-options pap local-password "XXXXXXX"
+set interfaces pp0 unit 1 ppp-options pap passive
+set interfaces pp0 unit 1 pppoe-options underlying-interface reth7.0
+set interfaces pp0 unit 1 pppoe-options idle-timeout 0
+set interfaces pp0 unit 1 pppoe-options auto-reconnect 1
+set interfaces pp0 unit 1 pppoe-options client
+set interfaces pp0 unit 1 family inet mtu 1492
+set interfaces pp0 unit 1 family inet policer input 16mbps-policer
+set interfaces pp0 unit 1 family inet negotiate-address
+set interfaces reth3 description "=== Ethernet to TPG Fibre ==="
+set interfaces reth3 redundant-ether-options redundancy-group 3
+set interfaces reth3 unit 0 family inet address 202.161.91.34/30
+set interfaces reth7 redundant-ether-options redundancy-group 2
+set interfaces reth7 unit 0 encapsulation ppp-over-ether
+set interfaces vlan unit 0 family inet
+set interfaces vlan unit 1 description "=== au-mel-hub-fw03a ==="
+set interfaces vlan unit 1 family inet filter input FBF_Chooser
+set interfaces vlan unit 1 family inet address 192.168.1.1/24
+set interfaces vlan unit 33 description "=== au-mel-hub-fw03a ==="
+set interfaces vlan unit 33 family inet filter input FBF_Chooser
+set interfaces vlan unit 33 family inet address 10.0.33.1/24
+set interfaces vlan unit 38 description "=== au-mel-hub-fw03a Member Voice ==="
+set interfaces vlan unit 38 family inet filter input FBF_Chooser
+set interfaces vlan unit 38 family inet policer input 1mbps-policer
+set interfaces vlan unit 38 family inet policer output 1mbps-policer
+set interfaces vlan unit 38 family inet address 10.0.38.1/24
+set interfaces vlan unit 40 description "=== au-mel-hub-fw03a ==="
+set interfaces vlan unit 40 family inet filter input FBF_Chooser
+set interfaces vlan unit 40 family inet address 10.0.40.1/22
+set interfaces vlan unit 48 description "=== au-mel-hub-fw03a ==="
+set interfaces vlan unit 48 family inet filter input FBF_Chooser
+set interfaces vlan unit 48 family inet address 10.0.48.1/23
+set interfaces vlan unit 50 description "=== au-mel-hub-fw03a Telepresence ==="
+set interfaces vlan unit 50 family inet address 10.0.50.1/24
+set interfaces vlan unit 52 description "=== au-mel-hub-fw03a ==="
+set interfaces vlan unit 52 family inet filter input FBF_Chooser
+set interfaces vlan unit 52 family inet address 192.168.52.1/24
+set interfaces vlan unit 100 family inet
+set interfaces vlan unit 234 description "=== TEAM A App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 234 family inet filter input FBF_Chooser
+set interfaces vlan unit 234 family inet policer input 1mbps-policer
+set interfaces vlan unit 234 family inet policer output 1mbps-policer
+set interfaces vlan unit 234 family inet address 10.0.34.1/26
+set interfaces vlan unit 235 description "=== TEAM C App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 235 family inet filter input FBF_Chooser
+set interfaces vlan unit 235 family inet policer input 1mbps-policer
+set interfaces vlan unit 235 family inet policer output 1mbps-policer
+set interfaces vlan unit 235 family inet address 10.0.35.1/26
+set interfaces vlan unit 236 description "=== TEAM E App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 236 family inet filter input FBF_Chooser
+set interfaces vlan unit 236 family inet policer input 1mbps-policer
+set interfaces vlan unit 236 family inet policer output 1mbps-policer
+set interfaces vlan unit 236 family inet address 10.0.36.1/26
+set interfaces vlan unit 237 description "=== TEAM G App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 237 family inet filter input FBF_Chooser
+set interfaces vlan unit 237 family inet policer input 1mbps-policer
+set interfaces vlan unit 237 family inet policer output 1mbps-policer
+set interfaces vlan unit 237 family inet address 10.0.37.1/26
+set interfaces vlan unit 239 description "=== TEAM I App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 239 family inet filter input FBF_Chooser
+set interfaces vlan unit 239 family inet policer input 1mbps-policer
+set interfaces vlan unit 239 family inet policer output 1mbps-policer
+set interfaces vlan unit 239 family inet address 10.0.39.1/26
+set interfaces vlan unit 534 description "=== TEAM A Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 534 family inet filter input FBF_Chooser
+set interfaces vlan unit 534 family inet policer input 1mbps-policer
+set interfaces vlan unit 534 family inet policer output 1mbps-policer
+set interfaces vlan unit 534 family inet address 10.0.34.65/26
+set interfaces vlan unit 535 description "=== TEAM C Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 535 family inet filter input FBF_Chooser
+set interfaces vlan unit 535 family inet policer input 1mbps-policer
+set interfaces vlan unit 535 family inet policer output 1mbps-policer
+set interfaces vlan unit 535 family inet address 10.0.35.65/26
+set interfaces vlan unit 536 description "=== TEAM E Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 536 family inet filter input FBF_Chooser
+set interfaces vlan unit 536 family inet policer input 1mbps-policer
+set interfaces vlan unit 536 family inet policer output 1mbps-policer
+set interfaces vlan unit 536 family inet address 10.0.36.65/26
+set interfaces vlan unit 537 description "=== TEAM G Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 537 family inet filter input FBF_Chooser
+set interfaces vlan unit 537 family inet policer input 1mbps-policer
+set interfaces vlan unit 537 family inet policer output 1mbps-policer
+set interfaces vlan unit 537 family inet address 10.0.37.65/26
+set interfaces vlan unit 539 description "=== TEAM I Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 539 family inet filter input FBF_Chooser
+set interfaces vlan unit 539 family inet policer input 1mbps-policer
+set interfaces vlan unit 539 family inet policer output 1mbps-policer
+set interfaces vlan unit 539 family inet address 10.0.39.65/26
+set interfaces vlan unit 834 description "=== TEAM B App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 834 family inet filter input FBF_Chooser
+set interfaces vlan unit 834 family inet policer input 1mbps-policer
+set interfaces vlan unit 834 family inet policer output 1mbps-policer
+set interfaces vlan unit 834 family inet address 10.0.34.129/26
+set interfaces vlan unit 835 description "=== TEAM D App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 835 family inet filter input FBF_Chooser
+set interfaces vlan unit 835 family inet policer input 1mbps-policer
+set interfaces vlan unit 835 family inet policer output 1mbps-policer
+set interfaces vlan unit 835 family inet address 10.0.35.129/26
+set interfaces vlan unit 836 description "=== TEAM F App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 836 family inet filter input FBF_Chooser
+set interfaces vlan unit 836 family inet policer input 1mbps-policer
+set interfaces vlan unit 836 family inet policer output 1mbps-policer
+set interfaces vlan unit 836 family inet address 10.0.36.129/26
+set interfaces vlan unit 837 description "=== TEAM H App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 837 family inet filter input FBF_Chooser
+set interfaces vlan unit 837 family inet policer input 1mbps-policer
+set interfaces vlan unit 837 family inet policer output 1mbps-policer
+set interfaces vlan unit 837 family inet address 10.0.37.129/26
+set interfaces vlan unit 839 description "=== TEAM J App to au-mel-hub-fw01a ==="
+set interfaces vlan unit 839 family inet filter input FBF_Chooser
+set interfaces vlan unit 839 family inet policer input 1mbps-policer
+set interfaces vlan unit 839 family inet policer output 1mbps-policer
+set interfaces vlan unit 839 family inet address 10.0.39.129/26
+set interfaces vlan unit 1134 description "=== TEAM B Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 1134 family inet filter input FBF_Chooser
+set interfaces vlan unit 1134 family inet policer input 1mbps-policer
+set interfaces vlan unit 1134 family inet policer output 1mbps-policer
+set interfaces vlan unit 1134 family inet address 10.0.34.193/26
+set interfaces vlan unit 1135 description "=== TEAM D Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 1135 family inet filter input FBF_Chooser
+set interfaces vlan unit 1135 family inet policer input 1mbps-policer
+set interfaces vlan unit 1135 family inet policer output 1mbps-policer
+set interfaces vlan unit 1135 family inet address 10.0.35.193/26
+set interfaces vlan unit 1136 description "=== TEAM F Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 1136 family inet filter input FBF_Chooser
+set interfaces vlan unit 1136 family inet policer input 1mbps-policer
+set interfaces vlan unit 1136 family inet policer output 1mbps-policer
+set interfaces vlan unit 1136 family inet address 10.0.36.193/26
+set interfaces vlan unit 1137 description "=== TEAM H Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 1137 family inet filter input FBF_Chooser
+set interfaces vlan unit 1137 family inet policer input 1mbps-policer
+set interfaces vlan unit 1137 family inet policer output 1mbps-policer
+set interfaces vlan unit 1137 family inet address 10.0.37.193/26
+set interfaces vlan unit 1139 description "=== TEAM J Voice to au-mel-hub-fw01a ==="
+set interfaces vlan unit 1139 family inet filter input FBF_Chooser
+set interfaces vlan unit 1139 family inet policer input 1mbps-policer
+set interfaces vlan unit 1139 family inet policer output 1mbps-policer
+set interfaces vlan unit 1139 family inet address 10.0.39.193/26
+set forwarding-options sampling input rate 100
+set forwarding-options sampling family inet output flow-server 46.149.22.41 port 2055
+set forwarding-options sampling family inet output flow-server 46.149.22.41 version 5
+set event-options policy test-failed events PING_TEST_FAILED
+set event-options policy test-failed within 240 events PING_TEST_COMPLETED
+set event-options policy test-failed within 240 events KERNEL
+set event-options policy test-failed within 240 events SYSTEM
+set event-options policy test-failed attributes-match ping_test_failed.test-owner matches icmp-ping-probe
+set event-options policy test-failed attributes-match ping_test_failed.test-name matches ping-probe-test
+set event-options policy test-failed attributes-match ping_test_completed.test-owner matches icmp-ping-probe
+set event-options policy test-failed attributes-match ping_test_completed.test-name matches ping-probe-test
+set event-options policy test-failed attributes-match SYSTEM.message matches "Starting of initial processes complete"
+set event-options policy test-failed attributes-match KERNEL.message matches "event-processing \(PID.*\)started"
+set event-options policy test-failed then event-script watch-default-tpg.slax arguments next-hop 202.161.91.33
+set event-options policy test-failed then raise-trap
+set event-options policy test-completed events PING_TEST_COMPLETED
+set event-options policy test-completed within 240 events PING_TEST_FAILED
+set event-options policy test-completed within 240 events KERNEL
+set event-options policy test-completed within 240 events SYSTEM
+set event-options policy test-completed attributes-match ping_test_completed.test-owner matches icmp-ping-probe
+set event-options policy test-completed attributes-match ping_test_completed.test-name matches ping-probe-test
+set event-options policy test-completed attributes-match ping_test_failed.test-owner matches icmp-ping-probe
+set event-options policy test-completed attributes-match ping_test_failed.test-name matches ping-probe-test
+set event-options policy test-completed attributes-match SYSTEM.message matches "Starting of initial processes complete"
+set event-options policy test-completed attributes-match KERNEL.message matches "event-processing \(PID .*\) started"
+set event-options policy test-completed then event-script watch-default-tpg.slax arguments next-hop 202.161.91.33
+set event-options policy test-completed then raise-trap
+set event-options event-script file watch-default-tpg.slax
+set snmp description "Primary SRX 220H L3 cluster"
+set snmp location "XXXXXXX"
+set snmp contact "XXXXXXX"
+set snmp community SituationalAwareness authorization read-only
+set snmp community SituationalAwareness clients 106.186.27.225/32
+set snmp community SituationalAwareness clients 0.0.0.0/0 restrict
+set snmp trap-group alice version v2
+set snmp trap-group alice destination-port 162
+set snmp trap-group alice categories chassis
+set snmp trap-group alice categories link
+set snmp trap-group alice categories routing
+set snmp trap-group alice categories startup
+set snmp trap-group alice categories rmon-alarm
+set snmp trap-group alice categories configuration
+set snmp trap-group alice categories services
+set snmp trap-group alice categories chassis-cluster
+set routing-options interface-routes rib-group inet Import_Physical
+set routing-options static route 0.0.0.0/0 qualified-next-hop pp0.1 preference 120
+set routing-options static route 0.0.0.0/0 qualified-next-hop 202.161.91.33
+set routing-options static route 192.168.10.0/24 next-hop 192.168.52.20
+set routing-options static route 46.149.16.0/20 qualified-next-hop pp0.1
+set routing-options static route 113.20.28.22/32 qualified-next-hop pp0.1
+set routing-options static route 202.181.214.202/32 qualified-next-hop pp0.1
+set routing-options static route 180.210.201.164/32 qualified-next-hop pp0.1
+set routing-options static route 106.187.45.253/32 qualified-next-hop pp0.1
+set routing-options static route 182.92.78.74/32 qualified-next-hop pp0.1
+set routing-options static route 103.14.121.162/32 qualified-next-hop pp0.1
+set routing-options static route 85.234.142.27/32 qualified-next-hop pp0.1
+set routing-options static route 203.56.30.94/32 qualified-next-hop pp0.1
+set routing-options static route 79.170.90.177/32 qualified-next-hop 202.161.91.33
+set routing-options static route 198.211.119.192/32 qualified-next-hop 202.161.91.33
+set routing-options static route 103.25.56.152/32 qualified-next-hop 202.161.91.33
+set routing-options static route 103.16.129.198/32 qualified-next-hop 202.161.91.33
+set routing-options static route 103.8.29.107/32 qualified-next-hop 202.161.91.33
+set routing-options static route 103.8.28.50/32 qualified-next-hop 202.161.91.33
+set routing-options static route 103.25.58.106/32 qualified-next-hop 202.161.91.33
+set routing-options static route 203.206.188.81/32 qualified-next-hop pp0.1
+set routing-options static route 96.44.136.55/32 qualified-next-hop pp0.1
+set routing-options static route 173.224.210.67/32 qualified-next-hop pp0.1
+set routing-options rib-groups Import_Physical import-rib inet.0
+set routing-options rib-groups Import_Physical import-rib routing-table-iinet.inet.0
+set routing-options rib-groups Import_Physical import-rib routing-table-tpg.inet.0
+set protocols ppp traceoptions file ppp.log
+set protocols ppp traceoptions file size 1m
+set protocols ppp traceoptions flag auth
+set protocols ppp traceoptions flag radius
+set protocols pppoe traceoptions file pppoe.log
+set protocols pppoe traceoptions file size 1m
+set protocols pppoe traceoptions flag events
+set protocols lldp interface all
+set protocols rstp bridge-priority 4k
+set policy-options prefix-list Guest_Prefix 10.0.48.0/23
+set policy-options prefix-list Iinet_Prefix 128.0.0.0/1
+set policy-options prefix-list Internode_Prefix
+set policy-options prefix-list Management_Prefix 10.0.33.0/24
+set policy-options prefix-list Management_Prefix2 192.168.1.0/24
+set policy-options prefix-list Mytel_Sip03_Prefix 203.166.103.242/32
+set policy-options prefix-list Internode_Mail_Prefix 203.0.178.192/32
+set policy-options prefix-list Internode_Mail_Prefix 203.16.214.182/32
+set policy-options prefix-list Internet_Prefix 0.0.0.0/0
+set policy-options prefix-list Telepresence_Prefix_Local 10.0.50.0/24
+set policy-options prefix-list Telepresence_Device01_Local 10.0.50.5/32
+set policy-options prefix-list Telepresence_Device01_Remote 59.167.38.82/32
+set policy-options prefix-list bob.nodecity.com 173.230.149.179/32
+set policy-options prefix-list IfconfigMe_Prefix 133.242.129.236/32
+set policy-options prefix-list Sue_Prefix 46.149.22.41/32
+set policy-options prefix-list Data_40_Subnet 10.0.40.0/22
+set policy-options prefix-list Dropbox_Prefix XXXXXXX
+set policy-options prefix-list VoIP_Prefix 10.0.38.0/24
+set policy-options prefix-list TeamA_Voice_534_Prefix 10.0.34.64/26
+set policy-options prefix-list TeamB_Voice_1134_Prefix 10.0.34.192/26
+set policy-options prefix-list TeamC_Voice_535_Prefix 10.0.35.64/26
+set policy-options prefix-list TeamD_Voice_1135_Prefix 10.0.35.192/26
+set policy-options prefix-list TeamE_Voice_536_Prefix 10.0.36.64/26
+set policy-options prefix-list TeamF_Voice_1136_Prefix 10.0.36.192/26
+set policy-options prefix-list TeamG_Voice_537_Prefix 10.0.37.64/26
+set policy-options prefix-list TeamH_Voice_1137_Prefix 10.0.37.192/26
+set policy-options prefix-list TeamI_Voice_539_Prefix 10.0.39.64/26
+set policy-options prefix-list TeamJ_Voice_1139_Prefix 10.0.39.192/26
+set security alg ftp ftps-extension
+set security alg sip application-screen unknown-message permit-nat-applied
+set security alg sip application-screen unknown-message permit-routed
+set security flow tcp-mss all-tcp mss 1436
+set security flow tcp-session no-syn-check
+set security nat source rule-set trust-to-untrust from zone trust
+set security nat source rule-set trust-to-untrust to zone untrust
+set security nat source rule-set trust-to-untrust rule source-nat-rule match source-address 0.0.0.0/0
+set security nat source rule-set trust-to-untrust rule source-nat-rule then source-nat interface
+set security nat source rule-set Guest-to-untrust from zone Guest_Zone
+set security nat source rule-set Guest-to-untrust to zone untrust
+set security nat source rule-set Guest-to-untrust rule Guest-nat-rule match source-address 0.0.0.0/0
+set security nat source rule-set Guest-to-untrust rule Guest-nat-rule then source-nat interface
+set security nat source rule-set Security_52-to-untrust from zone Security_52
+set security nat source rule-set Security_52-to-untrust to zone untrust
+set security nat source rule-set Security_52-to-untrust rule Security_52-nat-rule match source-address 0.0.0.0/0
+set security nat source rule-set Security_52-to-untrust rule Security_52-nat-rule then source-nat interface
+set security nat source rule-set TeamApp-to-untrust from zone Team_AppZone
+set security nat source rule-set TeamApp-to-untrust to zone untrust
+set security nat source rule-set TeamApp-to-untrust rule TeamApp-nat-rule match source-address 0.0.0.0/0
+set security nat source rule-set TeamApp-to-untrust rule TeamApp-nat-rule then source-nat interface
+set security nat source rule-set TeamVoice-to-untrust from zone Team_VoiceZone
+set security nat source rule-set TeamVoice-to-untrust to zone untrust
+set security nat source rule-set TeamVoice-to-untrust rule TeamVoice-nat-rule match source-address 0.0.0.0/0
+set security nat source rule-set TeamVoice-to-untrust rule TeamVoice-nat-rule then source-nat interface
+set security nat static rule-set Security_52_SY01_MIP from zone untrust
+set security nat static rule-set Security_52_SY01_MIP rule Security_52_SY01_MAP match destination-address 220.244.115.121/32
+set security nat static rule-set Security_52_SY01_MIP rule Security_52_SY01_MAP then static-nat prefix 192.168.52.20/32
+set security nat proxy-arp interface reth3.0 address 220.244.115.121/30
+set security policies from-zone trust to-zone untrust policy trust-to-untrust match source-address any
+set security policies from-zone trust to-zone untrust policy trust-to-untrust match destination-address any
+set security policies from-zone trust to-zone untrust policy trust-to-untrust match application any
+set security policies from-zone trust to-zone untrust policy trust-to-untrust then permit
+set security policies from-zone Guest_Zone to-zone untrust policy Guest-to-untrust match source-address any
+set security policies from-zone Guest_Zone to-zone untrust policy Guest-to-untrust match destination-address any
+set security policies from-zone Guest_Zone to-zone untrust policy Guest-to-untrust match application any
+set security policies from-zone Guest_Zone to-zone untrust policy Guest-to-untrust then permit
+set security policies from-zone Security_52 to-zone untrust policy Security_52_VPN-to-untrust match source-address Security_52_VPNClients
+set security policies from-zone Security_52 to-zone untrust policy Security_52_VPN-to-untrust match destination-address any
+set security policies from-zone Security_52 to-zone untrust policy Security_52_VPN-to-untrust match application any
+set security policies from-zone Security_52 to-zone untrust policy Security_52_VPN-to-untrust then permit
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrustNTP match source-address any
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrustNTP match destination-address any
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrustNTP match application junos-ntp
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrustNTP then permit
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrust match source-address Security_52_SY01
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrust match destination-address any
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrust match application any
+set security policies from-zone Security_52 to-zone untrust policy Security_52-to-untrust then permit
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match source-address any
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match destination-address Security_52_SY01
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application junos-icmp-ping
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application Synology_Admin
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application junos-http
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application junos-https
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application SynologySS
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application Temp_Torrents_TCP
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application Temp_Torrents_UDP
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 match application Temp_Torrents_UDP2
+set security policies from-zone untrust to-zone Security_52 policy untrust-to-Security_52 then permit
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match source-address any
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match destination-address Security_52_SY01
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application junos-icmp-ping
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application Synology_Admin
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application junos-http
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application junos-https
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application Temp_Torrents_TCP
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application Temp_Torrents_UDP
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application SynologySS
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application Temp_Torrents_UDP2
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 match application junos-ntp
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52 then permit
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match source-address Management_33_Range
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match destination-address Security_52_AliceViaVPN
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match destination-address Security_52_SY01
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match destination-address Security_52_VPNClients
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match application snmp-trap
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP match application junos-icmp-ping
+set security policies from-zone trust to-zone Security_52 policy trust-to-Security_52_TRAP then permit
+set security policies from-zone Security_52 to-zone trust policy Security_52_VPN-to-trust match source-address Security_52_VPNClients
+set security policies from-zone Security_52 to-zone trust policy Security_52_VPN-to-trust match destination-address any
+set security policies from-zone Security_52 to-zone trust policy Security_52_VPN-to-trust match application any
+set security policies from-zone Security_52 to-zone trust policy Security_52_VPN-to-trust then permit
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match source-address Security_52_SY01
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match destination-address any
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match application junos-icmp-ping
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match application junos-http
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match application junos-https
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match application junos-ssh
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust match application SNMP_Both
+set security policies from-zone Security_52 to-zone trust policy Security_52-to-trust then permit
+set security policies from-zone Team_AppZone to-zone untrust policy Team-to-untrust match source-address TeamA_AppZone_NAS01
+set security policies from-zone Team_AppZone to-zone untrust policy Team-to-untrust match destination-address any
+set security policies from-zone Team_AppZone to-zone untrust policy Team-to-untrust match application any
+set security policies from-zone Team_AppZone to-zone untrust policy Team-to-untrust then permit
+set security policies from-zone Team_VoiceZone to-zone untrust policy Team-to-untrust match source-address any
+set security policies from-zone Team_VoiceZone to-zone untrust policy Team-to-untrust match destination-address any
+set security policies from-zone Team_VoiceZone to-zone untrust policy Team-to-untrust match application any
+set security policies from-zone Team_VoiceZone to-zone untrust policy Team-to-untrust then permit
+set security zones security-zone trust address-book address Management_33_Range 10.0.33.0/24
+set security zones security-zone trust host-inbound-traffic system-services all
+set security zones security-zone trust host-inbound-traffic protocols all
+set security zones security-zone trust interfaces vlan.0
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services ssh
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services https
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services ping
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services traceroute
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services dhcp
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services ntp
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services dns
+set security zones security-zone trust interfaces vlan.40 host-inbound-traffic system-services bootp
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services ssh
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services https
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services ping
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services traceroute
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services dhcp
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services ntp
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services dns
+set security zones security-zone trust interfaces vlan.33 host-inbound-traffic system-services bootp
+set security zones security-zone trust interfaces vlan.38 host-inbound-traffic system-services ping
+set security zones security-zone trust interfaces vlan.38 host-inbound-traffic system-services traceroute
+set security zones security-zone trust interfaces vlan.38 host-inbound-traffic system-services dhcp
+set security zones security-zone trust interfaces vlan.38 host-inbound-traffic system-services ntp
+set security zones security-zone trust interfaces vlan.38 host-inbound-traffic system-services dns
+set security zones security-zone untrust interfaces pp0.1 host-inbound-traffic system-services ssh
+set security zones security-zone untrust interfaces pp0.1 host-inbound-traffic system-services https
+set security zones security-zone untrust interfaces pp0.1 host-inbound-traffic system-services ping
+set security zones security-zone untrust interfaces pp0.1 host-inbound-traffic system-services traceroute
+set security zones security-zone untrust interfaces pp0.1 host-inbound-traffic system-services snmp
+set security zones security-zone untrust interfaces reth7.0 host-inbound-traffic system-services ssh
+set security zones security-zone untrust interfaces reth3.0 host-inbound-traffic system-services ssh
+set security zones security-zone untrust interfaces reth3.0 host-inbound-traffic system-services ping
+set security zones security-zone untrust interfaces reth3.0 host-inbound-traffic system-services traceroute
+set security zones security-zone untrust interfaces reth3.0 host-inbound-traffic system-services snmp
+set security zones security-zone Guest_Zone interfaces vlan.48 host-inbound-traffic system-services ping
+set security zones security-zone Guest_Zone interfaces vlan.48 host-inbound-traffic system-services traceroute
+set security zones security-zone Guest_Zone interfaces vlan.48 host-inbound-traffic system-services dhcp
+set security zones security-zone Guest_Zone interfaces vlan.48 host-inbound-traffic system-services bootp
+set security zones security-zone TPresenceLocal_Zone address-book address Telepresence_Device01_Local 10.0.50.5/32
+set security zones security-zone TPresenceRemote_Zone address-book address Telepresence_CUCM_Remote XXXXXXX/32
+set security zones security-zone TPresenceRemote_Zone address-book address Telepresence_CTMS_Remote XXXXXXX/32
+set security zones security-zone TPresenceRemote_Zone address-book address bob.nodecity.com XXXXXXX/32
+set security zones security-zone TPresence interfaces vlan.50 host-inbound-traffic system-services ping
+set security zones security-zone Security_52 address-book address Security_52_SY01 192.168.52.20/32
+set security zones security-zone Security_52 address-book address Security_52_VPNClients 192.168.10.0/24
+set security zones security-zone Security_52 address-book address Untrust_SY01 220.244.115.121/32
+set security zones security-zone Security_52 address-book address Security_52_AliceIDS 192.168.10.6/32
+set security zones security-zone Security_52 address-book address Security_52_AliceViaVPN 192.168.10.6/32
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services ssh
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services https
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services ping
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services traceroute
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services dhcp
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services ntp
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services dns
+set security zones security-zone Security_52 interfaces vlan.52 host-inbound-traffic system-services bootp
+set security zones security-zone Team_AppZone address-book address TeamA_AppZone_NAS01 2.2.2.2/32
+set security zones security-zone Team_AppZone interfaces vlan.234 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.234 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.234 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.235 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.235 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.235 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.236 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.236 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.236 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.237 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.237 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.237 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.834 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.834 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.834 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.835 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.835 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.835 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.836 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.836 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.836 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.837 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.837 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.837 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.239 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.239 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.239 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_AppZone interfaces vlan.839 host-inbound-traffic system-services ping
+set security zones security-zone Team_AppZone interfaces vlan.839 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_AppZone interfaces vlan.839 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.534 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.534 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.534 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.535 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.535 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.535 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.536 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.536 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.536 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.537 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.537 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.537 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.1134 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.1134 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.1134 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.1135 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.1135 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.1135 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.1136 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.1136 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.1136 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.1137 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.1137 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.1137 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.539 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.539 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.539 host-inbound-traffic system-services dhcp
+set security zones security-zone Team_VoiceZone interfaces vlan.1139 host-inbound-traffic system-services ping
+set security zones security-zone Team_VoiceZone interfaces vlan.1139 host-inbound-traffic system-services traceroute
+set security zones security-zone Team_VoiceZone interfaces vlan.1139 host-inbound-traffic system-services dhcp
+set firewall family inet filter FBF_Chooser term 1 from source-address 10.0.40.1/32
+set firewall family inet filter FBF_Chooser term 1 from source-port 22
+set firewall family inet filter FBF_Chooser term 1 from source-port 443
+set firewall family inet filter FBF_Chooser term 1 then count FBF_InsideFW_Management_Count
+set firewall family inet filter FBF_Chooser term 1 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 1 then accept
+set firewall family inet filter FBF_Chooser term 2 from source-prefix-list Management_Prefix
+set firewall family inet filter FBF_Chooser term 2 from destination-port 22
+set firewall family inet filter FBF_Chooser term 2 from destination-port 80
+set firewall family inet filter FBF_Chooser term 2 from destination-port 443
+set firewall family inet filter FBF_Chooser term 2 from destination-port 3141
+set firewall family inet filter FBF_Chooser term 2 from destination-port 7351
+set firewall family inet filter FBF_Chooser term 2 from destination-port 7734
+set firewall family inet filter FBF_Chooser term 2 from destination-port 7752
+set firewall family inet filter FBF_Chooser term 2 then count FBF_Internal_Management_Count
+set firewall family inet filter FBF_Chooser term 2 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 2 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 3 from protocol udp
+set firewall family inet filter FBF_Chooser term 3 from protocol tcp
+set firewall family inet filter FBF_Chooser term 3 from destination-port 53
+set firewall family inet filter FBF_Chooser term 3 then count FBF_TPG_DNS_Count
+set firewall family inet filter FBF_Chooser term 3 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 3 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 4 from dscp cs7
+set firewall family inet filter FBF_Chooser term 4 then count FBF_DSCP7_VoIP_Count
+set firewall family inet filter FBF_Chooser term 4 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 4 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 5 from destination-prefix-list Dropbox_Prefix
+set firewall family inet filter FBF_Chooser term 5 then count FBF_Dropbox_Count
+set firewall family inet filter FBF_Chooser term 5 then routing-instance routing-table-iinet
+set firewall family inet filter FBF_Chooser term 6 from source-prefix-list Guest_Prefix
+set firewall family inet filter FBF_Chooser term 6 then count FBF_Guest_Prefix_Count
+set firewall family inet filter FBF_Chooser term 6 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 7 from destination-prefix-list Internode_Mail_Prefix
+set firewall family inet filter FBF_Chooser term 7 then count FBF_Internode_Prefix_Count
+set firewall family inet filter FBF_Chooser term 7 then routing-instance routing-table-iinet
+set firewall family inet filter FBF_Chooser term 8 from dscp cs2
+set firewall family inet filter FBF_Chooser term 8 then count FBF_DSCP2_Background_Count
+set firewall family inet filter FBF_Chooser term 8 then routing-instance routing-table-iinet
+set firewall family inet filter FBF_Chooser term 9 from protocol udp
+set firewall family inet filter FBF_Chooser term 9 from protocol tcp
+set firewall family inet filter FBF_Chooser term 9 from destination-port 3389
+set firewall family inet filter FBF_Chooser term 9 from destination-port 3478
+set firewall family inet filter FBF_Chooser term 9 from destination-port 4569
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5101
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5004-5005
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5349
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5800
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5900-5901
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5938
+set firewall family inet filter FBF_Chooser term 9 from destination-port 8070
+set firewall family inet filter FBF_Chooser term 9 from destination-port 8090
+set firewall family inet filter FBF_Chooser term 9 from destination-port 8767
+set firewall family inet filter FBF_Chooser term 9 from destination-port 16384-16482
+set firewall family inet filter FBF_Chooser term 9 from destination-port 19305-19309
+set firewall family inet filter FBF_Chooser term 9 from destination-port 5060-5062
+set firewall family inet filter FBF_Chooser term 9 then count FBF_TPG_VoIP_Count
+set firewall family inet filter FBF_Chooser term 9 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 9 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list VoIP_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamA_Voice_534_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamC_Voice_535_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamE_Voice_536_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamG_Voice_537_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamB_Voice_1134_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamD_Voice_1135_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamF_Voice_1136_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamH_Voice_1137_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamI_Voice_539_Prefix
+set firewall family inet filter FBF_Chooser term 10 from source-prefix-list TeamJ_Voice_1139_Prefix
+set firewall family inet filter FBF_Chooser term 10 then count FBF_TPG_VoIP_Phone_Count
+set firewall family inet filter FBF_Chooser term 10 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 10 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 11 from protocol udp
+set firewall family inet filter FBF_Chooser term 11 from protocol tcp
+set firewall family inet filter FBF_Chooser term 11 from destination-port 23
+set firewall family inet filter FBF_Chooser term 11 from destination-port 25
+set firewall family inet filter FBF_Chooser term 11 from destination-port 80
+set firewall family inet filter FBF_Chooser term 11 from destination-port 443
+set firewall family inet filter FBF_Chooser term 11 from destination-port 110
+set firewall family inet filter FBF_Chooser term 11 from destination-port 143
+set firewall family inet filter FBF_Chooser term 11 from destination-port 465
+set firewall family inet filter FBF_Chooser term 11 from destination-port 500
+set firewall family inet filter FBF_Chooser term 11 from destination-port 587
+set firewall family inet filter FBF_Chooser term 11 from destination-port 993-995
+set firewall family inet filter FBF_Chooser term 11 from destination-port 1701
+set firewall family inet filter FBF_Chooser term 11 from destination-port 1723
+set firewall family inet filter FBF_Chooser term 11 from destination-port 3128
+set firewall family inet filter FBF_Chooser term 11 from destination-port 4500
+set firewall family inet filter FBF_Chooser term 11 from destination-port 5988
+set firewall family inet filter FBF_Chooser term 11 from destination-port 7070
+set firewall family inet filter FBF_Chooser term 11 from destination-port 8000-8999
+set firewall family inet filter FBF_Chooser term 11 from destination-port 8080
+set firewall family inet filter FBF_Chooser term 11 from destination-port 10000
+set firewall family inet filter FBF_Chooser term 11 from destination-port 5000
+set firewall family inet filter FBF_Chooser term 11 from destination-port 5001
+set firewall family inet filter FBF_Chooser term 11 from destination-port 873
+set firewall family inet filter FBF_Chooser term 11 then count FBF_Normal_Fast_Count
+set firewall family inet filter FBF_Chooser term 11 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 12 from protocol icmp
+set firewall family inet filter FBF_Chooser term 12 then count FBF_Normal_ICMP
+set firewall family inet filter FBF_Chooser term 12 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 13 from destination-port 22
+set firewall family inet filter FBF_Chooser term 13 then count FBF_SSH_Count
+set firewall family inet filter FBF_Chooser term 13 then forwarding-class expedited-forwarding
+set firewall family inet filter FBF_Chooser term 13 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term 14 from destination-prefix-list Internet_Prefix
+set firewall family inet filter FBF_Chooser term 14 then count FBF_Internet_Prefix_Count
+set firewall family inet filter FBF_Chooser term 14 then routing-instance routing-table-tpg
+set firewall family inet filter FBF_Chooser term default then count FBF_TPG_Default_Count
+set firewall family inet filter FBF_Chooser term default then routing-instance routing-table-tpg
+set firewall policer 10mbps-policer filter-specific
+set firewall policer 10mbps-policer if-exceeding bandwidth-limit 10m
+set firewall policer 10mbps-policer if-exceeding burst-size-limit 500k
+set firewall policer 10mbps-policer then discard
+set firewall policer 20mbps-policer filter-specific
+set firewall policer 20mbps-policer if-exceeding bandwidth-limit 19m
+set firewall policer 20mbps-policer if-exceeding burst-size-limit 1m
+set firewall policer 20mbps-policer then discard
+set firewall policer 35mbps-policer filter-specific
+set firewall policer 35mbps-policer if-exceeding bandwidth-limit 33m
+set firewall policer 35mbps-policer if-exceeding burst-size-limit 2m
+set firewall policer 35mbps-policer then discard
+set firewall policer 50mbps-policer filter-specific
+set firewall policer 50mbps-policer if-exceeding bandwidth-limit 47m
+set firewall policer 50mbps-policer if-exceeding burst-size-limit 3m
+set firewall policer 50mbps-policer then discard
+set firewall policer 80mbps-policer filter-specific
+set firewall policer 80mbps-policer if-exceeding bandwidth-limit 76m
+set firewall policer 80mbps-policer if-exceeding burst-size-limit 4m
+set firewall policer 80mbps-policer then discard
+set firewall policer 100mbps-policer filter-specific
+set firewall policer 100mbps-policer if-exceeding bandwidth-limit 95m
+set firewall policer 100mbps-policer if-exceeding burst-size-limit 5m
+set firewall policer 100mbps-policer then discard
+set firewall policer 16mbps-policer filter-specific
+set firewall policer 16mbps-policer if-exceeding bandwidth-limit 16m
+set firewall policer 16mbps-policer if-exceeding burst-size-limit 750k
+set firewall policer 16mbps-policer then discard
+set firewall policer 1mbps-policer filter-specific
+set firewall policer 1mbps-policer if-exceeding bandwidth-limit 1m
+set firewall policer 1mbps-policer if-exceeding burst-size-limit 100k
+set firewall policer 1mbps-policer then discard
+set routing-instances routing-table-iinet instance-type forwarding
+set routing-instances routing-table-iinet routing-options static route 0.0.0.0/0 qualified-next-hop pp0.1 preference 10
+set routing-instances routing-table-iinet routing-options static route 0.0.0.0/0 qualified-next-hop pp0.1 metric 10
+set routing-instances routing-table-iinet routing-options static route 0.0.0.0/0 qualified-next-hop 202.161.91.33 preference 20
+set routing-instances routing-table-iinet routing-options static route 0.0.0.0/0 qualified-next-hop 202.161.91.33 metric 20
+set routing-instances routing-table-iinet routing-options static route 192.168.10.0/24 next-hop 192.168.52.20
+set routing-instances routing-table-tpg instance-type forwarding
+set routing-instances routing-table-tpg routing-options static route 0.0.0.0/0 qualified-next-hop pp0.1 preference 20
+set routing-instances routing-table-tpg routing-options static route 0.0.0.0/0 qualified-next-hop 202.161.91.33
+set routing-instances routing-table-tpg routing-options static route 192.168.10.0/24 next-hop 192.168.52.20
+set services rpm probe icmp-ping-probe test ping-probe-test probe-type icmp-ping
+set services rpm probe icmp-ping-probe test ping-probe-test target address 8.8.8.8
+set services rpm probe icmp-ping-probe test ping-probe-test probe-count 10
+set services rpm probe icmp-ping-probe test ping-probe-test probe-interval 1
+set services rpm probe icmp-ping-probe test ping-probe-test test-interval 5
+set services rpm probe icmp-ping-probe test ping-probe-test thresholds successive-loss 10
+set services rpm probe icmp-ping-probe test ping-probe-test thresholds total-loss 10
+set services rpm probe icmp-ping-probe test ping-probe-test traps test-completion
+set services rpm probe icmp-ping-probe test ping-probe-test traps test-failure
+set services rpm probe icmp-ping-probe test ping-probe-test destination-interface reth3.0
+set services rpm probe icmp-ping-probe test ping-probe-test next-hop 202.161.91.33
+set applications application Synology_Admin protocol tcp
+set applications application Synology_Admin destination-port 5000
+set applications application Temp_Torrents_TCP protocol tcp
+set applications application Temp_Torrents_TCP destination-port 16881
+set applications application Temp_Torrents_UDP protocol udp
+set applications application Temp_Torrents_UDP destination-port 6881
+set applications application Asterisk_Admin2 protocol tcp
+set applications application Asterisk_Admin2 destination-port 5038
+set applications application Asterisk_Admin protocol tcp
+set applications application Asterisk_Admin destination-port 8088
+set applications application Synology_Admin2 protocol tcp
+set applications application Synology_Admin2 destination-port 5000-5001
+set applications application Synology_Admin3 protocol tcp
+set applications application Synology_Admin3 destination-port 9900
+set applications application Synology_Admin4 protocol tcp
+set applications application Synology_Admin4 destination-port 9901
+set applications application Synology_Admin5 protocol tcp
+set applications application Synology_Admin5 destination-port 873
+set applications application Synology_Admin6 protocol tcp
+set applications application Synology_Admin6 destination-port 22
+set applications application Synology_Admin7 protocol tcp
+set applications application Synology_Admin7 destination-port 21
+set applications application Synology_Admin8 protocol tcp
+set applications application Synology_Admin8 destination-port 20
+set applications application Synology_Admin9 protocol udp
+set applications application Synology_Admin9 destination-port 1194
+set applications application Temp_Torrents_UDP2 protocol udp
+set applications application Temp_Torrents_UDP2 destination-port 16881
+set applications application Synology_Admin10 protocol udp
+set applications application Synology_Admin10 destination-port 514
+set applications application Synology_Admin11 protocol tcp
+set applications application Synology_Admin11 destination-port 514
+set applications application snmp protocol udp
+set applications application snmp destination-port 161
+set applications application snmp2 protocol tcp
+set applications application snmp2 destination-port 161
+set applications application Synology_Admin12 protocol tcp
+set applications application Synology_Admin12 destination-port 55536-55543
+set applications application Bitcoin_Mine protocol tcp
+set applications application Bitcoin_Mine destination-port 3334
+set applications application Bitcoin_GetWork1 protocol tcp
+set applications application Bitcoin_GetWork1 destination-port 8333
+set applications application Bitcoin_GetWork2 protocol udp
+set applications application snmp-trap protocol udp
+set applications application snmp-trap destination-port 162
+set applications application-set SynologySS application Synology_Admin2
+set applications application-set SynologySS application Synology_Admin5
+set applications application-set SynologySS application Synology_Admin6
+set applications application-set SynologySS application Synology_Admin7
+set applications application-set SynologySS application Synology_Admin8
+set applications application-set SynologySS application Synology_Admin9
+set applications application-set SynologySS application Synology_Admin10
+set applications application-set SynologySS application Synology_Admin11
+set applications application-set SynologySS application Synology_Admin12
+set applications application-set SNMP_Both application snmp
+set applications application-set SNMP_Both application snmp2
+set applications application-set Bitcoin application Bitcoin_Mine
+set applications application-set Bitcoin application Bitcoin_GetWork1
+set applications application-set Bitcoin application Bitcoin_GetWork2
+set vlans Data_40 vlan-id 40
+set vlans Data_40 l3-interface vlan.40
+set vlans Guest_48 vlan-id 48
+set vlans Guest_48 l3-interface vlan.48
+set vlans Management_33 vlan-id 33
+set vlans Management_33 l3-interface vlan.33
+set vlans Security_52 vlan-id 52
+set vlans Security_52 l3-interface vlan.52
+set vlans TPresence_50 vlan-id 50
+set vlans TPresence_50 l3-interface vlan.50
+set vlans TeamA_App_234 vlan-id 234
+set vlans TeamA_App_234 l3-interface vlan.234
+set vlans TeamA_Voice_534 vlan-id 534
+set vlans TeamA_Voice_534 l3-interface vlan.534
+set vlans TeamB_App_834 vlan-id 834
+set vlans TeamB_App_834 l3-interface vlan.834
+set vlans TeamB_Voice_1134 vlan-id 1134
+set vlans TeamB_Voice_1134 l3-interface vlan.1134
+set vlans TeamC_App_235 vlan-id 235
+set vlans TeamC_App_235 l3-interface vlan.235
+set vlans TeamC_Voice_535 vlan-id 535
+set vlans TeamC_Voice_535 l3-interface vlan.535
+set vlans TeamD_App_835 vlan-id 835
+set vlans TeamD_App_835 l3-interface vlan.835
+set vlans TeamD_Voice_1135 vlan-id 1135
+set vlans TeamD_Voice_1135 l3-interface vlan.1135
+set vlans TeamE_App_236 vlan-id 236
+set vlans TeamE_App_236 l3-interface vlan.236
+set vlans TeamE_Voice_536 vlan-id 536
+set vlans TeamE_Voice_536 l3-interface vlan.536
+set vlans TeamF_App_836 vlan-id 836
+set vlans TeamF_App_836 l3-interface vlan.836
+set vlans TeamF_Voice_1136 vlan-id 1136
+set vlans TeamF_Voice_1136 l3-interface vlan.1136
+set vlans TeamG_App_237 vlan-id 237
+set vlans TeamG_App_237 l3-interface vlan.237
+set vlans TeamG_Voice_537 vlan-id 537
+set vlans TeamG_Voice_537 l3-interface vlan.537
+set vlans TeamH_App_837 vlan-id 837
+set vlans TeamH_App_837 l3-interface vlan.837
+set vlans TeamH_Voice_1137 vlan-id 1137
+set vlans TeamH_Voice_1137 l3-interface vlan.1137
+set vlans TeamI_App_239 vlan-id 239
+set vlans TeamI_App_239 l3-interface vlan.239
+set vlans TeamI_Voice_539 vlan-id 539
+set vlans TeamI_Voice_539 l3-interface vlan.539
+set vlans TeamJ_App_839 vlan-id 839
+set vlans TeamJ_App_839 l3-interface vlan.839
+set vlans TeamJ_Voice_1139 vlan-id 1139
+set vlans TeamJ_Voice_1139 l3-interface vlan.1139
+set vlans Voice_38 vlan-id 38
+set vlans Voice_38 l3-interface vlan.38
+set vlans default vlan-id 1
+set vlans default l3-interface vlan.1
