@@ -189,15 +189,22 @@ People still make the most important decisions. Optimizing for the 'correct' or 
 
 Everyone's personal and organizational risk tolerance is different (and subject to different contexts and constraints). In Infosec we traditionally operate from a risk-averse standpoint. This sometimes means we lag behind as disruptions overtake us. So, rather than try and espouse what you should do without knowing your exact situation, perhaps we could help to clarify your thinking by challenging you to map where your current risk tolerance and trust resides. A simple thought exercise?
 
+<center>Put a mental tick in each box based on your current affirmative trust level ✔</center>
+
 <div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
   <img loading="lazy" class="img-fluid" src="/images/bsoc_trust_100920.png" alt="Trust Experiment" style="border-radius: 12px; margin: 16px 0;">
 </div>
+
+<center><strong>Note:</strong> The above diagram is a simple mapping related to the OODA loop. It is designed to do one thing quickly, see
+where your comfort level lies with regard to trusting people, process, and technology.</center>
+
+---
 
 ## Key Takeaways
 
 <div style="background: var(--card-bg, #fff); border-radius: 16px; padding: 20px; margin-bottom: 32px;">
   <ul style="font-size: 1.08em; color: var(--text, #333); line-height: 1.7;">
-    <li>The traditional SOC is no longer fit-for-purpose, it must become antifragile.</li>
+    <li>The traditional SOC is no longer fit-for-purpose, it must become more antifragile.</li>
     <li>Optimizing for change ensures adaptability and survival.</li>
     <li>The volume, velocity, and fidelity of data and events are set to grow not shrink.</li>
     <li>You can centralize much of the core technology platform, but the physical location is no more, it's distributed (towards the talent and towards the edge!).</li>
@@ -206,15 +213,15 @@ Everyone's personal and organizational risk tolerance is different (and subject 
     <li>Optimize for security observability inc. active 'query-ability' around high cardinality events. (passive consumption of telemetry is not enough).</li>
     <li>Bring detection engineering closer to the data source. This helps with the flood of data by increasing the Signal-to-Noise Ratio (SNR) and reducing telemetry overheads.</li>
     <li>Leverage automation and real-A.I. for well-defined protocols, event states, and workflows.</li>
-    <li>Pivot to measurable and demonstrable outcomes and KPIs relating to detection and time.</li>
+    <li>Pivot to measurable and demonstrable outcomes (hopefully aligned with OKRs and KPIs) with a focus on detection and response times.</li>
     <li>Embrace ephemerality as an ally, not as a foe. Plan for it head on, don't go around it.</li>
-    <li>Leverage employees as intelligent sensors e.g. crowdsource event integrity and real time confirmations.</li>
+    <li>Leverage employees as intelligent sensors e.g. crowdsource event integrity and real time confirmations. Human in the Loop (HITL).</li>
     <li>Use what you have, build what you can, but always use (or buy) the best glue.</li>
-    <li>Prioritize API first platforms but those with first-class APIs.</li>
+    <li>Prioritize usage of 'API-first' platforms for integration, enhancement, and generative network effects.</li>
     <li>Identify or embed security champions in all operations teams.</li>
     <li>Best of Breed / Best in Class do fewer things better, while understanding and enabling ecosystems and interoperability.</li>
     <li>The single throat-to-choke is your own, as you can't outsource your business risk.</li>
-    <li>Culture-First is your best hedge against the future.</li>
+    <li>'Culture-First' is your best hedge against the future.</li>
     <li>Did we mention up-skilling existing teams?</li>
   </ul>
 </div>
