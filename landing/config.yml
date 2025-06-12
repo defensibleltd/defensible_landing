@@ -1,6 +1,6 @@
 baseURL: "https://defensible.ie/"
 languageCode: "en-us"
-title: "Defensible Limited"
+title: "Defensible"
 theme: "PaperMod"
 summaryLength: 37
 enableGitInfo: true
