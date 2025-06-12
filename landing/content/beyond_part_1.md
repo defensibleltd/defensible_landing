@@ -28,7 +28,7 @@ Increased observability and better signals mean we can translate events to bette
 
 Organizations also require this new protective overlay system to be antifragile, to improve and evolve ever more rapidly than before. Sentient attackers and digital contagion know no borders and continue to exploit human and machine vulnerabilities. As our information-rich circulatory systems pump digital value around an organization, how we respond to threats means the difference between barely keeping the lights on or thriving.
 
-Cyber, as a domain of conflict, is one of the fastest-growing and accelerating spaces. It's one we all depend upon daily, one we can not afford to reject or ignore. For SecOps, there is increasingly no discrete or distinct center of operations. Resources, workflows, and defenses are elastic and unevenly distributed. So, as noble defenders, symbiotic with our technology, we must adapt to our new environments and realities.
+Cyber, as a domain of conflict, is one of the fastest-growing and accelerating spaces. It's one we all depend upon daily, one we can not afford to reject or ignore. For SecOps, there is increasingly no discrete or distinct center of operations. Resources, workflows, and defenses are elastic and unevenly distributed. So, as noble defenders, symbiotic with our technology, we must also adapt to our new environments and realities.
 
 The economics of defense are being rewritten once more. As always it comes down to the survival of the 'fittest'. Time is of the essence and trust is the fulcrum. The future is distributed and physically SOC-less, so what is it we should be optimizing for?
 
