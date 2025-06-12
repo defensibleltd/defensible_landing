@@ -26,7 +26,7 @@ Human and machine roles are shifting further towards their respective strengths,
 
 Increased observability and better signals mean we can translate events to better outcomes. New hybrid strategies are emerging, ones that surveil ever more deeply and police ever closer to data sources. Those who can tame this growing complexity and velocity forge virtuous cycles not just for themselves but for their colleagues and teams.
 
-Organizations also require this new protective overlay system to be antifragile, to improve and evolve ever more rapidly than before. Sentient attackers and digital contagion know no borders and continue to exploit human and machine vulnerabilities. As our information-rich circulatory systems pump digital value around an organization, how we respond to threats means the difference between keeping the lights on or thriving.
+Organizations also require this new protective overlay system to be antifragile, to improve and evolve ever more rapidly than before. Sentient attackers and digital contagion know no borders and continue to exploit human and machine vulnerabilities. As our information-rich circulatory systems pump digital value around an organization, how we respond to threats means the difference between barely keeping the lights on or thriving.
 
 Cyber, as a domain of conflict, is one of the fastest-growing and accelerating spaces. It's one we all depend upon daily, one we can not afford to reject or ignore. For SecOps, there is increasingly no discrete or distinct center of operations. Resources, workflows, and defenses are elastic and unevenly distributed. So, as noble defenders, symbiotic with our technology, we must adapt to our new environments and realities.
 
