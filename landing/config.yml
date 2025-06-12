@@ -38,7 +38,7 @@ params:
   disableThemeToggle: false
 
   ShowReadingTime: true
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: false
@@ -109,7 +109,7 @@ params:
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    hiddenInSingle: false # hide on single page
 
   # editPost:
     # URL: "https://github.com/<path_to_repo>/content"
@@ -132,7 +132,7 @@ menu:
     - identifier: contact
       name: Contact
       url: /contact/
-      weight: 20
+      weight: 60
     - identifier: engage
       name: Engage
       url: /engage/
@@ -148,7 +148,7 @@ menu:
     - identifier: training
       name: Training
       url: /training/
-      weight: 40
+      weight: 50
 
 outputs:
     home:
