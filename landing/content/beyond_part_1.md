@@ -37,7 +37,7 @@ The economics of defense are being rewritten once more. As always it comes down 
 
 ---
 
-## The Past
+## The Past?
 
 ### On Measuring Security
 
