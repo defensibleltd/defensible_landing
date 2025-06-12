@@ -95,7 +95,7 @@ Everyone's personal and organizational risk tolerance is different (and subject 
 </div>
 
 <center><strong>Note:</strong> The above diagram is a simple mapping related to the OODA loop. It is designed to do one thing quickly, see
-where your comfort level lies with regard to trusting people, process, and technology.</center>
+where your comfort level lies with regard to the trust of people, process, and technology.</center>
 
 ---
 
