@@ -26,7 +26,7 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: "Defensible Limited"
+  title: "Defensible"
   description: "Make it so with independent Information Security, Network Reliability Engineering, and solid, no bullshit Technical Marketing + Automation from the trenches."
   # keywords: [Blog, Portfolio, PaperMod]
   author: Donal
