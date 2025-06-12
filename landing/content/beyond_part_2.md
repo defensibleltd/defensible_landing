@@ -1,19 +1,20 @@
 ---
-title: "Beyond The SOC"
+title: "Beyond The SOC (Part 2)"
 url: "/beyond_the_soc_part_2"
-description: "Trajectories in security operations."
+description: "Trajectories in security. Challenges in the present."
 hidemeta: true
 draft: false
+cover:
+  image: "/images/push_me_pull_me.png"
+  relative: false
+  alt: "A colorful illustration of observability and controllability"
+  caption: "Is your own C2 a weakness with unlimited reach?"
 ---
 <style>
 .post-description {
   font-size: 1.5em; color: var(--text, #666);
 }
 </style>
-
-<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
-  <img loading="lazy" class="img-fluid" src="/images/new_image.png" alt="Beyond the SOC Cover" style="border-radius: 12px; margin: 16px 0;">
-</div>
 
 ## The Present
 
@@ -39,7 +40,11 @@ Security is a continuous process in the face of ongoing internal and external ch
 
 ### Daedalus or Icarus
 
-Infosec on one hand is learning from and leveraging useful DevOps approaches to automation and orchestration, yet attempts to give each host or service its own unique protection profile which creates more challenges. Micro-segmentation can work if everything is automated end-to-end, but then inspecting, maintaining, and troubleshooting this automation logic (and its own lifecycle) incurs additional overheads and operational ‘taxes'. There is a balance between open and closed, grouping, and segmenting. Supervising humans must still be able to reason about overall risk, trust, and dependencies, whilst retaining a veto on certain decision paths and resultant automated actions.
+Infosec on one hand is learning from and leveraging useful DevOps approaches to automation and orchestration, yet attempts to give each host or service its own unique protection profile creates even more challenges. Micro-segmentation can work if everything is automated end-to-end, but then inspecting, maintaining, and troubleshooting this automation logic (and curating its lifecycle) incurs additional overheads and operational ‘taxes'. There is a balance between open and closed, grouping, and segmenting. Supervising humans must still be able to reason about overall risk, trust, and dependencies, whilst retaining a veto on certain decision paths and resultant automated actions. Grouping assets based on attributes and characteristics like risk rating, is still a valid approach to managing complexity.
+
+<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
+  <img loading="lazy" class="img-fluid" src="/images/volume_overload.png" alt="Volume and overload" style="border-radius: 12px; margin: 16px 0;">
+</div>
 
 ### Seeking Compliance
 
@@ -65,7 +70,10 @@ In this new age of elasticity, hosts can no longer be counted on to be persisten
 
 <div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 20px; width: 100%;">
   <center>
-    <a class="button" href="/beyond_the_soc_part_3" rel="noopener" title="Part 2">
+    <a class="button" href="/beyond_the_soc_part_1" rel="noopener" title="Part 2">
+      <span class="button-inner">Back to Part 1 (The Past)</span>
+    </a>
+    <a class="button" href="/beyond_the_soc_part_3" rel="noopener" title="Part 3">
       <span class="button-inner">Read Part 3 (The Future)</span>
     </a>
   </center>

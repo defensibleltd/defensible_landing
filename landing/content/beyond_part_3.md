@@ -1,20 +1,20 @@
 ---
 title: "Beyond The SOC (Part 3)"
 url: "/beyond_the_soc_part_3"
-description: "Trajectories in security operations. The Future."
+description: "Trajectories in security. Challenges of the future, today!"
 hidemeta: true
 draft: false
+cover:
+  image: "/images/secops_hq.png"
+  relative: false
+  alt: "Busy street scene showing confusion and complexity"
+  caption: "Where is the nexus of your logic and talent?"
 ---
 <style>
 .post-description {
   font-size: 1.5em; color: var(--text, #666);
 }
 </style>
-
-<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
-  <img loading="lazy" class="img-fluid" src="/images/new_image.png" alt="Beyond the SOC Cover" style="border-radius: 12px; margin: 16px 0;">
-</div>
-
 
 ##  The Future
 
@@ -33,8 +33,10 @@ SecOps is now a hybrid affair. It leverages increased observability, is almost w
 Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. In a security context this means whether we can infer the system (or entity) can still be trusted to perform integral and secure operations and/or that it has not been subverted or compromised in any way. We may use passive or active measures to try and establish this. We may query the entity directly or use side-channels, signals, and second-order effects. We may also apply this quality or property of observability to larger parts of our organization such as aggregate groups of hosts or network segments. The degree to which we can observe and infer the security state of a device is crucial to SecOps and relies heavily on detection engineering.
 
 ### Deceptive Detection?
-
-One of the primary concerns is that we are dealing with an active and sentient adversary (or their agent) who wishes to evade detection. This means the state space may be being intentionally misrepresented to us which makes the detection task even more difficult. It's not just a case of trust via transparency, but the even harder problem of provable security. Encryption can also render parts and paths of a system opaque to us (without the correct keys or access) so SecOps may not always get the required visibility.
+<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
+  <img loading="lazy" class="img-fluid" src="/images/provable_security.png" alt="Provable security?" style="border-radius: 12px; margin: 16px 0;">
+</div>
+One of the primary concerns is that we are dealing with active and sentient adversaries (or their agents) who wish to gain footholds and evade detection. This means the state space may be being intentionally misrepresented to us which makes the detection task even more difficult. It's not just a case of trust via transparency, but the even harder problem of provable security. Encryption can also render parts and paths of a system opaque to us (without the correct keys or access) so SecOps may not always get the required visibility.
 
 Sometimes relying on indirect means of establishing the state and integrity of a system or segment must be embraced. Digital lures and tripwires now play a greater role in detection as they give higher fidelity signals about the presence and intent of any malicious actors (they also generate low to no noise when strategically placed). This turns the tables on attackers and reverses an age-old asymmetry where the attacker now needs to detect whether they are engaging with valid assets are not. Their TTPs (Tactics, Techniques, and Procedures) are disrupted and paths more tightly constrained. Internal honeypots are not a new detection technology but have become more usable and yield greater returns in the 'kill-chain'.
 
@@ -63,7 +65,9 @@ New terms like SecDevOps assume internal developers write all tooling. Not every
 Where and how does our security logic evolve from? Ultimately we are outsourcing an increasing amount of compute stack management while moving closer to writing our own high-level application or business logic. We are writing in a more declarative way about our intent and desired outcomes. This is also where SecOps is moving towards. We are focusing on the workflows that leverage a range of specialized services and tools. We are shifting towards composing repeatable outcomes riding on top of trusted and untrusted fabrics. Consistent and integral responses are required not just from APIs but from our workflows. They should result in deterministic outcomes stemming from the same decision trees. Can you smoke test your security workflows end-to-end and easily simulate events that lead to an incident? Rather than waiting for an attacker or point in time penetration test, can you drill your digital procedures for consistent outcomes and adjust where necessary?
 
 ### Manual or A.I. Ops?
-
+<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
+  <img loading="lazy" class="img-fluid" src="/images/ai_brain.png" alt="AI brain?" style="border-radius: 12px; margin: 16px 0;">
+</div>
 A.I. (Artificial Intelligence) has utility. It is not a panacea. The human fear of obsolescence mixed with rampant A.I. washing in the industry has resulted in hyper skepticism. This doubt is warranted and should be welcomed by vendors offering real-A.I. We already use A.I. daily in everything from search engines using NLU (Natural Language Understanding) and deep learning to EDR (Endpoint Detection and Response) malware detection. A.I. is ambiguous, it's an umbrella term for a set of technologies that mimic human intelligence. Machine Learning and Deep Learning are subsets with very useful applications, especially for certain problem spaces. Labeled data is commonly used in supervised learning (network protocols are well-labeled datasets). Unlabelled data is used in unsupervised learning and reinforcement learning uses rewards to constantly calibrate. The machine learning domain is vast and unfolding rapidly. Spotting real-A.I. versus snake-oil is a challenge but not an insurmountable one. Many fear the black box due to a lack of introspectability and explainability, so the power to surface raw datasets, features, and intermediary states, become the transparency challenge for engendering trust. A.I.-Ops provides a faster and more scalable OODA loop, but one that must overcome the trust issues that IPS (Intrusion Prevention System) faced when compared to IDS (Intrusion Detection System). Who is ultimately accountable and responsible for decision making and any resultant negative outcomes? There is a logical evolution from manual tasks, to automation, and then to augmentation and enhancement using A.I. SecOps is already an artificially enhanced and intelligent OODA loop, so the question is not when, but how much will we allow A.I. to drive?
 
 ### Bridging the Gap
@@ -137,8 +141,8 @@ One size does not fit all. Model, adapt, and store your security workflow logic 
       <span class="button-inner">Contact Us</span>
     </a>
     or
-    <a class="button" href="/beyond_the_soc_part_1" rel="noopener" title="Contact Defensible">
-      <span class="button-inner">Back to Part 1</span>
+    <a class="button" href="/beyond_the_soc_part_1" rel="noopener" title="Part 1">
+      <span class="button-inner">Back to Part 1 (The Past)</span>
     </a>
   </center>
 </div>

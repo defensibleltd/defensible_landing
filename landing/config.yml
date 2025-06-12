@@ -145,6 +145,10 @@ menu:
       name: Team
       url: /team/
       weight: 40
+    - identifier: soc
+      name: SOC
+      url: /beyond_the_soc_part_1
+      weight: 40
     - identifier: training
       name: Training
       url: /training/

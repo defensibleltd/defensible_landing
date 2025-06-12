@@ -1,24 +1,20 @@
 ---
 title: "Beyond The SOC (Part 1)"
 url: "/beyond_the_soc_part_1"
-description: "Trajectories in security operations. The Past."
+description: "Trajectories in security. Challenges of the past + status quo."
 hidemeta: true
 draft: false
 cover:
   image: "/images/observability_busytown.png"
   relative: false
   alt: "A colorful illustration of observability and controllability"
-  caption: "Diagram explaining observability and controllability"
+  caption: "More defenders busywork!"
 ---
 <style>
 .post-description {
   font-size: 1.5em; color: var(--text, #666);
 }
 </style>
-
-<div style="background-color: var(--card-bg, #fff); border-radius: 20px; padding: 24px 20px 20px 20px; width: 100%; margin-bottom: 32px;">
-  <img loading="lazy" class="img-fluid" src="/images/ai_ops_140920.png" alt="Beyond the SOC Cover" style="border-radius: 12px; margin: 16px 0;">
-</div>
 
 ## Introduction
 
@@ -41,7 +37,7 @@ The economics of defense are being rewritten once more. As always it comes down 
 
 ---
 
-## The Past (And the status quo!)
+## The Past
 
 ### On Measuring Security
 
