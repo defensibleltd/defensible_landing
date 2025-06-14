@@ -8,7 +8,7 @@ cover:
   image: "/images/observability_busytown.png"
   relative: false
   alt: "A colorful illustration of observability and controllability"
-  caption: "More defenders busywork!"
+  caption: "Always more defender busywork!"
 ---
 <style>
 .post-description {
