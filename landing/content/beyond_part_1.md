@@ -1,7 +1,7 @@
 ---
 title: "Beyond The SOC (Part 1)"
 url: "/beyond_the_soc_part_1"
-description: "Trajectories in security. Challenges of the past + status quo."
+description: "Trajectories in security. Challenging the status quo."
 hidemeta: true
 draft: false
 cover:
