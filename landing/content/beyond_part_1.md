@@ -20,7 +20,7 @@ cover:
 
 The Security Operations Centre (SOC) as we know it is a thing of the past. The SOC is not dead but is being reborn to avoid becoming obsolete. A SOC is an operational overlay of people, process, and technology built on your security model. When the environment and threat landscape changes, your security model must adapt and evolve, and so too must the SOC.
 
-This operational overlay runs its own OODA (Observe, Orient, Decide, Act) loop. At its nexus is decision making. Decisions must be made rapidly. Supporting capabilities must evolve constantly. As the volume and velocity of your data and services multiply, so too do the digital surfaces that require protection.
+This operational overlay runs its own <a href="https://en.wikipedia.org/wiki/OODA_loop" target="_blank">OODA (Observe, Orient, Decide, Act)] loop</a>. At its nexus is decision making. Decisions must be made rapidly. Supporting capabilities must evolve constantly. As the volume and velocity of your data and services multiply, so too do the digital surfaces that require protection.
 
 Human and machine roles are shifting further towards their respective strengths, while still continuing to augment one other. Accelerating events are outpacing and overwhelming legacy architectures. On one side we are asked to do more with less, yet for human Security Operations (SecOps) to become sustainable, the irony is that we, as humans, must figure out how to do less with more. We must leverage new tools, patterns, and technologies to help us observe, orient, decide, and act faster.
 
