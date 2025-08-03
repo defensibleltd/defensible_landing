@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HPE P5G Overview For Ken</title>
+  <meta name="viewport" content="width=1024">
+  <!-- Reveal.js stylesheet from CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/black.min.css">
+  <style>
+    body, .reveal {
+      background: #0F3250 !important;
+      font-family: 'MetricHPE', 'Segoe UI', Arial, Helvetica, sans-serif !important;
+      color: #fff;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .reveal h2 {
+      color: #FF8300;
+      font-weight: 700;
+      font-size: 2.6em;
+      margin-bottom: 0.65em;
+    }
+    .reveal h3 {
+      color: #FF8300;
+      font-size: 2em;
+      margin-bottom: 0.2em;
+      font-weight: 600;
+    }
+    .reveal h4 {
+      color: #ADE1F0;
+      font-size: 1.29em;
+      margin: 1.1em 0 0.5em 0;
+      font-weight: 500;
+    }
+    .reveal p, .reveal ul, .reveal ol, .reveal li {
+      color: #fff;
+      font-size: 1.13em;
+      font-weight: 400;
+      line-height: 1.37;
+      margin-bottom: 0.18em;
+    }
+    .reveal ul, .reveal ol {
+      margin: 1em 0 1em 1.3em;
+      padding: 0;
+    }
+    .reveal a { color: #FF5F4B; text-decoration: underline; }
+    .note {
+      background: #646569;
+      color: #FF8300;
+      padding: 13px 21px;
+      border-left: 5px solid #FF8300;
+      border-radius: 4px;
+      font-size: 1em;
+      margin: 1.1em 0 0.4em 0;
+      font-weight: 500;
+    }
+    @media (max-width:900px) {
+      .reveal { font-size: 14px !important; }
+      .reveal h2 { font-size: 1.4em; }
+      .reveal h3 { font-size: 1.12em; }
+      .reveal h4 { font-size: 0.98em; }
+    }
+    .reveal .slides { box-shadow: none !important; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Title Slide -->
+    <section>
+      <h2>HPE P5G Overview For Ken</h2>
+    </section>
+
+    <section>
+      <h3>HPE Aruba Private 5G Solution Overview</h3>
+      <p>
+        HPE Aruba Networking Private 5G is a comprehensive enterprise cellular solution built on proven technology from Athonet, which HPE acquired in 2023. The solution provides an integrated, end-to-end private 5G network designed to "complement existing Wi-Fi infrastructure rather than replace it".
+      </p>
+    </section>
+
+    <section>
+      <h4>Main Feature Benefits</h4>
+      <ul>
+        <li><strong>Comprehensive coverage and mobility:</strong> Wider coverage per radio, seamless indoor/outdoor coverage, improved network-controlled handoff and high mobility support</li>
+        <li><strong>Advanced Quality of Service (QoS):</strong> Fine-grained, deterministic QoS and SLAs for latency-sensitive, mission-critical traffic</li>
+        <li><strong>Minimal wireless interference:</strong> Spectrum is protected and managed (e.g., via SAS for CBRS in the US)</li>
+        <li><strong>Security:</strong> SIM-based device identity, separation from public networks</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What's in the "stack"?</h3>
+      <p>The solution requires different devices and controllers compared to traditional Wi-Fi deployments</p>
+      <ul>
+        <li><strong>Small Cells:</strong> HPE-manufactured 4G/5G small cell radios for <em>wider</em> indoor and outdoor coverage (better propagation)</li>
+        <li><strong>Core Infrastructure:</strong> HPE ProLiant Gen11 servers running the mobile core software</li>
+        <li><strong>Management:</strong> Dedicated private 5G cloud-based management dashboard (separate from Aruba Central initially) plus configuration wizards designed to mask 3GPP cellular complexity</li>
+        <li><strong>Client Devices:</strong> 5G-capable devices with SIM/eSIM cards for cellular connectivity, spectrum access system (for CBRS in the US)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Integration with Existing Networking</h3>
+      <p>
+        HPE's approach focuses on unified wireless connectivity rather than siloed deployment. Currently, private 5G management operates through a separate dashboard from HPE Aruba Central, though both systems are cloud-based with similar interfaces
+      </p>
+      <div class="note">
+        Note: the solution fully supports CBRS (Citizens Broadband Radio Service) spectrum in the USA. The HPE solution includes a Spectrum Access System (SAS) to manage CBRS spectrum coordination and interference protection. This eliminates the need for enterprises to acquire expensive licensed spectrum from mobile operators
+      </div>
+    </section>
+
+    <section>
+      <h3>Future Integration Plans</h3>
+      <p>
+        HPE is <em>working toward</em> full integration with Aruba Central, which will provide unified management across wired, Wi-Fi, private 5G, and SD-WAN networks under a single pane of glass. This integration will include:
+      </p>
+      <ul>
+        <li>Shared identity management using (e)SIM credentials as primary identity</li>
+        <li>Unified quality of service policies</li>
+        <li>Common security frameworks and analytics tools</li>
+        <li>Wi-Fi PassPoint technology for seamless device onboarding between networks</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Future Integration with Wi-Fi</h3>
+      <p>
+        HPE is developing Air Pass technology to bridge this gap by enabling devices with SIM credentials to automatically authenticate on Wi-Fi networks. However, Air Pass currently only  works to allow cellular-credentialed devices to access Wi-Fi, it does not enable Wi-Fi devices to access private 5G.
+      </p>
+    </section>
+
+    <section>
+      <h3>WLAN Pros Community Feedback on P5G</h3>
+      <h4>Main actual viable sectors/use cases:</h4>
+      <ul>
+        <li>Healthcare</li>
+        <li>Warehousing/logistics/robotics/autonomous vehicles</li>
+        <li>Outdoor/underground mining/industrial</li>
+        <li>Energy sector</li>
+        <li>Some back of house/front of house LPV(Large Public Venue)</li>
+      </ul>
+      <h4>Challenges for Enterprise:</h4>
+      <ul>
+        <li>Brownfields (leverage WLAN unless specific requirements)</li>
+        <li>Pricepoint (additional deployment unless greenfields)</li>
+        <li>Some scenarios necessitate neutral host 5G</li>
+        <li>MDM(Mobile Device Management) for SIM/eSIM management/policies</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>References/Research via:</h3>
+      <ul>
+        <li>WLAN Pros Slack #cellular channel for independent feedback</li>
+        <li>
+          <a href="https://arubanetworking.hpe.com/techdocs/aos/p5g/solution/overview/#key-use-cases-for-p5g" target="_blank">
+            https://arubanetworking.hpe.com/techdocs/aos/p5g/solution/overview/#key-use-cases-for-p5g
+          </a>
+        </li>
+        <li>Perplexity (Deepseek and GPT4)</li>
+        <li>
+          Also:
+          <a href="https://hpe.com" target="_blank">hpe.com</a>, 
+          <a href="https://support.hpe.com" target="_blank">support.hpe.com</a>, 
+          <a href="https://arubanetworking.hpe.com" target="_blank">arubanetworking.hpe.com</a>,
+          <a href="https://gartner.com" target="_blank">gartner.com</a>,
+          <a href="https://businesswire.com" target="_blank">businesswire.com</a>,
+          <a href="https://idc.com" target="_blank">idc.com</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
+<!-- Reveal.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    transition: 'fade',
+    slideNumber: true,
+    hash: true,
+    margin: 0.07,
+    width: 1080,
+    height: 700
+  });
+  // Exclude click on navigation controls from advancing slide
+  document.querySelector('.reveal').addEventListener('click', function(e) {
+    // Don't advance if clicking nav controls (controls-arrow or its children)
+    let t = e.target;
+    while (t && t !== document.body) {
+      if (t.classList && [...t.classList].some(cls=>cls.includes('controls-arrow'))) return;
+      t = t.parentNode;
+    }
+    if (
+      e.target.tagName !== 'A' &&
+      e.target.tagName !== 'BUTTON' &&
+      e.target.tagName !== 'INPUT'
+    ) {
+      Reveal.next();
+    }
+  });
+</script>
+</body>
+</html>
+
