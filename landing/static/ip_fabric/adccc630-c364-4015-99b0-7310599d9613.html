@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Fabric Dashboard Strategy - Decision Tree</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="decision-tree">
+            <!-- Root Node -->
+            <div class="root-node">
+                <div class="node-content">
+                    <div class="node-icon">🏗️</div>
+                    <h1 class="node-title">IP Fabric Dashboard Strategy</h1>
+                    <p class="node-description">Choose your path for dashboard development</p>
+                </div>
+                <div class="connector-hub"></div>
+            </div>
+
+            <!-- Connection Lines -->
+            <svg class="connections" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                            refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--color-text-secondary)" />
+                    </marker>
+                </defs>
+                <path class="connection-line line-a" d="M400,50 Q300,100 200,150" 
+                      stroke="var(--color-teal-500)" stroke-width="2" fill="none" 
+                      marker-end="url(#arrowhead)" />
+                <path class="connection-line line-b" d="M400,50 L400,150" 
+                      stroke="var(--color-teal-300)" stroke-width="2" fill="none" 
+                      marker-end="url(#arrowhead)" />
+                <path class="connection-line line-c" d="M400,50 Q500,100 600,150" 
+                      stroke="var(--color-teal-400)" stroke-width="2" fill="none" 
+                      marker-end="url(#arrowhead)" />
+            </svg>
+
+            <!-- Option Bubbles -->
+            <div class="options-container">
+                <!-- Option A: Native IP Fabric -->
+                <div class="option-bubble option-a" data-option="a">
+                    <div class="option-header">
+                        <div class="option-icon">📊</div>
+                        <div class="option-label">Option A</div>
+                    </div>
+                    <h3 class="option-title">Native IP Fabric Dashboards</h3>
+                    <p class="option-subtitle">Continue using basic functionality and constraints</p>
+                    <p class="option-description">Stick with built-in native dashboards inside IP Fabric</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros:</h4>
+                            <ul>
+                                <li>Quick setup</li>
+                                <li>No additional development</li>
+                                <li>Built-in support</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons:</h4>
+                            <ul>
+                                <li>Limited customization</li>
+                                <li>Basic functionality</li>
+                                <li>Platform constraints</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option B: Python + Streamlit -->
+                <div class="option-bubble option-b" data-option="b">
+                    <div class="option-header">
+                        <div class="option-icon">🐍</div>
+                        <div class="option-label">Option B</div>
+                    </div>
+                    <h3 class="option-title">Python + Streamlit Reports</h3>
+                    <p class="option-subtitle">Full circle with ipfabric-reports + streamlit</p>
+                    <p class="option-description">Generate new report types in HTML and JS for infographic-like dashboards (mostly Python)</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros:</h4>
+                            <ul>
+                                <li>Rich Python ecosystem</li>
+                                <li>Streamlit simplicity</li>
+                                <li>HTML/JS output</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons:</h4>
+                            <ul>
+                                <li>Python dependency</li>
+                                <li>Additional complexity</li>
+                                <li>Deployment considerations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option C: Custom Web Dashboard -->
+                <div class="option-bubble option-c" data-option="c">
+                    <div class="option-header">
+                        <div class="option-icon">⚡</div>
+                        <div class="option-label">Option C</div>
+                    </div>
+                    <h3 class="option-title">Custom Web Dashboard</h3>
+                    <p class="option-subtitle">Lightweight HTML/JS solution</p>
+                    <p class="option-description">Interactive web page dashboard using Chart.js and Tailwind with developer's choice language</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros:</h4>
+                            <ul>
+                                <li>Full customization</li>
+                                <li>Modern web stack</li>
+                                <li>Language flexibility</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons:</h4>
+                            <ul>
+                                <li>More development time</li>
+                                <li>Maintenance overhead</li>
+                                <li>Custom implementation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
