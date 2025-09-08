@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Controls v8.1 - Gap Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1>CIS Controls v8.1 - Gap Analysis Dashboard</h1>
+                <div class="header-info">
+                    <span class="version">IP Fabric v7.3.17</span>
+                    <span class="snapshot-info">Snapshot Comparison</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="score-circle">
+                        <div class="circle-progress" data-percentage="68.3">
+                            <div class="score-display">
+                                <span class="score-number">75.12</span>
+                                <span class="score-total">/ 110</span>
+                                <span class="score-percentage">68.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">
+                                <span class="current">72</span>
+                                <span class="previous">93</span>
+                            </div>
+                            <div class="stat-label">Network Devices</div>
+                            <div class="stat-delta negative">-21</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">
+                                <span class="current">12</span>
+                                <span class="previous">14</span>
+                            </div>
+                            <div class="stat-label">Network Sites</div>
+                            <div class="stat-delta negative">-2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls Grid -->
+        <section class="controls-section">
+            <div class="container">
+                <h2>Control Categories</h2>
+                <div class="controls-grid" id="controlsGrid">
+                    <!-- Controls will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Metrics Section -->
+        <section class="detailed-metrics-section">
+            <div class="container">
+                <h2>Detailed Metrics by Safeguard</h2>
+                <div class="detailed-controls" id="detailedMetrics">
+                    <!-- Detailed metrics will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="container">
+                <h2>Analytics & Trends</h2>
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Score Distribution</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="scoreChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Network Changes</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="networkChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Security Metrics</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="securityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Metrics Table -->
+        <section class="metrics-section">
+            <div class="container">
+                <h2>Summary Metrics</h2>
+                <div class="metrics-table-wrapper">
+                    <table class="metrics-table" id="metricsTable">
+                        <thead>
+                            <tr>
+                                <th>Control</th>
+                                <th>Score</th>
+                                <th>Key Metric</th>
+                                <th>Previous</th>
+                                <th>Current</th>
+                                <th>Change</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Control Details Modal -->
+    <div class="modal hidden" id="controlModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
