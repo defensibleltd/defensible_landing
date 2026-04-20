@@ -7,7 +7,7 @@ hidemeta: true
 
 | | |
 | :----:    |    :----:   |
-| <div style="width:200px"><a target="_blank" href="https://linkedin.com/in/podomere"><img loading="lazy" class="img-fluid" src="/images/donal.png"></img></a></div>Dónal Ó Duibhir | A buddhist informed permaculture network geek who sees everything as interconnected. From corporate multinationals, to startups, farming, and chasing unicorns... you might find him digging potatoes, tweaking the RF/Wifi in a coworking space, designing a data-centre fabric, or developing web apps.... CCNP, CCDP, CISSP #32103, CWNA, JNCIA, PACE, B.Sc. Comp Sci.<br><a target="_blank" href="https://linkedin.com/in/podomere">LinkedIn</a> |
+| <div style="width:200px"><a target="_blank" href="https://linkedin.com/in/podomere"><img loading="lazy" class="img-fluid" src="/images/donal.png"></img></a></div>Dónal Ó Duibhir | A buddhist informed permaculture network geek who sees everything as interconnected. From corporate multinationals, to startups, farming, and chasing unicorns... you might find him digging potatoes, tweaking the RF/Wifi in a coworking space, designing a data-centre fabric, or developing appslike <a href="https://jumpstartsignal.com" target="_blank">jumpstartsignal.com</a>.... CCNP, CCDP, CISSP #32103, CWNA, JNCIA, PACE, B.Sc. Comp Sci.<br><a target="_blank" href="https://linkedin.com/in/podomere">LinkedIn</a> |
 
 | | |
 | :----:    |    :----:   |
