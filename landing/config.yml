@@ -74,8 +74,6 @@ params:
     imageHeight: 128
     imageTitle: Defensible Logo
     buttons:
-      - name: JSS
-        url: https://jumpstartsignal.com
       - name: PanSift
         url: pansift
       - name: Contact
@@ -131,6 +129,10 @@ params:
 
 menu:
   main:
+    - identifier: JSS
+      name: Jumpstart
+      url: https://jumpstartsignal.com
+      weight: 5
     - identifier: contact
       name: Contact
       url: /contact/
