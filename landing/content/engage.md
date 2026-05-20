@@ -9,7 +9,4 @@ Note: You must confirm the **Duration**, **Person**, and **Scheduling** in advan
 
 Prices exclude TAX / VAT which may apply in accordance with your local jurisdiction. Our VAT# IE 3490731JH
 
-<div id="my-store-13465639"></div>
-<div>
-<script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?13465639&data_platform=code&data_date=2022-04-21" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-13465639");</script>
-</div>
+<!-- ECWID store removed (free tier discontinued). Account ID: 13465639 -->
