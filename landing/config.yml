@@ -82,8 +82,6 @@ params:
         url: engage
       - name: Team
         url: team
-      - name: Training
-        url: training
       - name: Schools
         url: schools
 
@@ -153,10 +151,6 @@ menu:
       name: SOC
       url: /beyond_the_soc_part_1
       weight: 40
-    - identifier: training
-      name: Training
-      url: /training/
-      weight: 50
 
 outputs:
     home:
