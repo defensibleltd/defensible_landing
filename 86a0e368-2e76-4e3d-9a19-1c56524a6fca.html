@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IP Fabric MCP Recon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO + social share. If the hosted path changes, update og:url + og:image below. -->
+<meta name="description" content="Read-only recon of IP Fabric 8.0.7's built-in MCP server: 10 tools, 1 prompt, 6 playbooks, an OAS-verified read-only surface (472 of 666 API operations), and an unauthenticated-discovery risk note.">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="defensible.ie">
+<meta property="og:title" content="IP Fabric MCP Server: Capability & Exposure Recon">
+<meta property="og:description" content="Read-only recon of IP Fabric 8.0.7's built-in MCP server: 10 tools, 1 prompt, 6 playbooks, an OAS-verified read-only surface (472 of 666 API operations), and an unauthenticated-discovery risk note.">
+<meta property="og:url" content="https://defensible.ie/ip_fabric/mcp/86a0e368-2e76-4e3d-9a19-1c56524a6fca.html">
+<meta property="og:image" content="https://defensible.ie/ip_fabric/mcp/og.jpg">
+<meta property="og:image:secure_url" content="https://defensible.ie/ip_fabric/mcp/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IP Fabric MCP recon report cover">
+<meta property="og:locale" content="en_IE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IP Fabric MCP Server: Capability & Exposure Recon">
+<meta name="twitter:description" content="Read-only recon of IP Fabric 8.0.7's built-in MCP server: tools, prompts, playbooks, an OAS-verified read-only surface, and the unauthenticated-discovery risk.">
+<meta name="twitter:image" content="https://defensible.ie/ip_fabric/mcp/og.jpg">
+<meta name="twitter:image:alt" content="IP Fabric MCP recon report cover">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#eef1f4; --surface:#ffffff; --surface-2:#f6f8fa;
+    --ink:#141d26; --muted:#5b6b7a; --faint:#8494a2;
+    --border:#d8dfe6; --border-strong:#c2cdd7;
+    --accent:#0b6e83; --accent-ink:#075063; --accent-wash:#e2f0f3;
+    --good:#1a7a4b; --good-wash:#e2f1e9;
+    --warn:#9a5b06; --warn-wash:#f6ecdc;
+    --crit:#a52a1f; --crit-wash:#f6e3e1;
+    --shadow:0 1px 2px rgba(20,29,38,.06),0 8px 24px rgba(20,29,38,.06);
+  }
+  :root:not([data-theme="light"]){ @media (prefers-color-scheme:dark){
+    --ground:#0c1219; --surface:#131c25; --surface-2:#0f1720;
+    --ink:#e5edf4; --muted:#93a4b3; --faint:#6c7d8c;
+    --border:#233040; --border-strong:#324352;
+    --accent:#39b6cc; --accent-ink:#7fd6e4; --accent-wash:#122a32;
+    --good:#4cc38a; --good-wash:#10241b;
+    --warn:#d8a24a; --warn-wash:#2a2013;
+    --crit:#e07a6f; --crit-wash:#2c1614;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0c1219; --surface:#131c25; --surface-2:#0f1720;
+    --ink:#e5edf4; --muted:#93a4b3; --faint:#6c7d8c;
+    --border:#233040; --border-strong:#324352;
+    --accent:#39b6cc; --accent-ink:#7fd6e4; --accent-wash:#122a32;
+    --good:#4cc38a; --good-wash:#10241b;
+    --warn:#d8a24a; --warn-wash:#2a2013;
+    --crit:#e07a6f; --crit-wash:#2c1614;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  code,kbd,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px}
+  a{color:var(--accent-ink)}
+
+  /* ---- masthead ---- */
+  .mast{
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,var(--surface),var(--surface-2));
+  }
+  .mast .wrap{padding-top:40px; padding-bottom:32px}
+  .classbar{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:22px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}
+  h1{
+    font-size:clamp(30px,5vw,46px); line-height:1.05; margin:0; font-weight:700;
+    letter-spacing:-.02em; text-wrap:balance;
+  }
+  .sub{margin:14px 0 0; color:var(--muted); font-size:17px; max-width:60ch}
+  .metagrid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px; margin-top:28px; background:var(--border); border:1px solid var(--border);
+    border-radius:10px; overflow:hidden;
+  }
+  .metagrid div{background:var(--surface); padding:12px 14px}
+  .metagrid dt{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--faint); margin:0 0 3px}
+  .metagrid dd{margin:0; font-size:14px; font-weight:600}
+  .metagrid dd.mono{font-weight:500; font-size:13px; overflow-wrap:anywhere; word-break:break-word; line-height:1.35}
+
+  .toggle{
+    position:fixed; top:14px; right:14px; z-index:10;
+    background:var(--surface); color:var(--muted); border:1px solid var(--border);
+    border-radius:999px; padding:7px 14px; font-size:12px; cursor:pointer;
+    font-family:"IBM Plex Mono",monospace; box-shadow:var(--shadow);
+  }
+  .toggle:hover{color:var(--ink); border-color:var(--border-strong)}
+
+  /* ---- sections ---- */
+  section{padding:44px 0; border-bottom:1px solid var(--border)}
+  .eyebrow{
+    display:flex; align-items:center; gap:10px;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent-ink); margin:0 0 6px;
+  }
+  .eyebrow .n{color:var(--faint)}
+  h2{font-size:26px; margin:0 0 6px; letter-spacing:-.015em; font-weight:700; text-wrap:balance}
+  .lede{color:var(--muted); margin:0 0 24px; max-width:66ch}
+  h3{font-size:16px; margin:26px 0 10px; letter-spacing:-.01em}
+  p{max-width:70ch}
+
+  /* ---- thesis callout ---- */
+  .thesis{
+    background:var(--surface); border:1px solid var(--border-strong); border-radius:14px;
+    padding:26px 26px 22px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .thesis::before{content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--accent)}
+  .thesis h2{margin-bottom:12px}
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px}
+  @media(max-width:640px){.twocol{grid-template-columns:1fr}}
+  .layer{border:1px solid var(--border); border-radius:11px; padding:16px; background:var(--surface-2)}
+  .layer .tag{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; margin-bottom:8px}
+  .layer.real .tag{color:var(--crit)}
+  .layer.rail .tag{color:var(--accent-ink)}
+  .layer h4{margin:0 0 6px; font-size:15px}
+  .layer p{margin:0; font-size:13.5px; color:var(--muted); max-width:none}
+
+  /* ---- callouts ---- */
+  .note{border-radius:11px; padding:16px 18px; margin:18px 0; border:1px solid; font-size:14.5px}
+  .note p{max-width:none; margin:0}
+  .note p+p{margin-top:8px}
+  .note.warn{background:var(--warn-wash); border-color:color-mix(in srgb,var(--warn) 40%,transparent); color:var(--ink)}
+  .note.crit{background:var(--crit-wash); border-color:color-mix(in srgb,var(--crit) 40%,transparent)}
+  .note.good{background:var(--good-wash); border-color:color-mix(in srgb,var(--good) 40%,transparent)}
+  .note b.k{font-family:"IBM Plex Mono",monospace}
+
+  /* ---- tool cards ---- */
+  .group-label{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--faint); margin:26px 0 12px; display:flex; gap:10px; align-items:center}
+  .group-label::after{content:""; flex:1; height:1px; background:var(--border)}
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}}
+  .card{border:1px solid var(--border); border-radius:11px; padding:15px 16px; background:var(--surface)}
+  .card .name{font-family:"IBM Plex Mono",monospace; font-size:13.5px; font-weight:600; color:var(--ink)}
+  .card .desc{font-size:13px; color:var(--muted); margin:7px 0 10px}
+  .card .params{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--faint); line-height:1.5}
+  .card .params b{color:var(--accent-ink); font-weight:500}
+  .pill{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.05em;
+    padding:2px 7px; border-radius:999px; border:1px solid var(--border-strong); color:var(--muted); vertical-align:middle; margin-left:6px}
+  .pill.png{color:var(--accent-ink); border-color:color-mix(in srgb,var(--accent) 45%,transparent); background:var(--accent-wash)}
+
+  /* ---- code block ---- */
+  .code{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:11px;
+    padding:18px 20px; overflow-x:auto; font-family:"IBM Plex Mono",monospace;
+    font-size:13px; line-height:1.65; color:var(--ink); white-space:pre; margin:0;
+  }
+  .code .var{color:var(--accent-ink); font-weight:600}
+  .code .cmt{color:var(--faint)}
+  .codecap{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--faint); margin:0 0 8px}
+
+  /* ---- endpoint stats ---- */
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin:6px 0 24px}
+  .stat{border:1px solid var(--border); border-radius:11px; padding:16px; background:var(--surface); text-align:left}
+  .stat .num{font-size:30px; font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1}
+  .stat .lbl{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:7px}
+  .stat.zero .num{color:var(--good)}
+  .bar{display:flex; height:34px; border-radius:8px; overflow:hidden; border:1px solid var(--border); margin:4px 0 8px; font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600}
+  .bar span{display:flex; align-items:center; justify-content:center; color:#fff; white-space:nowrap}
+  .bar .get{background:var(--accent)}
+  .bar .post{background:var(--accent-ink)}
+  .barkey{display:flex; gap:18px; font-size:12.5px; color:var(--muted); font-family:"IBM Plex Mono",monospace}
+  .barkey i{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:middle}
+
+  /* ---- lists ---- */
+  ul.clean{list-style:none; padding:0; margin:16px 0; display:grid; gap:8px}
+  ul.clean li{padding-left:22px; position:relative; font-size:14.5px; color:var(--ink); max-width:72ch}
+  ul.clean li::before{content:"▸"; position:absolute; left:0; color:var(--accent); font-size:12px; top:2px}
+  ul.clean li .mono{color:var(--accent-ink)}
+
+  .playbooks{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:4px}
+  @media(max-width:640px){.playbooks{grid-template-columns:1fr}}
+  .pb{border:1px solid var(--border); border-radius:9px; padding:12px 14px; background:var(--surface); font-family:"IBM Plex Mono",monospace; font-size:12.5px}
+  .pb b{color:var(--accent-ink); font-weight:600}
+  .pb small{display:block; font-family:"IBM Plex Sans",sans-serif; color:var(--muted); font-size:12px; margin-top:3px}
+  a.pb{text-decoration:none; transition:border-color .15s, background .15s; display:block}
+  a.pb:hover{border-color:var(--accent); background:var(--accent-wash)}
+
+  /* ---- health result ---- */
+  .health-head{display:flex; flex-wrap:wrap; gap:12px; align-items:stretch; margin:6px 0 20px}
+  .score{border-radius:12px; padding:16px 20px; border:1px solid; min-width:150px}
+  .score.crit{background:var(--crit-wash); border-color:color-mix(in srgb,var(--crit) 40%,transparent)}
+  .score .s{font-size:26px; font-weight:700; letter-spacing:-.01em; color:var(--crit)}
+  .score .l{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:4px}
+  .chips{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+  .chip{border:1px solid var(--border); border-radius:10px; padding:12px 16px; background:var(--surface); text-align:center; min-width:96px}
+  .chip .n{font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; line-height:1}
+  .chip .k{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:5px}
+  .chip.c .n{color:var(--crit)} .chip.w .n{color:var(--warn)} .chip.g .n{color:var(--good)}
+  .findings{display:grid; gap:10px; margin:16px 0}
+  .finding{border:1px solid var(--border); border-left:3px solid var(--crit); border-radius:9px; padding:12px 15px; background:var(--surface)}
+  .finding.warn{border-left-color:var(--warn)}
+  .finding .t{font-weight:600; font-size:14px}
+  .finding .d{font-size:13px; color:var(--muted); margin-top:3px; max-width:82ch}
+
+  /* ---- appendix ---- */
+  .appendix{background:var(--surface-2)}
+  .pbentry{border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin:16px 0; background:var(--surface)}
+  .pbentry h3{margin:0 0 4px; font-size:17px}
+  .pbentry .uri{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent-ink); background:var(--accent-wash); border:1px solid color-mix(in srgb,var(--accent) 30%,transparent); border-radius:6px; padding:2px 8px; display:inline-block; margin-bottom:12px; overflow-wrap:anywhere}
+  .pbentry p{margin:8px 0; font-size:14px; max-width:80ch}
+  .pbentry ul.clean{margin:10px 0}
+  .pbentry ul.clean li{font-size:13.5px}
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:13.5px}
+  .tablewrap{overflow-x:auto}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--border)}
+  th{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-weight:500}
+  td.mono{font-family:"IBM Plex Mono",monospace; font-size:12.5px}
+  .badge{font-family:"IBM Plex Mono",monospace; font-size:11px; padding:2px 8px; border-radius:6px; font-weight:600}
+  .badge.load{background:var(--good-wash); color:var(--good)}
+  .badge.unload{background:var(--surface-2); color:var(--faint); border:1px solid var(--border)}
+
+  footer{padding:36px 0 60px; color:var(--muted); font-size:13px}
+  footer .wrap>p{max-width:74ch}
+  footer code{font-size:12px; color:var(--accent-ink)}
+  .kv{font-family:"IBM Plex Mono",monospace}
+</style>
+</head>
+<body>
+<button class="toggle" id="tg" aria-label="Toggle colour theme">◐ theme</button>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="classbar">
+      <span class="dot"></span> Recon dossier
+      <span aria-hidden="true">·</span> Read-only
+      <span aria-hidden="true">·</span> 2026-08-25
+    </div>
+    <h1>IP Fabric built-in MCP server: capability &amp; exposure recon</h1>
+    <p class="sub">What the embedded Model Context Protocol server on <span class="mono">marketing.ipf.cx</span> actually exposes to an AI assistant (its tools, its one prompt, its endpoint surface), and where the real security boundary sits.</p>
+    <dl class="metagrid">
+      <div><dt>Target</dt><dd class="mono">marketing.ipf.cx/mcp</dd></div>
+      <div><dt>IP Fabric</dt><dd class="mono">8.0.7+0</dd></div>
+      <div><dt>MCP server</dt><dd class="mono">IPFabric MCP 0.1.0</dd></div>
+      <div><dt>Protocol</dt><dd class="mono">2025-06-18</dd></div>
+      <div><dt>Transport</dt><dd>Streamable HTTP</dd></div>
+      <div><dt>Token role</dt><dd>admin</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+<section id="thesis">
+  <div class="wrap">
+    <div class="thesis">
+      <p class="eyebrow"><span class="n">00</span> The headline finding</p>
+      <h2>The MCP server is a guardrail on the assistant, not a boundary on the token</h2>
+      <p style="margin-top:0;color:var(--muted)">Everything reachable through MCP today is read-only, and that is genuinely useful: it stops an AI assistant from mutating your network. But it does <em>not</em> down-scope the credential. The API token you hand the MCP server keeps every privilege its RBAC role grants the moment it is used anywhere else.</p>
+      <div class="twocol">
+        <div class="layer real">
+          <div class="tag">■ The real boundary</div>
+          <h4>Scope the token to a read-only role</h4>
+          <p>The token’s RBAC role is the only thing that actually limits it; the <span class="mono">Callable</span> flag just mirrors that role. An admin token stays full-privilege the moment it is used outside MCP (raw <span class="mono">/api/</span> via <span class="mono">curl</span>), writes included. <b>IP Fabric should ship a preconfigured read-only “mcp” role, built on read-only policies, and steer customers to it</b> so the default is not an admin token, which is what most will reach for (as we did here).</p>
+        </div>
+        <div class="layer rail">
+          <div class="tag">▚ The guardrail</div>
+          <h4>The MCP tool surface</h4>
+          <p>The generic <span class="mono">invoke</span> tool <em>looks</em> like it can write: its options list PUT, DELETE and PATCH. But the server only knows the endpoints it was built with, and those are all reads: <b>GET requests and POST&nbsp;/tables queries</b>. Ask for anything else and it answers <span class="mono">not found</span>. So the assistant has no write to make, whatever the token allows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="facts">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">01</span> Server &amp; access model</p>
+    <h2>How it answers, and what it checks</h2>
+    <p class="lede">The endpoint speaks JSON-RPC 2.0 over a single <span class="mono">POST /mcp</span> (an Express backend that proxies internally to <span class="mono">https://localhost/api/</span>). <span class="mono">GET /mcp</span> is rejected. It advertises <span class="mono">tools</span>, <span class="mono">prompts</span> and <span class="mono">resources</span>, each with <span class="mono">listChanged: true</span>.</p>
+
+    <div class="note warn">
+      <p><b>The discovery plane is open; the data plane is not.</b> Every method that lists capabilities or reads a resource returns <span class="mono">200</span> with <em>no</em> Bearer token, so the full tool schemas, the prompt template, and the internal playbook text are readable by anyone who can reach the URL. Authentication only bites when a tool <em>executes</em>: <span class="mono">tools/call</span> without a token returns <span class="mono">200</span> at the HTTP layer but an <span class="mono">isError</span> result (“No authentication credentials provided”), and a valid token is then gated by its RBAC role. No device, snapshot, or config data leaks unauthenticated.</p>
+    </div>
+
+    <h3>Unauthenticated surface, verified (no <span class="mono" style="font-size:.85em">Authorization</span> header)</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Method</th><th>HTTP</th><th>Returns to an anonymous caller</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">initialize</td><td>200</td><td>server name + version, capability flags</td></tr>
+        <tr><td class="mono">tools/list</td><td>200</td><td>all 10 tools + full input schemas</td></tr>
+        <tr><td class="mono">prompts/list · prompts/get</td><td>200</td><td>the prompt + its fully rendered template</td></tr>
+        <tr><td class="mono">resources/list</td><td>200</td><td>all 6 playbook resource URIs</td></tr>
+        <tr><td class="mono">resources/read</td><td>200</td><td><b>full playbook text</b> (≈10.6 KB each)</td></tr>
+        <tr><td class="mono">tools/call (execute)</td><td>200</td><td class="mono">isError (no data, auth required)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="note crit">
+      <p><b>Risk: unauthenticated information disclosure.</b> The MCP Authorization spec (protocol <span class="mono">2025-06-18</span>) says an HTTP-transport server <em>should</em> protect the endpoint and answer unauthenticated requests with <span class="mono">401 + WWW-Authenticate</span>; here there is no challenge header and no OAuth discovery metadata. Leaving <span class="mono">list</span>/<span class="mono">read</span> open is a <b>very common implementation pattern</b> (many MCP servers guard only the tool calls that carry data or side-effects), so this is not unusual, but it is still <b>information leakage</b>: an anonymous caller can fingerprint the IP Fabric instance and its MCP version and pull the internal playbooks (workflow logic, env-flag names). No network data is exposed, so the severity is recon-grade, not a data breach.</p>
+      <p style="margin-top:8px"><b>Mitigation in your control:</b> restrict network reach to <span class="mono">/mcp</span> at the reverse proxy (IP allowlist / VPN / mTLS), since discovery itself is unauthenticated; and raise the missing <span class="mono">401</span> with IP Fabric as a hardening request.</p>
+    </div>
+
+    <h3>Auth signals: working admin token</h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Request</th><th>Token</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">endpoint_invoke → /tables/inventory/devices</td><td>admin</td><td>200, device rows returned</td></tr>
+        <tr><td class="mono">endpoint_invoke → GET /snapshots, /os/version</td><td>admin</td><td>200, data returned</td></tr>
+        <tr><td class="mono">pathlookup_unicast (Azure snapshot)</td><td>admin</td><td>path returned, 1 hop, azureVnet → host</td></tr>
+        <tr><td class="mono">network_health_assess ($last)</td><td>admin</td><td>CRITICAL report, 5 critical / 4 warnings</td></tr>
+        <tr><td class="mono">all 472 endpoints</td><td>admin</td><td class="mono">Callable: Yes</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">02</span> Tool surface</p>
+    <h2>10 tools in three families</h2>
+    <p class="lede">Three generic API tools (search → details → invoke) plus one health roll-up and three path-lookup pairs (a text tool and a PNG-diagram twin each). Path-lookup tools require a snapshot <em>UUID</em>, never <span class="mono">$last</span>.</p>
+
+    <div class="group-label">Generic API access</div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">ipf_api_endpoint_search</div>
+        <div class="desc">Full-text + semantic vector search over the ingested OpenAPI spec; returns matching endpoints with schema and a per-token <span class="mono">Callable</span> flag.</div>
+        <div class="params"><b>query</b>*, limit</div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_api_endpoint_details</div>
+        <div class="desc">Request/response schema and examples for one endpoint.</div>
+        <div class="params"><b>path</b>*, <b>method</b>*</div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_api_endpoint_invoke</div>
+        <div class="desc">The workhorse: builds and executes the call. Method enum lists all 7 verbs, but only spec’d GET + POST/tables resolve. <span class="mono">responseKeys</span> trims payloads; <span class="mono">baseUrl</span> can override target.</div>
+        <div class="params"><b>path</b>*, <b>method</b>*, parameters, headers, body, responseKeys, baseUrl</div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_network_health_assess</div>
+        <div class="desc">Rolls up intent checks, inventory, routing stability &amp; path checks. No required args; tunable warn/crit thresholds and discovery-age limit; JSON/Markdown.</div>
+        <div class="params">sections, thresholdsOverride, severityFilter, output</div>
+      </div>
+    </div>
+
+    <div class="group-label">Path lookup, text</div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">ipf_pathlookup_unicast</div>
+        <div class="desc">Hop-by-hop unicast path between two IPs, with routing/ACL context.</div>
+        <div class="params"><b>src</b>*, <b>dst</b>*, <b>snapshotId</b>*, groupBy, protocol, vrf, l4Options, ttl…</div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_pathlookup_multicast</div>
+        <div class="desc">Multicast (S,G) distribution path and RPF behaviour.</div>
+        <div class="params"><b>src</b>*, <b>group</b>*, <b>snapshotId</b>*, receiver, groupBy…</div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_pathlookup_host-to-gateway</div>
+        <div class="desc">Path from a host to its default gateway.</div>
+        <div class="params"><b>src</b>*, <b>snapshotId</b>*, vrf, groupBy, includeGraphLayout</div>
+      </div>
+    </div>
+
+    <div class="group-label">Path lookup, PNG diagram twins</div>
+    <div class="cards">
+      <div class="card">
+        <div class="name">ipf_png_pathlookup_unicast <span class="pill png">png</span></div>
+        <div class="desc">Same inputs as the unicast text tool; returns a rendered diagram.</div>
+        <div class="params">gated by <b>IPF_MCP_ENABLE_IMAGE_CONTENT</b></div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_png_pathlookup_multicast <span class="pill png">png</span></div>
+        <div class="desc">Multicast path as a PNG.</div>
+        <div class="params">gated by <b>IPF_MCP_ENABLE_IMAGE_CONTENT</b></div>
+      </div>
+      <div class="card">
+        <div class="name">ipf_png_pathlookup_host-to-gateway <span class="pill png">png</span></div>
+        <div class="desc">Host-to-gateway path as a PNG.</div>
+        <div class="params">gated by <b>IPF_MCP_ENABLE_IMAGE_CONTENT</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prompt">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">03</span> Prompts</p>
+    <h2>Exactly one prompt: <span class="mono" style="font-size:.8em">path_analysis</span></h2>
+    <p class="lede">A parameterised template that renders a full “senior network engineer” brief driving the path-lookup tools. Required: <span class="mono">snapshot</span>, <span class="mono">source</span>. Optional: <span class="mono">destination</span>, <span class="mono">group</span>, <span class="mono">protocol</span> (strict enum <span class="mono">TCP | UDP | ICMP</span>). It adapts wording to unicast / multicast / host-to-gateway based on which inputs you supply.</p>
+    <p class="codecap">Rendered template, bracketed slots are argument substitutions</p>
+    <pre class="code">Role: You are a senior network engineer.
+Goal: Analyze unicast path lookup in IP Fabric suggest topology improvements.
+Input: unicast path-lookup from <span class="var">[source]</span> to <span class="var">[destination]</span>, <span class="var">[protocol]</span> protocol, snapshot with name '<span class="var">[snapshot]</span>'
+
+Task:
+1. First describe in steps what you will do and then do it.
+2. Get the snapshot ID based on it's name from the snapshot list via MCP server
+3. List all devices in the route and make a brief report.
+4. Analyze the topology from the text result and identify potential problems.
+5. If a PNG diagram is returned by a tool, analyze the diagram content and use it to support your findings.
+6. Suggest topology improvements.
+
+Output Format:
+* Markdown bullets for the devices in the route.
+* Markdown formatted table with columns: Issue, Recommended Fix / Improvement
+* Follow with a short summary paragraph.
+
+Constraints:
+* Keep tone professional.
+* Never output raw image payloads (no base64 and no data URI such as data:image/png;base64,...).
+* Maximum 400 words.</pre>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">04</span> Resources</p>
+    <h2>6 playbooks: the assistant’s operating manual</h2>
+    <p class="lede">Markdown resources under <span class="mono">ipfabric://playbooks/…</span> that the model reads for guidance. They encode the intended workflow (health-first, resolve snapshot to UUID, search→details→invoke) and leak server behaviour such as the image-content flag. All are readable unauthenticated.</p>
+    <div class="playbooks">
+      <a class="pb" href="#pb-tools-usage"><b>general-mcp-tools-usage</b><small>Core decision tree for tool selection ↘</small></a>
+      <a class="pb" href="#pb-api-discovery"><b>api-discovery-workflow</b><small>search → details → invoke pattern &amp; filters ↘</small></a>
+      <a class="pb" href="#pb-snapshot"><b>general-snapshot-handling</b><small>Snapshot states, UUID resolution, $last ↘</small></a>
+      <a class="pb" href="#pb-health"><b>network-health-ai-agent-guide</b><small>Health assessment algorithm ↘</small></a>
+      <a class="pb" href="#pb-pathlookup"><b>pathlookup-analysis</b><small>Path-lookup flow &amp; image-content rules ↘</small></a>
+      <a class="pb" href="#pb-errors"><b>general-error-handling</b><small>Error recovery guidance ↘</small></a>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--muted)">Full contents of each are expanded in <a href="#appendix-a">Appendix A</a>.</p>
+  </div>
+</section>
+
+<section id="endpoints">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">05</span> Endpoint enumeration</p>
+    <h2>Enumerated 472 via the MCP tool; the OAS confirms all 472 are reads</h2>
+    <p class="lede">The MCP server never serves its spec, so the surface was first enumerated indirectly: unioning ~12 broad <span class="mono">ipf_api_endpoint_search</span> queries (each <span class="mono">limit 5000</span>) and de-duplicating gave <b>472 unique endpoints (96 GET + 376 POST/tables)</b>. That figure was then cross-checked against the authoritative spec.</p>
+
+    <h3>Cross-check against the published OAS</h3>
+    <p>IP Fabric publishes its full internal spec at <span class="mono">/api/static/oas/openapi-internal.json</span> (8.4 MB, OpenAPI 3.1.0, “IP Fabric API” v8.0). Parsing it shows the <em>complete</em> API and makes the comparison exact:</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Method</th><th>In full API (OAS)</th><th>Exposed via MCP</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="mono">GET</td><td>96</td><td>96</td><td>all reads exposed</td></tr>
+        <tr><td class="mono">POST /tables/*</td><td>376</td><td>376</td><td>filtered-query reads exposed</td></tr>
+        <tr><td class="mono">POST (non-table)</td><td>104</td><td class="mono">0</td><td>withheld</td></tr>
+        <tr><td class="mono">DELETE</td><td>44</td><td class="mono">0</td><td>withheld</td></tr>
+        <tr><td class="mono">PATCH</td><td>25</td><td class="mono">0</td><td>withheld</td></tr>
+        <tr><td class="mono">PUT</td><td>21</td><td class="mono">0</td><td>withheld</td></tr>
+        <tr><td><b>Total</b></td><td><b>666</b> ops (565 paths)</td><td><b>472</b></td><td>194 writes withheld</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">666</div><div class="lbl">operations in full API</div></div>
+      <div class="stat"><div class="num">472</div><div class="lbl">exposed via MCP · all reads</div></div>
+      <div class="stat zero"><div class="num">194</div><div class="lbl">writes withheld from MCP</div></div>
+    </div>
+
+    <div class="bar" role="img" aria-label="472 read operations exposed, 194 write operations withheld">
+      <span class="get" style="flex:472">472 reads · exposed via MCP</span>
+      <span class="post" style="flex:194; background:var(--crit)">194 writes · withheld</span>
+    </div>
+    <div class="barkey">
+      <span><i style="background:var(--accent)"></i>Exposed (GET + POST/tables reads)</span>
+      <span><i style="background:var(--crit)"></i>Withheld (POST/DELETE/PATCH/PUT writes)</span>
+    </div>
+
+    <div class="note good">
+      <p><b>Write-safety is confirmed, not just inferred.</b> The enumerated read count matches the OAS exactly (96 GET and 376 POST/tables in both), so the search-union turned out <em>complete</em> for the read surface, not a lower bound. The 194 writes the full API defines (104 non-table POST, 44 DELETE, 25 PATCH, 21 PUT) are provably absent from the MCP index: calling <span class="mono">ipf_api_endpoint_details</span> with the <em>exact</em> OAS paths (e.g. <span class="mono">DELETE /api-tokens/{key}</span>, <span class="mono">PUT /attributes/global</span>, <span class="mono">POST /api-tokens</span>) returns <span class="mono">API endpoint not found</span>. So the MCP server deliberately ingests only the read surface, and no admin token changes that.</p>
+    </div>
+  </div>
+</section>
+
+<section id="token">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">06</span> Token security notes</p>
+    <h2>Treat the MCP token as a full API credential</h2>
+    <ul class="clean">
+      <li>The token is an ordinary IP Fabric API token supplied as <span class="mono">Authorization: Bearer &lt;token&gt;</span>. MCP does <b>not</b> sandbox or attenuate it.</li>
+      <li>Its power is defined entirely by its <b>RBAC role</b>. The admin token tested reaches the entire read surface; the same token against raw <span class="mono">/api/</span> retains whatever writes the role permits, outside MCP’s guardrail.</li>
+      <li><b>Scope the token to a read-only role</b> if the assistant only needs to observe. That, not the MCP surface, is what limits blast radius if the token leaks.</li>
+      <li>Metadata (tools/prompts/playbooks) is exposed <b>without auth</b>, informative to anyone who can reach <span class="mono">/mcp</span>. Restrict network access to the endpoint accordingly.</li>
+      <li>If wired into a client as a registered server (e.g. <span class="mono">.mcp.json</span> / <span class="mono">claude mcp add</span>), the token sits in that config in plaintext, so prefer a read-only-role token or an env-var reference there.</li>
+    </ul>
+    <div class="note crit">
+      <p><b>Bottom line.</b> The read-only property protects you from the AI going rogue, not from a leaked credential. If this token escapes, it is a full-privilege admin key.</p>
+    </div>
+  </div>
+</section>
+
+<section id="snapshots">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">07</span> Environment observed</p>
+    <h2>Snapshots visible to this token</h2>
+    <p class="lede">Read via <span class="mono">GET /snapshots</span>, context only. <span class="mono">$last</span> currently resolves to “Azure Certificates” (<span class="mono">728cbefd…</span>).</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Name</th><th>Devices</th><th>State</th><th>ID</th></tr></thead>
+      <tbody>
+        <tr><td>Azure Certificates</td><td class="mono">19</td><td><span class="badge load">loaded · $last</span></td><td class="mono">728cbefd…</td></tr>
+        <tr><td>GCP-to-AWS HA VPN (7.10.2)</td><td class="mono">28</td><td><span class="badge load">loaded</span></td><td class="mono">b98387d8…</td></tr>
+        <tr><td>Azure Firewall (Virtual Hub)</td><td class="mono">37</td><td><span class="badge unload">unloaded</span></td><td class="mono">4015d75c…</td></tr>
+        <tr><td>Day 1 - before migration</td><td class="mono">185</td><td><span class="badge unload">unloaded</span></td><td class="mono">9fe31c25…</td></tr>
+        <tr><td>Azure Virtual Hub</td><td class="mono">26</td><td><span class="badge unload">unloaded</span></td><td class="mono">b0c6ba68…</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="health">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">08</span> Live verification · does the tool work?</p>
+    <h2>Test call: <span class="mono" style="font-size:.8em">network_health_assess</span> returns cleanly</h2>
+
+    <div class="note good">
+      <p><b>Read this as a passing smoke test, not a finding.</b> The MCP tool executed correctly and returned a well-formed report, which is the result being verified here. The <span class="mono">CRITICAL</span> score and issues below are the <b>tool’s normal output describing the demo network</b> in a deliberately stale snapshot; they say nothing about the health of the MCP server, which is working as intended.</p>
+    </div>
+
+    <p class="lede">Called with the working admin token (<span class="mono">output: markdown, severityFilter: all</span>) on the loaded “Azure Certificates” snapshot. One call, no snapshot ID needed: the tool resolves <span class="mono">$last</span> itself and hands back a structured Markdown report.</p>
+
+    <p class="codecap">The tool’s output, network health of the demo snapshot ↓</p>
+    <div class="health-head">
+      <div class="score crit">
+        <div class="s">CRITICAL</div>
+        <div class="l">Demo network health · stale snapshot</div>
+      </div>
+      <div class="chips">
+        <div class="chip c"><div class="n">5</div><div class="k">Critical</div></div>
+        <div class="chip w"><div class="n">4</div><div class="k">Warnings</div></div>
+        <div class="chip g"><div class="n">19/19</div><div class="k">Reachable</div></div>
+      </div>
+    </div>
+
+    <h3>What the tool reported about the demo network</h3>
+    <div class="findings">
+      <div class="finding"><div class="t">Stale discovery data, 4008.8h old</div><div class="d">Snapshot far past the 24h freshness threshold; assessment may not reflect current state.</div></div>
+      <div class="finding"><div class="t">Device count drop, 28 → 19 (−32.1%)</div><div class="d">9 fewer devices than the prior snapshot; flagged as possible missing devices or discovery failure.</div></div>
+      <div class="finding"><div class="t">Custom intent: Stability, 2 critical</div><div class="d">Top issue: BGP Session Age.</div></div>
+      <div class="finding"><div class="t">BGP intent rule: BGP Session Age, 1 critical</div><div class="d">One BGP session with uptime under 24h.</div></div>
+      <div class="finding"><div class="t">Path-check failures, 5/10 (50%)</div><div class="d">e.g. 172.16.11.61 → 172.16.21.20 (unicast); 10.194.56.0/24 → 172.16.43.0/24.</div></div>
+    </div>
+
+    <p style="font-size:13.5px;color:var(--muted)">Plus 4 warnings (custom-intent findings across Inventory, SNMP CM-6, Network Access, and Network &amp; Cloud Risk Score), a Trends section (network shrink −32.1%, 166.7h snapshot interval), and a Risk Assessment roll-up. The tool structures output as Executive Summary → Critical Findings (Impact / Affected / Action / Timeline) → Warnings → Trends → Risk, ready to relay verbatim.</p>
+
+    <div class="note good"><p><b>Verified working:</b> <span class="mono">network_health_assess</span>, <span class="mono">pathlookup_unicast</span>, table reads (<span class="mono">/tables/inventory/devices</span>), and metadata reads (<span class="mono">/snapshots</span>, <span class="mono">/os/version</span>), all returned live data under the admin token.</p></div>
+  </div>
+</section>
+
+<section id="appendix-a" class="appendix">
+  <div class="wrap">
+    <p class="eyebrow"><span class="n">A</span> Appendix</p>
+    <h2>The six playbooks, expanded</h2>
+    <p class="lede">These Markdown resources are the assistant’s built-in operating manual, read via <span class="mono">resources/read</span> against each <span class="mono">ipfabric://</span> URI (no auth required). They are guidance for the model, not network data.</p>
+
+    <div class="pbentry" id="pb-tools-usage">
+      <h3>1 · general-mcp-tools-usage</h3>
+      <div class="uri">ipfabric://playbooks/general-mcp-tools-usage</div>
+      <p>The master routing algorithm every request passes through. Priority rule: if a question touches network issues, intent, or routing, <b>start with <span class="mono">ipf_network_health_assess</span></b>. Otherwise a decision table maps need → tool (path between IPs → unicast; host→gateway; multicast; anything else → search + invoke).</p>
+      <ul class="clean">
+        <li>Mandates fetching a <b>real snapshot UUID</b> first (<span class="mono">GET /snapshots</span>); never placeholder IDs.</li>
+        <li>Path-lookup defaults: <span class="mono">protocol: icmp</span>, <span class="mono">firstHopAlgorithm: automatic</span>, <span class="mono">groupBy: siteName</span>.</li>
+        <li>Keep <span class="mono">includeGraphLayout</span> off unless the user asks for visual layout data.</li>
+      </ul>
+    </div>
+
+    <div class="pbentry" id="pb-api-discovery">
+      <h3>2 · api-discovery-workflow</h3>
+      <div class="uri">ipfabric://playbooks/api-discovery-workflow</div>
+      <p>The generic-data pattern: <span class="mono">search → details → invoke</span>. Emphasises natural-language queries (semantic embeddings), then reading the endpoint schema before invoking, then server-side <b>filtering</b> rather than fetching-then-filtering.</p>
+      <ul class="clean">
+        <li>Query strategy table (device / interface / routing / site / VLAN / performance) with good-vs-bad examples.</li>
+        <li>Use <span class="mono">columns</span>, <span class="mono">filters</span> (<span class="mono">["eq","HQ"]</span>-style), pagination, and <span class="mono">responseKeys</span> to trim payloads.</li>
+        <li>Worked examples: device inventory, BGP neighbours, interface errors, with iterative refinement guidance.</li>
+      </ul>
+    </div>
+
+    <div class="pbentry" id="pb-snapshot">
+      <h3>3 · general-snapshot-handling</h3>
+      <div class="uri">ipfabric://playbooks/general-snapshot-handling</div>
+      <p>Everything about snapshots: UUID vs name, the <span class="mono">state</span> (loaded/unloaded/…) and <span class="mono">status</span> (done/run/error/…) fields, and a <b>Canonical Snapshot Selection Algorithm</b>.</p>
+      <ul class="clean">
+        <li>Usability predicate: <span class="mono">state == "loaded" &amp;&amp; status == "done"</span>; pick highest <span class="mono">tsEnd</span> for “latest”.</li>
+        <li>Name → UUID resolution is client-side (exact, then case-insensitive contains; disambiguate on multiple matches).</li>
+        <li><span class="mono">$last</span> is the shortcut for “latest / current / most recent”.</li>
+      </ul>
+    </div>
+
+    <div class="pbentry" id="pb-health">
+      <h3>4 · network-health-ai-agent-guide</h3>
+      <div class="uri">ipfabric://playbooks/network-health-ai-agent-guide</div>
+      <p>How to drive <span class="mono">ipf_network_health_assess</span>: call it first, branch on <span class="mono">overallHealth</span> (<span class="mono">CRITICAL</span> → present + offer investigation; <span class="mono">REQUIRES_ATTENTION</span> → prioritise warnings; <span class="mono">HEALTHY</span> → confirm + offer proactive checks).</p>
+      <ul class="clean">
+        <li>Target areas via <span class="mono">sections</span> {intent, inventory, routing, pathChecks}; filter by <span class="mono">severityFilter</span>.</li>
+        <li>Deep-dive recipes: routing (BGP/OSPF not-established), device (recent reloads via uptime), path validation.</li>
+        <li>Prefer Markdown output for users; don’t dump raw JSON.</li>
+      </ul>
+    </div>
+
+    <div class="pbentry" id="pb-pathlookup">
+      <h3>5 · pathlookup-analysis</h3>
+      <div class="uri">ipfabric://playbooks/pathlookup-analysis</div>
+      <p>Selecting and running the path-lookup tools, with a standard output format (why-selected → hop-by-hop → health ✅/❌ → ≤3 recommendations).</p>
+      <ul class="clean">
+        <li><b>Image-content awareness</b>: honour <span class="mono">IPF_MCP_ENABLE_IMAGE_CONTENT</span>; never emit raw base64 / <span class="mono">data:image</span> payloads.</li>
+        <li>Operation limits: 1 primary lookup + ≤2 enrichment calls; ≤5 findings, ≤3 recommendations.</li>
+        <li>Common failure causes checklist: missing route, ACL/firewall drop, device excluded, RPF failure, ARP/gateway.</li>
+      </ul>
+    </div>
+
+    <div class="pbentry" id="pb-errors">
+      <h3>6 · general-error-handling</h3>
+      <div class="uri">ipfabric://playbooks/general-error-handling</div>
+      <p>Graceful-failure guidance by error category, with ready-made user-facing responses.</p>
+      <ul class="clean">
+        <li><b>Auth (401/403):</b> report the failure, suggest checking token config/expiry/permissions, and explicitly <b>do not retry with different tokens</b>.</li>
+        <li><b>Snapshot (404 / not found / empty):</b> diagnose name-vs-UUID, list snapshots, offer <span class="mono">$last</span> or a chooser.</li>
+        <li>Frames each failure as an actionable next step rather than a raw stack trace.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:10px">Methodology &amp; caveats</p>
+    <p>All findings gathered by speaking the MCP wire protocol directly, hand-issued JSON-RPC 2.0 over <code>POST https://marketing.ipf.cx/mcp</code> with the token in the <code>Authorization</code> header, not via a registered MCP client. Scope was deliberately limited to the <b>MCP-exposed, read-only endpoints</b>; no user-admin, system-admin, or mutating calls were made. Endpoint totals were first enumerated by unioning multiple broad <code>ipf_api_endpoint_search</code> queries (limit 5000) and de-duplicating, then cross-checked against the published OAS at <code>/api/static/oas/openapi-internal.json</code> (OpenAPI 3.1.0, v8.0). The cross-check confirmed the union was complete for the read surface (96 GET + 376 POST/tables in both). Write-safety is confirmed against that spec: the 194 write operations it defines (non-table POST, DELETE, PATCH, PUT) return <code>API endpoint not found</code> from <code>ipf_api_endpoint_details</code> even with their exact OAS paths, so no write was ever attempted.</p>
+    <p style="margin-top:14px; color:var(--faint)">IP Fabric 8.0.7 · MCP server IPFabric MCP 0.1.0 · recon 2026-08-25</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tg');
+    function cur(){
+      var s=root.getAttribute('data-theme');
+      if(s) return s;
+      return (window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light';
+    }
+    btn.addEventListener('click',function(){
+      var next=cur()==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('ipf-mcp-theme',next)}catch(e){}
+    });
+    try{var saved=localStorage.getItem('ipf-mcp-theme'); if(saved) root.setAttribute('data-theme',saved)}catch(e){}
+  })();
+</script>
+
+</body>
+</html>
