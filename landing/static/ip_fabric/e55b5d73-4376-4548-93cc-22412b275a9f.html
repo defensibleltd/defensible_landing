@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IP Fabric snapshot format and information-leakage review (netlab demo lab).">
+
+  <!-- Keep this page out of search indexes (it is Confidential and contains lab credential material). -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <!-- Social link-preview card. NOTE: update og:url below to the page's real hosted URL. -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Defensible">
+  <meta property="og:title" content="Inside an IP Fabric Snapshot">
+  <meta property="og:description" content="Archive structure, disclosure findings and real-world risk, qualified for a netlab demo lab.">
+  <meta property="og:url" content="https://defensible.ie/ip_fabric/e55b5d73-4376-4548-93cc-22412b275a9f.html">
+  <meta property="og:image" content="https://defensible.ie/ip_fabric/e55b5d73-4376-4548-93cc-22412b275a9f.jpg">
+  <meta property="og:image:secure_url" content="https://defensible.ie/ip_fabric/e55b5d73-4376-4548-93cc-22412b275a9f.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Inside an IP Fabric Snapshot: snapshot format and information-leakage review.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inside an IP Fabric Snapshot">
+  <meta name="twitter:description" content="Archive structure, disclosure findings and real-world risk, qualified for a netlab demo lab.">
+  <meta name="twitter:image" content="https://defensible.ie/ip_fabric/e55b5d73-4376-4548-93cc-22412b275a9f.jpg">
+
+  <style>
+    :root { color-scheme: light dark; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; }
+    img { max-width: 100%; height: auto; }
+    [hidden] { display: none !important; }
+  </style>
+  <title>Snapshot Format &amp; Leakage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ink:#14192B; --muted:#59627A; --faint:#8A92A8;
+    --paper:#EEF1F8; --surface:#FFFFFF; --surface-2:#F5F7FB;
+    --navy:#264183; --navy-soft:#E7ECF9;
+    --line:#E2E6F0; --line-strong:#CDD4E4;
+    --crit:#B21F2B; --high:#C4451E; --med:#B07A16; --ok:#2E7D5B; --info:#2C5AA6;
+    --crit-bg:#FBEAEB; --high-bg:#FBEDE7; --med-bg:#FAF3E2; --ok-bg:#E8F4EE; --info-bg:#E7EEF9;
+    --shadow:0 1px 2px rgba(20,25,43.05), 0 12px 32px -18px rgba(20,25,43.28);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --ink:#E8ECF6; --muted:#9BA3BA; --faint:#6B7590;
+      --paper:#0C0F1A; --surface:#161B2B; --surface-2:#1B2133;
+      --navy:#7E9AEC; --navy-soft:#20294A;
+      --line:#272E44; --line-strong:#333C56;
+      --crit:#F0868E; --high:#F0A07E; --med:#E7C56A; --ok:#7ACFA4; --info:#8FB2F0;
+      --crit-bg:#2A1418; --high-bg:#2A1A12; --med-bg:#26200E; --ok-bg:#12241B; --info-bg:#121C30;
+      --shadow:0 1px 2px rgba(0,0,0.3), 0 18px 44px -22px rgba(0,0,0.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#E8ECF6; --muted:#9BA3BA; --faint:#6B7590;
+    --paper:#0C0F1A; --surface:#161B2B; --surface-2:#1B2133;
+    --navy:#7E9AEC; --navy-soft:#20294A;
+    --line:#272E44; --line-strong:#333C56;
+    --crit:#F0868E; --high:#F0A07E; --med:#E7C56A; --ok:#7ACFA4; --info:#8FB2F0;
+    --crit-bg:#2A1418; --high-bg:#2A1A12; --med-bg:#26200E; --ok-bg:#12241B; --info-bg:#121C30;
+    --shadow:0 1px 2px rgba(0,0,0.3), 0 18px 44px -22px rgba(0,0,0.7);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Open Sans", system-ui, sans-serif;
+    line-height:1.58; margin:0; -webkit-font-smoothing:antialiased;
+    padding:32px 20px 64px;
+  }
+  .doc{max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:26px;}
+
+  h1,h2,h3,h4{font-family:"Inter", system-ui, sans-serif; margin:0; text-wrap:balance;}
+  .mono{font-family:"JetBrains Mono", ui-monospace, monospace;}
+  b{font-weight:700;}
+
+  /* ---- masthead ---- */
+  .mast{background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--navy);
+    border-radius:12px; padding:26px 30px; box-shadow:var(--shadow);}
+  .eyebrow{font-family:"Inter",sans-serif; font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--navy);}
+  .mast h1{font-size:29px; font-weight:800; letter-spacing:-.02em; line-height:1.12; margin:8px 0 8px;}
+  .mast .sub{color:var(--muted); font-size:15px;}
+  .lead-tag{display:inline-block; margin-top:16px; background:var(--info-bg); color:var(--info); border-radius:8px; padding:10px 14px; font-size:13.5px; font-family:"Inter",sans-serif; font-weight:500; line-height:1.5;}
+  .meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:9px; overflow:hidden; margin-top:20px;}
+  .meta div{background:var(--surface); padding:10px 14px;}
+  .meta dt{font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-weight:600;}
+  .meta dd{margin:2px 0 0; font-size:13.5px; font-weight:600; font-family:"Inter",sans-serif;}
+  .classif{color:var(--crit);}
+  .files{margin:12px 0 0; border:1px solid var(--line); border-radius:9px; padding:11px 14px; background:var(--surface-2); display:flex; flex-direction:column; gap:3px;}
+  .files dt{font-family:"Inter",sans-serif; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-weight:600; margin-bottom:2px;}
+  .files dd{margin:0; font-size:12px; color:var(--muted); word-break:break-all;}
+
+  /* ---- page frame ---- */
+  .page{background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); overflow:hidden;}
+  .page-hd{display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:16px 30px; border-bottom:1px solid var(--line); background:var(--surface-2);}
+  .page-hd h2{font-size:19px; font-weight:700; letter-spacing:-.01em;}
+  .page-hd .pg{font-family:"Inter",sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--faint);}
+  .page-hd .pg.draft{color:var(--med); background:var(--med-bg); padding:3px 10px; border-radius:20px; letter-spacing:.06em;}
+  .page.exec{border-top:4px solid var(--navy);}
+  .page-bd{padding:26px 30px; display:flex; flex-direction:column; gap:24px;}
+
+  .lead{font-size:14.5px; color:var(--muted); margin:0;}
+  h3.sec{font-size:12px; letter-spacing:.11em; text-transform:uppercase; color:var(--navy); font-weight:700; display:flex; align-items:center; gap:9px; margin:0;}
+  h3.sec::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  /* ---- archive schematic ---- */
+  .tree{font-family:"JetBrains Mono",monospace; font-size:12.5px; line-height:1.7; white-space:pre; tab-size:2;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:18px 20px; overflow-x:auto; color:var(--ink); margin:0;}
+  .tree .n{color:var(--navy); font-weight:700;}
+  .tree .c{color:var(--faint);}
+  .tree .t{color:var(--crit); font-weight:700;}
+
+  table{border-collapse:collapse; width:100%; font-size:13px;}
+  .tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px;}
+  th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{font-family:"Inter",sans-serif; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:700; background:var(--surface-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  td .mono{font-size:12px;}
+  .num{text-align:right; font-variant-numeric:tabular-nums; font-family:"Inter",sans-serif; white-space:nowrap;}
+  .dim{color:var(--muted);}
+  .comp{font-family:"JetBrains Mono",monospace; font-weight:500; color:var(--navy); font-size:12.5px;}
+
+  .pill{display:inline-block; font-family:"Inter",sans-serif; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:20px; white-space:nowrap;}
+  .pill.c{color:var(--crit); background:var(--crit-bg);}
+  .pill.h{color:var(--high); background:var(--high-bg);}
+  .pill.m{color:var(--med); background:var(--med-bg);}
+  .pill.o{color:var(--ok); background:var(--ok-bg);}
+  .pill.i{color:var(--info); background:var(--info-bg);}
+
+  /* ---- findings table ---- */
+  .find td b{font-family:"Inter",sans-serif; font-weight:700; font-size:13px;}
+  .find td:nth-child(1){width:230px;}
+  .ev{font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--ink); background:var(--surface-2); border:1px solid var(--line); border-radius:5px; padding:1px 5px; display:inline-block; margin:2px 3px 0 0; word-break:normal; overflow-wrap:anywhere;}
+  .lab-cell{font-size:12.5px;} .prod-cell{font-size:12.5px;}
+  .tag-good{color:var(--ok); font-weight:700;} .tag-bad{color:var(--crit); font-weight:700;}
+
+  /* ---- callouts ---- */
+  .callout{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line-strong); border-radius:11px; overflow:hidden;}
+  .callout > div{padding:16px 20px;}
+  .callout .hide{background:var(--ok-bg);}
+  .callout .leak{background:var(--crit-bg); border-left:1px solid var(--line-strong);}
+  .callout h4{font-family:"Inter",sans-serif; font-size:12px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:7px;}
+  .callout .hide h4{color:var(--ok);} .callout .leak h4{color:var(--crit);}
+  .callout ul{margin:0; padding-left:17px; font-size:12.5px; line-height:1.7;}
+  .callout li{margin-bottom:3px;}
+  .callout .mono{font-size:11.5px;}
+
+  .docbox{border:1px solid var(--line); border-left:3px solid var(--info); border-radius:9px; background:var(--info-bg); padding:16px 20px;}
+  .docbox h4{font-family:"Inter",sans-serif; font-size:13px; color:var(--info); margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .docbox ul{margin:0 0 8px; padding-left:18px; font-size:13px; line-height:1.65; color:var(--ink);}
+  .docbox li{margin-bottom:4px;}
+  .docbox .concl{font-size:12.5px; color:var(--muted); border-top:1px solid var(--line-strong); padding-top:9px; margin-top:4px;}
+  .docbox a{color:var(--info); font-weight:600;}
+
+  /* ---- exec risk cards ---- */
+  .risk{display:flex; flex-direction:column; gap:11px;}
+  .risk-item{display:grid; grid-template-columns:24px 1fr; gap:13px; border:1px solid var(--line); border-left:3px solid var(--navy); border-radius:9px; padding:13px 16px 13px 14px; background:var(--surface);}
+  .risk-item .rn{font-family:"Inter",sans-serif; font-weight:800; font-size:15px; color:var(--navy); font-variant-numeric:tabular-nums;}
+  .risk-item h4{font-family:"Inter",sans-serif; font-size:14px; font-weight:700; margin-bottom:4px; display:flex; gap:9px; align-items:baseline; flex-wrap:wrap;}
+  .risk-item p{margin:0; font-size:13px; color:var(--muted);}
+  .risk-item p .k{color:var(--ink); font-weight:600;}
+
+  .note{font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:14px;}
+  .note b{color:var(--ink); font-family:"Inter",sans-serif;}
+  footer{max-width:960px; margin:8px auto 0; font-size:11.5px; color:var(--faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding:0 4px;}
+
+  @media (max-width:640px){
+    .callout{grid-template-columns:1fr;} .callout .leak{border-left:none; border-top:1px solid var(--line-strong);}
+    .mast h1{font-size:23px;} .page-bd.page-hd.mast{padding-left:18px; padding-right:18px;}
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="mast">
+    <div class="eyebrow">Snapshot Format Review &middot; Information-Leakage Assessment</div>
+    <h1>Inside an IP Fabric Snapshot</h1>
+    <p class="sub">A map of the snapshot archive's structure, and what it discloses, config secrets, credential hashes, IPs and contact fields, qualified honestly by whether any of it is actually reachable or exploitable.</p>
+    <div class="lead-tag"><b>Read this first:</b> both files are IP Fabric snapshots of a <b>demo lab built with netlab</b>, a virtual, containerised/Vagrant network. Devices, addressing, credentials and contacts are synthetic lab defaults on an isolated network. Findings below illustrate how the <em>snapshot format</em> handles secrets; they are not a live breach.</div>
+    <dl class="meta">
+      <div><dt>Subject</dt><dd>2 &times; netlab snapshot</dd></div>
+      <div><dt>Snapshots</dt><dd>Pre- &amp; Post-Change</dd></div>
+      <div><dt>On disk (.tar)</dt><dd class="mono">2.42 / 2.72 MB</dd></div>
+      <div><dt>IPF Version</dt><dd class="mono">7.0.11+0</dd></div>
+      <div><dt>Prepared by</dt><dd>Defensible</dd></div>
+      <div><dt>Classification</dt><dd class="classif">Confidential</dd></div>
+    </dl>
+    <dl class="files">
+      <dt>Source files</dt>
+      <dd class="mono">"NetLab - Pre-Change-2025-02-04T16_14_06.648Z-97ad7c58-341a-4e93-9612-8dd259d41672.tar"</dd>
+      <dd class="mono">"NetLab - Post-Change-2025-02-05T07_27_18.181Z-8dc4dd8b-afc0-46ae-995c-38800e1df781.tar"</dd>
+    </dl>
+  </header>
+
+  <!-- ============ EXECUTIVE SUMMARY ============ -->
+  <section class="page exec">
+    <div class="page-hd"><h2>Executive Summary</h2><span class="pg draft">Subject to review</span></div>
+    <div class="page-bd">
+      <p class="lead" style="font-size:15px; color:var(--ink)">A downloaded IP Fabric snapshot is an <b>unencrypted archive of collected network state</b>, in plain JSON (JavaScript Object Notation). Its vault does encrypt the credentials it <em>uses</em> to log in: device passwords and API tokens are AES-256, and UI logins are bcrypt. That protection holds inside the snapshot too. The stored login username is ciphertext, and the password field is null. What the snapshot does <b>not</b> redact is the material it <em>reads out of the devices' own configs</em>. That means SNMP community strings, password and enable-secret hashes, local usernames, and AAA server addresses. It also means any free-text an operator typed into a credential note. <b>This is expected, by-design behaviour</b>, not a product flaw (see the documentation check on page 2). The operational point is simple: a snapshot is config-bearing, so treat it as sensitive.</p>
+
+      <h3 class="sec">Top findings, ranked, and qualified for this lab</h3>
+      <div class="risk">
+        <div class="risk-item" style="border-left-color:var(--high)"><div class="rn" style="color:var(--high)">1</div><div>
+          <h4>A shared device password was recovered from its hash <span class="pill h">Demonstrated</span></h4>
+          <p>The one <span class="k mono">$1$</span> MD5crypt hash reused across ~40 devices cracks to <span class="k mono">vagrant</span>; we verified it with <span class="mono">openssl passwd -1</span> in milliseconds. Here it's a known netlab default on isolated devices, so nothing real is unlocked. <span class="k">In production the same pattern (one weak, reused secret) means crack-once, own-the-fleet.</span></p>
+        </div></div>
+        <div class="risk-item" style="border-left-color:var(--med)"><div class="rn" style="color:var(--med)">2</div><div>
+          <h4>A real password sits in a cleartext credential note <span class="pill m">Disclosure</span></h4>
+          <p>The vault encrypts the username and nulls the password, but an operator typed <span class="k mono">"clab@123"</span> into the free-text <span class="mono">notes</span> field, mapped to the platforms it unlocks. The encryption is bypassed by human habit, not by a flaw.</p>
+        </div></div>
+        <div class="risk-item" style="border-left-color:var(--med)"><div class="rn" style="color:var(--med)">3</div><div>
+          <h4>SNMP community strings, including read-write, in cleartext <span class="pill m">Not reachable here</span></h4>
+          <p>Config shows <span class="k mono">private rw</span> / <span class="k mono">public ro</span>. Exploiting SNMP needs UDP/161 reachability; these devices sit on an <span class="k">isolated RFC1918 lab network</span>, so it's moot for this demo. On a reachable production device an RW community means config rewrite and running-config exfil with no login.</p>
+        </div></div>
+        <div class="risk-item" style="border-left-color:var(--info)"><div class="rn" style="color:var(--info)">4</div><div>
+          <h4>IPs, AWS IDs and contact fields are low-value here <span class="pill i">Informational</span></h4>
+          <p>The "public" IPs are mostly <span class="k">simulated / re-used ranges</span> in a virtual lab, not reachable targets; AWS account IDs are a <span class="k">recon data point, not an attack</span> (the API key/secret are encrypted); and <span class="mono">admin@customer.com</span> is a <span class="k">placeholder</span>, not a person. Each is qualified on page 2.</p>
+        </div></div>
+      </div>
+
+      <p class="note"><b>Recommendation.</b> Treat every snapshot as secret-bearing and keep it inside its trust boundary. Sharing a snapshot across a trust boundary should be a deliberate, low-risk-only decision weighed against the assets in play. For anything beyond a synthetic lab, scrub SNMP communities, credential-store <span class="mono">notes</span> and config hashes first, and hold snapshots on encrypted storage (IP Fabric encrypts the VM's data at rest at the storage layer, not the exported file). <span style="color:var(--faint)">This summary is a draft for your review.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 1, STRUCTURE ============ -->
+  <section class="page">
+    <div class="page-hd"><h2>Archive Structure</h2><span class="pg">Page 1 / 2</span></div>
+    <div class="page-bd">
+
+      <p class="lead">Each snapshot is a plain <span class="mono">.tar</span> holding two things: a gzipped <span class="mono">data.tgz</span> of collected network state, and a <span class="mono">meta/</span> directory of collection metadata. The <span class="mono">.tar</span> container is not encrypted; every payload is JSON or newline-delimited JSON (NDJSON), readable with <span class="mono">tar</span> + <span class="mono">gunzip</span> + <span class="mono">jq</span>. Vault-managed credentials <em>inside</em> it (login username, AWS API key/secret) are the exception, those remain encrypted.</p>
+
+      <pre class="tree" aria-label="Snapshot archive layout"><span class="n">NetLab &ndash; Pre-Change &hellip; .tar</span>
+&#9474;
+&#9500;&#9472; <span class="t">data.tgz</span>                        <span class="c">gzip-compressed inner tar, collected state</span>
+&#9474;   &#9500;&#9472; <span class="n">cli/</span>&lt;mgmt-ip | aws-resource-id&gt;/
+&#9474;   &#9474;      &#9492;&#9472; structured-{epoch}.json.gz   <span class="c">NDJSON CLI transcript:</span>
+&#9474;   &#9474;         <span class="c">SSH login &middot; every command &middot; full running-config</span>
+&#9474;   &#9500;&#9472; <span class="n">devices/</span>&lt;serial | hash&gt;.json          <span class="c">parsed device model, 60+ keys</span>
+&#9474;   &#9474;         <span class="c">(aaa, snmp, bgp, routingTable, l3Interfaces, inventory, vrf &hellip;)</span>
+&#9474;   &#9492;&#9472; <span class="n">services/</span>{networker,tasker,updater,worker}/
+&#9474;             <span class="c">discovery-engine process logs (structured + all/errors.txt)</span>
+&#9474;
+&#9492;&#9472; <span class="n">meta/</span>                           <span class="c">collection metadata, 7 JSON files</span>
+    &#9500;&#9472; <span class="t">vCollect.json</span>       <span class="c">discovery settings &middot; credential list &middot; AWS API &middot; history</span>
+    &#9500;&#9472; vTask.json          <span class="c">per-target discovery tasks (ip, credentialsId, status)</span>
+    &#9500;&#9472; vDns.json           <span class="c">IP &#8644; hostname resolution records</span>
+    &#9500;&#9472; vErrorReports.json  <span class="c">discovery failures &amp; login errors</span>
+    &#9492;&#9472; vCollectAttribute.json &middot; vTraceCache.json &middot; vScannerTask.json</pre>
+
+      <div>
+        <h3 class="sec">data.tgz, collected network state</h3>
+        <div class="tbl-wrap" style="margin-top:12px"><table>
+          <thead><tr><th>Subtree</th><th>What it holds</th><th class="num">Files<br>pre&nbsp;/&nbsp;post</th><th class="num">Expanded JSON*<br>pre&nbsp;/&nbsp;post</th></tr></thead>
+          <tbody>
+            <tr><td><span class="comp">cli/</span></td><td>Raw per-device CLI transcripts (NDJSON). The <span class="mono">message</span> field carries verbatim device output, including full <span class="mono">show running-config</span>. Directory names are the management IP IP Fabric logged in on (the SSH/Telnet login address, not the device's interface or loopback IPs) <em>and</em> AWS resource IDs (<span class="mono">vpc-</span>, <span class="mono">tgw-</span>, <span class="mono">vgw-</span>).</td><td class="num">102 / 104</td><td class="num">20.1 / 21.9 MiB</td></tr>
+            <tr><td><span class="comp">devices/</span></td><td>Normalized parsed device model, one JSON per device keyed by serial or hash. Structured <span class="mono">aaa</span>, <span class="mono">snmp</span>, <span class="mono">bgp</span>, routing, interfaces, <span class="mono">inventory</span>, <span class="mono">credentialsId</span>.</td><td class="num">93 / 95</td><td class="num">2.4 / 2.7 MiB</td></tr>
+            <tr><td><span class="comp">services/</span></td><td>Discovery-engine orchestration logs (RabbitMQ, task workers). Operational, not device data, records timing, task IDs and error text.</td><td class="num">43 / 82</td><td class="num">2.3 / 3.3 MiB</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note" style="margin-top:10px"><b>* Expanded = decompressed JSON text.</b> The whole snapshot is only <b>2.42 MB (pre) / 2.72 MB (post) on disk</b> as the <span class="mono">.tar</span>. Inside, <span class="mono">cli/</span> is gzip-compressed (~1.7 MB on disk) and <b>expands to ~20 MiB</b> of transcript text, that expansion, not the download size, is what makes <span class="mono">cli/</span> the richest disclosure surface. (<span class="mono">devices/</span> is stored as plain JSON, so on-disk &asymp; expanded.)</p>
+      </div>
+
+      <div>
+        <h3 class="sec">meta/, collection metadata</h3>
+        <div class="tbl-wrap" style="margin-top:12px"><table>
+          <thead><tr><th>File</th><th>Contents</th><th class="num">Records</th><th>Sensitivity</th></tr></thead>
+          <tbody>
+            <tr><td><span class="comp">vCollect.json</span></td><td>The discovery job's full settings + change history: seed ranges, network include/exclude, credential store (<span class="mono">pwdList</span>), AWS <span class="mono">vendorApi</span> keys, site-separation rules, timeouts.</td><td class="num">1</td><td><span class="pill m">Notes leak</span></td></tr>
+            <tr><td><span class="comp">vTask.json</span></td><td>Per-target discovery tasks: <span class="mono">ip</span>, <span class="mono">credentialsId</span>, login result, discovery source (routes / seed / neighbor).</td><td class="num">321</td><td><span class="pill i">Low</span></td></tr>
+            <tr><td><span class="comp">vDns.json</span></td><td>Forward/reverse DNS records, IP &#8644; hostname mapping for the discovered estate.</td><td class="num">426</td><td><span class="pill i">Low</span></td></tr>
+            <tr><td><span class="comp">vErrorReports.json</span></td><td>Discovery failures, incl. login IPs, login type and error detail.</td><td class="num">17</td><td><span class="pill i">Low</span></td></tr>
+            <tr><td><span class="comp">vCollectAttribute &middot; vTraceCache &middot; vScannerTask</span></td><td>Custom attributes, path-trace cache, scanner queue (scanner disabled here).</td><td class="num">1 &middot; 5 &middot; 0</td><td><span class="pill o">None</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2, LEAKAGE + RISK ============ -->
+  <section class="page">
+    <div class="page-hd"><h2>Disclosure Findings &amp; Real-World Risk</h2><span class="pg">Page 2 / 2</span></div>
+    <div class="page-bd">
+
+      <!-- documentation validation -->
+      <div class="docbox">
+        <h4>&#10003; Validated against IP Fabric documentation</h4>
+        <ul>
+          <li><b>Device credentials &amp; 3rd-party tokens</b> (device passwords, API keys, jumphost creds) are encrypted with <b>AES-256</b>, key derived from the license, installation-specific.</li>
+          <li><b>IP Fabric UI user passwords</b> are hashed with <b>bcrypt</b> and cannot be decrypted.</li>
+          <li><b>Passwords at rest in the database and the techsupport archive are encrypted</b>, "the whole techsupport archive is encrypted." A downloaded <em>snapshot</em> is a different artifact and is <b>not</b> wrapped in that encryption.</li>
+          <li>The <b>VM is deliberately not app-encrypted</b>; IP Fabric recommends encryption at the storage layer (e.g. VMware datastore).</li>
+          <li>Discovery is <b>read-only CLI (SSH/Telnet), with no SNMP polling</b>, so SNMP community strings appear only because they were read out of <span class="mono">show running-config</span>.</li>
+        </ul>
+        <p class="concl"><b>What this means for our findings:</b> everything we observed is consistent with the documented model. The vault protects the credentials IP Fabric <em>stores and uses</em>; it does not, and is not designed to, redact secrets embedded in the customer's own device configs that discovery captures. The masking asymmetry below is that design, not a defect. Sources: <a href="https://docs.ipfabric.io/latest/overview/faq/">docs.ipfabric.io FAQ</a>, <a href="https://ipfabric.io/faq/">ipfabric.io FAQ</a>.</p>
+      </div>
+
+      <!-- findings table: disclosure vs exploitability -->
+      <div>
+        <h3 class="sec">Findings, what's disclosed vs. what's exploitable</h3>
+        <div class="tbl-wrap" style="margin-top:12px"><table class="find">
+          <thead><tr><th>Finding &amp; evidence</th><th>In this demo lab</th><th>Production analogue</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Shared password recovered from hash</b><br><span class="ev">$1$K/qo$&hellip;  &rarr;  "vagrant"</span> <span class="dim" style="font-size:12px">&middot; one hash on ~40 devices</span></td>
+              <td class="lab-cell"><span class="tag-bad">Cracked, but inert.</span> A known netlab/Vagrant default; devices are isolated and synthetic, so no real access is gained.</td>
+              <td class="prod-cell">A reused, weak secret across a fleet: crack one offline copy &rarr; log in everywhere, incl. enable/priv-esc.</td>
+            </tr>
+            <tr>
+              <td><b>Password in credential-store notes</b><br><span class="ev">notes: "clab@123 - netlab - ios xrd"</span></td>
+              <td class="lab-cell"><span class="tag-bad">Cleartext.</span> Lab password; the note even maps credential &rarr; platform. Username beside it <em>is</em> encrypted.</td>
+              <td class="prod-cell">Operator habit defeats the vault: a real password in a note travels with every copy of the snapshot.</td>
+            </tr>
+            <tr>
+              <td><b>SNMP community strings (incl. RW)</b><br><span class="ev">community private rw</span><span class="ev">community public ro</span></td>
+              <td class="lab-cell"><span class="tag-good">Not reachable.</span> Devices on isolated RFC1918 lab net; UDP/161 not exposed &rarr; not exploitable here.</td>
+              <td class="prod-cell">If the device is reachable, an RW community = rewrite config / copy running-config out, no login needed.</td>
+            </tr>
+            <tr>
+              <td><b>Config password / enable-secret hashes</b><br><span class="ev">27 hashes &middot; $1$ (MD5crypt) + $6$ (SHA-512)</span></td>
+              <td class="lab-cell"><span class="tag-bad">Exposed.</span> All lab defaults. <span class="mono">$1$</span> is salted, so rainbow tables don't apply, but a tiny wordlist cracks a default instantly.</td>
+              <td class="prod-cell">A portable, offline cracking target that never touches the network; strong hashes only slow, not stop it.</td>
+            </tr>
+            <tr>
+              <td><b>Public / routable IPs in config &amp; routes</b><br><span class="ev">~130 IPv4 &middot; NTP, routes, NAT, VPC</span></td>
+              <td class="lab-cell"><span class="tag-good">Mostly simulated.</span> Re-used/fabricated ranges in a virtual lab; not owned by the estate and not reachable targets.</td>
+              <td class="prod-cell">A real snapshot maps the true internet-facing surface: NAT egress, advertised prefixes, whitelisted admin source IPs.</td>
+            </tr>
+            <tr>
+              <td><b>AWS account IDs &amp; role ARNs</b><br><span class="ev">&hellip;::890561831523:role/ipf_latest</span></td>
+              <td class="lab-cell"><span class="tag-good">Probe, not attack.</span> Account IDs aren't secret; the API key/secret <em>are</em> encrypted. This is reconnaissance data, not access.</td>
+              <td class="prod-cell">Narrows IAM enumeration / role-assumption <em>attempts</em>; still needs a valid principal or a misconfigured trust policy to matter.</td>
+            </tr>
+            <tr>
+              <td><b>Contact fields ("PII")</b><br><span class="ev">admin@customer.com</span><span class="ev">+420 888-999-111</span></td>
+              <td class="lab-cell"><span class="tag-good">Placeholders.</span> <span class="mono">admin@customer.com</span> is a template client placeholder, not a person; the <span class="mono">+420</span> numbers are IP Fabric demo values.</td>
+              <td class="prod-cell">Only if real (a genuine NOC contact) does this become a social-engineering seed.</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <!-- masking asymmetry -->
+      <div>
+        <h3 class="sec">The masking asymmetry, expected, by design</h3>
+        <p class="lead" style="margin-bottom:14px">IP Fabric redacts the credentials it <em>injects</em> at login and stores in its vault, but not the secrets it <em>harvests</em> from device output. That line is exactly where the documented vault boundary sits, useful to know, not a defect to file.</p>
+        <div class="callout">
+          <div class="hide">
+            <h4>&#10003; Encrypted / masked (vault-managed)</h4>
+            <ul>
+              <li>Login username &amp; password reply in the raw CLI stream &rarr; <span class="mono">&lt;password&gt;</span></li>
+              <li>Credential-store <span class="mono">username</span> &rarr; AES ciphertext; <span class="mono">password</span> &rarr; <span class="mono">null</span></li>
+              <li>AWS <span class="mono">apiKey</span> / <span class="mono">apiSecret</span> &rarr; encrypted blobs</li>
+            </ul>
+          </div>
+          <div class="leak">
+            <h4>&#10007; Stored as collected (device-config content)</h4>
+            <ul>
+              <li>SNMP community strings (incl. <span class="mono">rw</span>) from config</li>
+              <li>Password / enable-secret <span class="mono">hashes</span></li>
+              <li>Operator <span class="mono">notes</span>, where a real password can appear</li>
+              <li>Local usernames &amp; AAA server IPs in parsed <span class="mono">devices/</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="note"><b>Bottom line.</b> These are synthetic netlab snapshots, so nothing here is a live exposure; the value is in seeing precisely what the format keeps and what it drops. The one thing that generalises directly is behavioural, not technical: <b>a snapshot faithfully carries every secret in the devices' running configs, unencrypted, in a file that is easy to open.</b> Keep snapshots inside their trust boundary; move one across a boundary only as a deliberate, low-risk-only decision judged against the assets in play, and scrub SNMP communities, credential <span class="mono">notes</span> and config hashes before you do.</p>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Defensible, IP Fabric snapshot format &amp; leakage review</span>
+    <span>Generated from <span class="mono">scripts/analyze_snapshot.py</span> &middot; Confidential</span>
+  </footer>
+</div>
+</body>
+</html>
