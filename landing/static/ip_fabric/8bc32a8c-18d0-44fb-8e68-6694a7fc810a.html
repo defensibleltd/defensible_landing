@@ -388,7 +388,7 @@
       <span><b>Prepared for</b> IP Fabric</span>
       <span><b>By</b> donal@defensible.ie + Opus 4.8</span>
       <span><b>Method</b> Emulating April Dunford</span>
-      <span><b>Draft</b> v22 &middot; 7 Sep 2026</span>
+      <span><b>Draft</b> v23 &middot; 8 Sep 2026</span>
     </div>
     <span class="confbadge"><span class="dot"></span> Confidential &middot; internal positioning brief, not for prospect distribution</span>
     <nav class="toc" aria-label="Table of contents">
@@ -679,15 +679,19 @@
     <div class="tablewrap">
       <table class="wide big">
         <tbody>
-          <tr><td>Competitive alternatives</td><td>Not "another digital twin." The alternative is trusting your automation/AI vendor's own model to say whether its own changes were safe (NetBrain, Forward), or stitching truth from a source-of-truth database plus SNMP monitoring and tribal knowledge (NetBox/Nautobot/Slurpit, NetMRI/SolarWinds).</td></tr>
-          <tr><td>Unique attributes</td><td>Read-only collection that logs in but changes nothing; vendor-neutral model across 40+ vendors and cloud; timestamped immutable snapshots; 160+ intent-verification rules; a first-class, OpenAPI-specified, discoverable API; opt-in governed MCP that exposes truth without exposing control.</td></tr>
-          <tr><td>Value</td><td>You can adopt AI-driven and autonomous operations and still pass an audit: independent proof of what changed, whether it matched intent, and the blast radius, with no risk the verifier can itself break production.</td></tr>
-          <tr><td>Best-fit customer</td><td>Regulated, multi-vendor enterprises (finance, healthcare, critical infra, gov) pushed toward automation but governed by DORA, NIS2, PCI, ISO 27001, who cannot let a black-box agent be judge and executioner. Also the mid-to-large enterprise for whom Forward is too heavy and NetBrain's module stack too expensive.</td></tr>
-          <tr><td>Market category</td><td>Network Assurance, reframed as the independent verification and system-of-record layer for AI-driven network operations. The separation-of-powers layer.</td></tr>
+          <tr><td>Competitive alternatives</td><td>Not "another digital twin." The alternative is trusting your automation/AI vendor's own model to say whether its own changes were safe (NetBrain, Forward), or stitching truth from a source-of-truth database plus SNMP monitoring and undocumented engineering know-how (NetBox/Nautobot/Slurpit, NetMRI/SolarWinds).</td></tr>
+          <tr><td>Unique attributes</td><td>Read-only collection that logs in but changes nothing; vendor-neutral model across 30+ vendors and cloud; timestamped immutable snapshots; 160+ intent-verification rules; a first-class, OpenAPI-specified, discoverable API; opt-in governed MCP that exposes truth without exposing control.</td></tr>
+          <tr><td>Value</td><td>Adopt AI-driven, autonomous operations and still pass the audit. You get independent, evidence-grade proof of what changed, whether it matched intent, and its blast radius. And because the verifier only reads, it can never break production itself.</td></tr>
+          <tr><td>Best-fit customer</td><td>Regulated, multi-vendor enterprises (finance, healthcare, critical infra, gov) pushed toward automation but governed by DORA, NIS2, PCI, ISO 27001, who cannot let a black-box agent be both judge and executioner. Also the mid-to-large enterprise for whom Forward is too heavy and NetBrain's module stack too expensive.</td></tr>
+          <tr><td>Market category</td><td>Network Assurance, reframed as the independent verification and system-of-record layer for AI-driven network operations. The separation-of-powers play, the required layer.</td></tr>
         </tbody>
       </table>
     </div>
-    <p><strong>Trend used as context, not product:</strong> the shift from human-run to AI-run networks. The competitors spent millions convincing the market that autonomous operations are coming. IP Fabric rides that belief and adds the question they left unanswered: who checks the AI?</p>
+    <div class="callout moat">
+      <span class="clabel">Trend used as context, not product</span>
+      <p class="ctitle">The shift from human-run to AI-run autonomous networks</p>
+      <p>The competitors spent millions convincing the market that autonomous operations are coming. IP Fabric rides that belief and adds the question they left unanswered: who checks the AI?</p>
+    </div>
   </section>
 
   <!-- ===== 09 AIM ===== -->
@@ -811,7 +815,7 @@
       <li>Vendor homepages and releases: IP Fabric MCP press release (Apr 2026), Forward AI and Forward MCP, NetBrain "Agentic NetOps" and AI Agents.</li>
       <li>IP Fabric AIM draft overview and API reference; the Illumio partnership announcement (2 Sep 2026); internal MCP and API notes, marketing-instance OAS and MCP endpoints; <a href="https://matrix.ipfabric.io/llms.txt">matrix.ipfabric.io/llms.txt</a> as the agent-discovery model.</li>
       <li>Competitive material on NetBrain modular pricing and SNMP/Telnet collection, Forward Predict beta-to-GA timing and NQE, and the source-of-truth tier (NetBox Discovery/Nautobot, Slurpit) and legacy SNMP assurance (NetMRI, SolarWinds).</li>    </ul>
-    <p class="foot">Confidential. Internal positioning brief prepared for IP Fabric by Defensible. Draft v22, 7 Sep 2026. Not for prospect or customer distribution. Marketing-instance URLs and tokens are internal enablement resources; do not publish credentials.</p>
+    <p class="foot">Confidential. Internal positioning brief prepared for IP Fabric by Defensible. Draft v23, 8 Sep 2026. Not for prospect or customer distribution. Marketing-instance URLs and tokens are internal enablement resources; do not publish credentials.</p>
   </div>
 
 </div>
