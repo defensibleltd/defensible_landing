@@ -195,6 +195,12 @@
   .callout.homework .ctitle{color:var(--act); font-style:italic}
   .callout.moat{border-left:4px solid var(--navy); background:color-mix(in srgb,var(--navy) 6%,var(--surface))}
   .callout.moat .clabel{color:var(--slate)}
+  /* filled-blue callout (navy fill, light text) */
+  .callout.blue{border:none; background:linear-gradient(135deg,var(--navy-deep),#22386b); box-shadow:var(--shadow-lift)}
+  .callout.blue .clabel{color:#9fb4e6}
+  .callout.blue .ctitle{color:#fff; font-size:23px; line-height:1.22}
+  .callout.blue p{color:#d7e2fb}
+  .callout.blue a{color:#bcd0f7}
   .callout.mcp{border-left:4px solid var(--gold); background:var(--gold-soft)}
   .callout.mcp .ctitle{color:var(--gold); font-style:italic}
 
@@ -388,7 +394,7 @@
       <span><b>Prepared for</b> IP Fabric</span>
       <span><b>By</b> donal@defensible.ie + Opus 4.8</span>
       <span><b>Method</b> Emulating April Dunford</span>
-      <span><b>Draft</b> v23 &middot; 8 Sep 2026</span>
+      <span><b>Draft</b> v25 &middot; 8 Sep 2026</span>
     </div>
     <span class="confbadge"><span class="dot"></span> Confidential &middot; internal positioning brief, not for prospect distribution</span>
     <nav class="toc" aria-label="Table of contents">
@@ -680,14 +686,14 @@
       <table class="wide big">
         <tbody>
           <tr><td>Competitive alternatives</td><td>Not "another digital twin." The alternative is trusting your automation/AI vendor's own model to say whether its own changes were safe (NetBrain, Forward), or stitching truth from a source-of-truth database plus SNMP monitoring and undocumented engineering know-how (NetBox/Nautobot/Slurpit, NetMRI/SolarWinds).</td></tr>
-          <tr><td>Unique attributes</td><td>Read-only collection that logs in but changes nothing; vendor-neutral model across 30+ vendors and cloud; timestamped immutable snapshots; 160+ intent-verification rules; a first-class, OpenAPI-specified, discoverable API; opt-in governed MCP that exposes truth without exposing control.</td></tr>
+          <tr><td>Unique attributes</td><td>Read-only collection that logs in but changes nothing; vendor-neutral model spanning 60+ platforms across 30+ vendors and cloud; timestamped immutable snapshots; 160+ intent-verification rules; a first-class, OpenAPI-specified, discoverable API; opt-in governed MCP that exposes truth without exposing control.</td></tr>
           <tr><td>Value</td><td>Adopt AI-driven, autonomous operations and still pass the audit. You get independent, evidence-grade proof of what changed, whether it matched intent, and its blast radius. And because the verifier only reads, it can never break production itself.</td></tr>
           <tr><td>Best-fit customer</td><td>Regulated, multi-vendor enterprises (finance, healthcare, critical infra, gov) pushed toward automation but governed by DORA, NIS2, PCI, ISO 27001, who cannot let a black-box agent be both judge and executioner. Also the mid-to-large enterprise for whom Forward is too heavy and NetBrain's module stack too expensive.</td></tr>
           <tr><td>Market category</td><td>Network Assurance, reframed as the independent verification and system-of-record layer for AI-driven network operations. The separation-of-powers play, the required layer.</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="callout moat">
+    <div class="callout blue">
       <span class="clabel">Trend used as context, not product</span>
       <p class="ctitle">The shift from human-run to AI-run autonomous networks</p>
       <p>The competitors spent millions convincing the market that autonomous operations are coming. IP Fabric rides that belief and adds the question they left unanswered: who checks the AI?</p>
@@ -703,7 +709,7 @@
 
     <div class="verdict" style="text-align:left">
       <span class="vk">AIM in one breath</span>
-      <p style="font-size:19px; max-width:none; text-align:left">Full-stack deterministic data for trustworthy AIOps and Network Assurance.</p>
+      <p style="font-size:19px; max-width:none; text-align:left">"Full-stack deterministic data for trustworthy AIOps and Network Assurance."</p>
       <span class="vsub" style="text-align:left">Connect <b style="color:#f4b184">top-down</b> business services to <b style="color:#93cdb0">bottom-up</b> infrastructure using inside-out network verification. Bridge operational gaps by surfacing true application behaviours and critical dependencies across full on-prem and cloud footprints.</span>
     </div>
 
@@ -815,7 +821,7 @@
       <li>Vendor homepages and releases: IP Fabric MCP press release (Apr 2026), Forward AI and Forward MCP, NetBrain "Agentic NetOps" and AI Agents.</li>
       <li>IP Fabric AIM draft overview and API reference; the Illumio partnership announcement (2 Sep 2026); internal MCP and API notes, marketing-instance OAS and MCP endpoints; <a href="https://matrix.ipfabric.io/llms.txt">matrix.ipfabric.io/llms.txt</a> as the agent-discovery model.</li>
       <li>Competitive material on NetBrain modular pricing and SNMP/Telnet collection, Forward Predict beta-to-GA timing and NQE, and the source-of-truth tier (NetBox Discovery/Nautobot, Slurpit) and legacy SNMP assurance (NetMRI, SolarWinds).</li>    </ul>
-    <p class="foot">Confidential. Internal positioning brief prepared for IP Fabric by Defensible. Draft v23, 8 Sep 2026. Not for prospect or customer distribution. Marketing-instance URLs and tokens are internal enablement resources; do not publish credentials.</p>
+    <p class="foot">Confidential. Internal positioning brief prepared for IP Fabric by Defensible. Draft v24, 8 Sep 2026. Not for prospect or customer distribution. Marketing-instance URLs and tokens are internal enablement resources; do not publish credentials.</p>
   </div>
 
 </div>
