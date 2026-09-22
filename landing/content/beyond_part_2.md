@@ -26,7 +26,7 @@ Lifecycle management and the evolution of an organization mean that assets, inte
 
 ### Late to the Game
 
-Security monitoring has traditionally been reactive, signature-based, and thresholds that generated events that roll up to dashboards leaving humans to attempt to figure out what's next. SOPs (Standard Operating Procedures) and playbooks were manually triggered and 'adhered' to by human operators and analysts. Scripts were run to slowly stitch together some semblance of situational awareness which left no time for proactive measures or prowling the shrinking perimeter.
+Security monitoring has traditionally been reactive, signature-based, and used thresholds that generated events, events that roll up to dashboards leaving humans to attempt to figure out "what's next". SOPs (Standard Operating Procedures) and playbooks were manually triggered and 'adhered' to by human operators and analysts. Scripts were run to slowly stitch together some semblance of situational awareness which left no time for proactive measures or prowling the shrinking perimeter.
 
 ### Burnout and Fatigue
 
