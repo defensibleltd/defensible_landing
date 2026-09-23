@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IP Fabric Website Teardown, 2026 Marketing Web Rebuild</title>
+<meta name="description" content="An evidenced, prioritised teardown of the September 2026 ipfabric.io rebuild: conversion, product credibility, mobile, performance, accessibility, SEO and AEO, motion, typography and privacy.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IP Fabric Website Teardown, 2026 Marketing Web Rebuild">
+<meta property="og:description" content="Evidenced, prioritised audit. Conversion first.">
+<style>
+  :root{color-scheme:light dark}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+  img{max-width:100%;height:auto}
+</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#eaeef6; --surface:#ffffff; --surface-2:#eef2f9; --surface-3:#f3f6fc;
+  --ink:#1a2231; --muted:#54607a; --faint:#8591a8;
+  --navy:#264183; --navy-deep:#1b2f5e; --link:#1c5fc9; --slate:#8C989B;
+  --rule:#e0e6f1; --rule-strong:#ccd6e8;
+  --verify:#1f8f52; --verify-soft:#e7f4ec; --verify-line:#bfe3cd;
+  --act:#b8560f; --act-soft:#fbeede; --act-line:#f0d2b8;
+  --gold:#a9791f; --gold-soft:#f8f0dd;
+  --crit:#c1362f; --crit-soft:#fbe9e7; --crit-line:#f0c3bd;
+  --shadow:0 1px 2px rgba(27,47,94,.05), 0 8px 26px rgba(27,47,94,.07);
+  --shadow-lift:0 2px 6px rgba(27,47,94,.08), 0 18px 46px rgba(27,47,94,.12);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1120; --surface:#121b2e; --surface-2:#18233a; --surface-3:#15203a;
+    --ink:#e8edf7; --muted:#a2aec6; --faint:#78859e;
+    --navy:#8aa5e0; --navy-deep:#adc2f2; --link:#83aaf4; --slate:#95a3bd;
+    --rule:#25324e; --rule-strong:#33415f;
+    --verify:#54cb8c; --verify-soft:#12271b; --verify-line:#20452e;
+    --act:#f0924f; --act-soft:#291b12; --act-line:#4a2f18;
+    --gold:#e0b452; --gold-soft:#241d0f;
+    --crit:#f0736a; --crit-soft:#2a1512; --crit-line:#4c2420;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.4);
+    --shadow-lift:0 2px 8px rgba(0,0,0,.4), 0 22px 54px rgba(0,0,0,.5);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:18px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:'Open Sans','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,4vw,56px) 90px}
+::selection{background:#f4b184;color:#14192b}
+
+/* Masthead */
+.mast{background:
+    radial-gradient(120% 140% at 88% -10%, rgba(184,86,15,.28), transparent 46%),
+    radial-gradient(120% 150% at 8% 120%, rgba(31,143,82,.22), transparent 50%),
+    linear-gradient(135deg,var(--navy-deep),#22386b 62%, #1b2f5e 100%);
+  background-color:#1b2f5e;color:#eef3ff;position:relative;overflow:hidden}
+.mast::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:40px 40px;opacity:.5;mask-image:radial-gradient(120% 100% at 50% 0,#000,transparent 78%);
+  -webkit-mask-image:radial-gradient(120% 100% at 50% 0,#000,transparent 78%);pointer-events:none}
+.mast-inner{max-width:1180px;margin:0 auto;padding:66px clamp(22px,4vw,56px) 56px;position:relative;z-index:1}
+.eyebrow-mast{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:2.5px;text-transform:uppercase;color:#9fb4e6;margin:0 0 22px}
+.mast h1{font-size:46px;line-height:1.16;font-weight:800;margin:0 0 26px;letter-spacing:-1px;text-wrap:pretty;color:#fff}
+.mast .thesis{font-size:20px;font-weight:400;font-style:italic;line-height:1.5;color:#d7e2fb;margin:0;border-left:3px solid var(--act);padding-left:20px;max-width:820px}
+.mast .thesis b{color:#fff;font-weight:600;font-style:normal}
+.metabar{display:flex;flex-wrap:wrap;gap:8px 30px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);font-size:12.5px;color:#aebfe4;font-family:'JetBrains Mono',monospace}
+.metabar b{color:#fff;font-weight:600}
+.metabar a{color:#cdd8f2}
+.toc{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);display:flex;flex-wrap:wrap;gap:8px 9px;align-items:center}
+.toc .toc-lab{width:100%;margin:0 0 4px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9fb4e6}
+.toc a{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:#e6edfb;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:5px 11px 5px 6px;text-decoration:none}
+.toc a:hover{background:rgba(255,255,255,.13);border-color:rgba(244,177,132,.55)}
+.toc a .tn{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.3px;color:#12224a;background:#9fb4e6;border-radius:4px;padding:2px 5px}
+
+/* Structure */
+section{margin-top:44px}
+.eyebrow{display:flex;align-items:center;gap:11px;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--slate);margin:0 0 8px}
+.eyebrow .num{color:#fff;background:var(--navy);border-radius:5px;padding:2px 8px;font-size:11px;letter-spacing:.5px}
+h2{font-size:29px;font-weight:800;line-height:1.16;margin:0 0 6px;color:var(--ink);letter-spacing:-.4px;text-wrap:pretty}
+.lead-rule{height:3px;width:52px;background:var(--navy);border-radius:2px;margin:10px 0 20px}
+h3{font-size:16.5px;font-weight:700;margin:24px 0 7px;color:var(--navy-deep)}
+p{margin:0 0 14px}
+.lead{font-size:17.5px;color:var(--muted);max-width:820px}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--link) 34%,transparent)}
+a:hover{border-bottom-color:var(--link)}
+strong{font-weight:700;color:var(--ink)}
+code,.mono{font-family:'JetBrains Mono',monospace}
+p code,li code,td code,figcaption code{background:var(--surface-2);color:var(--navy-deep);padding:1.5px 6px;border-radius:5px;font-size:.8em;word-break:break-word}
+
+/* Callouts (payoff-style) */
+.callout{border-radius:12px;padding:18px 22px;margin:22px 0;border:1px solid var(--rule);background:var(--surface);box-shadow:var(--shadow);font-size:15px;line-height:1.6}
+.callout .clabel{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;margin:0 0 7px;display:block}
+.callout .ctitle{font-size:19px;font-weight:700;line-height:1.3;margin:0 0 8px;color:var(--navy)}
+.callout p{margin:0}.callout p+p{margin-top:9px}
+.callout.blue{border:none;background:linear-gradient(135deg,var(--navy-deep),#22386b);box-shadow:var(--shadow-lift)}
+.callout.blue .clabel{color:#f4b184}
+.callout.blue .ctitle{color:#fff;font-size:23px;line-height:1.24}
+.callout.blue p{color:#d7e2fb}
+.callout.blue b{color:#f4b184;font-weight:700}
+.callout.blue a{color:#bcd0f7}
+.callout.good{border-left:4px solid var(--verify);background:var(--verify-soft)}
+.callout.good .clabel{color:var(--verify)}
+.callout.act{border-left:4px solid var(--act);background:var(--act-soft)}
+.callout.act .clabel{color:var(--act)}
+
+/* Five moves list */
+.moves{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:22px 26px 26px;box-shadow:var(--shadow-lift);margin:24px 0 8px}
+.moves .cap{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+.movelist{list-style:none;counter-reset:m;margin:0;padding:0}
+.movelist li{counter-increment:m;position:relative;display:grid;grid-template-columns:40px 1fr;gap:15px;padding:15px 0;border-top:1px solid var(--rule);align-items:start;font-size:15.5px;line-height:1.55}
+.movelist li:first-child{border-top:none}
+.movelist li::before{content:counter(m,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-weight:600;font-size:13px;color:var(--crit);background:var(--crit-soft);border:1px solid var(--crit-line);border-radius:9px;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+.movelist b{color:var(--navy-deep);font-weight:700}
+.movelist a.id{border-bottom:none}
+
+/* ID + severity chips */
+.id{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--navy);background:var(--surface-2);padding:2px 7px;border-radius:5px;font-size:12px;letter-spacing:.3px;white-space:nowrap;border-bottom:none}
+a.id{text-decoration:underline;text-underline-offset:2px}
+a.id:hover{background:var(--rule-strong)}
+.sev{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:#fff;padding:3px 8px;border-radius:5px;font-weight:600}
+.sev.crit{background:var(--crit)} .sev.high{background:var(--act)} .sev.med{background:var(--navy)} .sev.low{background:var(--slate)} .sev.keep{background:var(--verify)}
+
+/* Finding cards */
+.finding{background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--slate);border-radius:12px;padding:16px 20px;margin:14px 0;box-shadow:var(--shadow);scroll-margin-top:16px}
+.finding.c-crit{border-left-color:var(--crit)} .finding.c-high{border-left-color:var(--act)} .finding.c-med{border-left-color:var(--navy)} .finding.c-low{border-left-color:var(--slate)} .finding.c-pos{border-left-color:var(--verify)}
+.finding .fh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.finding .ftitle{font-weight:800;color:var(--navy-deep);font-size:16px;letter-spacing:-.1px}
+.finding p{margin:6px 0 0;font-size:14.5px;color:var(--ink)}
+.finding .ev{font-size:13px;color:var(--faint);margin-top:8px}
+.finding ul{margin:8px 0 0;font-size:13.5px;color:var(--muted);padding-left:18px}
+.finding li{margin-bottom:3px}
+
+/* Tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;box-shadow:var(--shadow);margin:18px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:540px}
+thead th{background:var(--navy);color:#fff;text-align:left;font-weight:600;padding:11px 14px;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+tbody td{padding:10px 14px;border-top:1px solid var(--rule);vertical-align:middle;line-height:1.5}
+tbody tr:nth-child(even){background:var(--surface-3)}
+.scoreboard td:not(:first-child){text-align:center}
+.scoreboard a{border-bottom:none;text-decoration:underline;text-underline-offset:2px;color:inherit;font-weight:700}
+.scoreboard td:first-child a{color:var(--navy-deep)}
+.scoreboard td.n-crit a{color:var(--crit)} .scoreboard td.n-high a{color:var(--act)} .scoreboard td.n-med a{color:var(--navy)}
+.scoreboard .valid{color:var(--verify);font-weight:700;text-align:center}
+.bk td:nth-child(1){color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:12px}
+
+/* Figures */
+figure{margin:16px 0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--muted);padding:10px 16px;background:var(--surface);border-top:1px solid var(--rule)}
+figcaption b{color:var(--navy-deep)}
+.figrow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.figrow figure{margin:0}
+.mobshot img{max-height:640px;width:auto;margin:0 auto}
+.mobshot{display:flex;justify-content:center}
+
+.footer{background:var(--navy-deep);color:#c3cfec;font-size:13px;padding:26px 0;margin-top:56px}
+.footer .wrap{padding-bottom:0}
+.footer b{color:#fff}
+ul.tight{margin:0 0 12px;padding-left:20px}
+ul.tight li{margin-bottom:6px}
+
+@media (max-width:640px){
+  .mast h1{font-size:32px}
+  .figrow{grid-template-columns:1fr}
+  body{font-size:15px}
+  h2{font-size:24px}
+}
+</style>
+
+<header class="mast">
+  <div class="mast-inner">
+    <p class="eyebrow-mast">Website Teardown</p>
+    <h1>IP Fabric, 2026 Marketing Web Rebuild</h1>
+    <p class="thesis">A fast, well-hosted site whose top layer works against the one thing the site exists to do: <b>turn prospects (network engineers and managers) into demos</b>.</p>
+    <div class="metabar">
+      <span><b>Site</b> <a href="https://ipfabric.io/" target="_blank" rel="noopener">ipfabric.io</a></span>
+      <span><b>Date</b> 23 Sep 2026</span>
+      <span><b>Benchmark</b> 2026 Best Practices</span>
+      <span><b>Findings</b> 30, indexed and prioritised</span>
+    </div>
+    <nav class="toc">
+      <span class="toc-lab">Contents</span>
+      <a href="#summary"><span class="tn">01</span>Executive Summary</a>
+      <a href="#overview"><span class="tn">02</span>Overview</a>
+      <a href="#scoreboard"><span class="tn">03</span>Scoreboard</a>
+      <a href="#cv"><span class="tn">04</span>Conversion</a>
+      <a href="#vis"><span class="tn">05</span>Product Credibility</a>
+      <a href="#forms"><span class="tn">06</span>Forms</a>
+      <a href="#mob"><span class="tn">07</span>Mobile</a>
+      <a href="#motion"><span class="tn">08</span>Motion</a>
+      <a href="#typ"><span class="tn">09</span>Typography</a>
+      <a href="#nav"><span class="tn">10</span>Navigation</a>
+      <a href="#lnk"><span class="tn">11</span>Links</a>
+      <a href="#a11y"><span class="tn">12</span>Accessibility</a>
+      <a href="#perf"><span class="tn">13</span>Performance</a>
+      <a href="#seo"><span class="tn">14</span>SEO</a>
+      <a href="#aeo"><span class="tn">15</span>AEO / GEO</a>
+      <a href="#mar"><span class="tn">16</span>MarTech</a>
+      <a href="#cfg"><span class="tn">17</span>Hosting</a>
+      <a href="#backlog"><span class="tn">18</span>Backlog</a>
+      <a href="#good"><span class="tn">19</span>What Works</a>
+      <a href="#appendix"><span class="tn">20</span>Method</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="summary">
+  <div class="eyebrow"><span class="num">01</span> Executive Summary</div>
+  <h2>A modern foundation, but a shopfront that works against the sale</h2>
+  <div class="lead-rule"></div>
+  <p class="lead">The rebuild put a fast, technically clean foundation under a storefront that undercuts it. The site is quick, but the experience on top hides the product, interrupts the visitor, and hands the buyer to a bare third-party form at the exact moment they lean in.</p>
+  <p>For a company whose entire promise is trustworthy, evidence-grade network data, the homepage asks people to take the product on faith. Judged the way a network engineer actually evaluates a tool, conversion first, the rebuild trades away hard-won signals: you cannot see the software, an AI chatbot opens itself and will not leave, and the primary demo path leaves the domain entirely. None of this is an infrastructure problem. It is front end, content and configuration, so it is fixable without re-platforming.</p>
+
+  <div class="callout blue">
+    <span class="clabel">The Through-Line</span>
+    <p class="ctitle">For a network-assurance platform, you never actually see the software.</p>
+    <p>The hero is a stylised, synthetic mock; the rest leans on generic icons and suggestive, low-fidelity diagrams. A technical buyer's trigger is <b>"show me it works"</b>, and the flagship page does not.</p>
+  </div>
+
+  <div class="moves">
+    <div class="cap">The Five That Matter Most</div>
+    <ul class="movelist">
+      <li><span><a class="id" href="#CV-01">CV-01</a> &nbsp;An uninvited <b>chatbot auto-opens</b> full-height on desktop and pins itself across the whole scroll, about 25% of the viewport.</span></li>
+      <li><span><a class="id" href="#CV-02">CV-02</a> &nbsp;The <b>primary demo CTAs leak off-site</b>: HubSpot forms open in a new tab on <code>share-eu1.hsforms.com</code>, unbranded.</span></li>
+      <li><span><a class="id" href="#VIS-01">VIS-01</a> &nbsp;The hero <b>product visual is a synthetic mock</b>, not a screenshot of the running product.</span></li>
+      <li><span><a class="id" href="#A11Y-01">A11Y-01</a> &nbsp;About <b>58% of images have no alt text</b>, a broad accessibility and SEO failure.</span></li>
+      <li><span><a class="id" href="#TYP-02">TYP-02</a> &nbsp;<b>Typography regressed</b> from Inter to Open Sans plus an unstyled system fallback.</span></li>
+    </ul>
+  </div>
+
+  <div class="callout good">
+    <span class="clabel">The Counterweight</span>
+    <p><b>Mobile is a relative strength.</b> Validated in Chrome DevTools device emulation, the site reflows cleanly to a single column with a hamburger menu, large tap targets and no horizontal overflow. The foundation is sound; the work is on the layer above it.</p>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="eyebrow"><span class="num">02</span> Overview</div>
+  <h2>The plumbing is fine, the storefront is the problem</h2>
+  <div class="lead-rule"></div>
+  <p>Under the hood the rebuild is genuinely sound. The server responds quickly (TTFB about 202&nbsp;ms), the homepage DOM is lean, there is an <code>llms.txt</code> for AI crawlers, and the hosting stack is modern with HTTP/3. The instinct that the site "loads fast" is correct at the network layer.</p>
+  <p>That is exactly what makes the regression a front-end and funnel problem rather than an infrastructure one: a fast pipe is delivering a page that undersells a serious product. This report is deliberately <b>conversion-first</b>, because a B2B marketing site exists to turn prospects into demos and pipeline. Every other discipline (performance, accessibility, motion, typography, SEO and AEO) is judged by whether it helps or leaks that goal. Findings are grouped by discipline, each with a stable ID (for example <span class="id">LNK-01</span>) so they can be referenced directly, and ranked by severity in the <a href="#backlog">backlog</a>. This diagnoses and prioritises; it does not prescribe fixes.</p>
+  <div class="callout"><span class="clabel" style="color:var(--slate)">Scope</span><p>This teardown covers the site's experience, build quality and technical execution. It deliberately does not review the copy, messaging or positioning, which are being handled separately.</p></div>
+</section>
+
+<section id="scoreboard">
+  <div class="eyebrow"><span class="num">03</span> Severity Scoreboard</div>
+  <h2>Where the issues sit</h2>
+  <div class="lead-rule"></div>
+  <p class="lead">Each discipline links to its section; every count links to the first finding of that type.</p>
+  <div class="tablewrap"><table class="scoreboard">
+    <thead><tr><th>Discipline</th><th>Critical</th><th>High</th><th>Medium</th><th>Low</th></tr></thead>
+    <tbody>
+      <tr><td><a href="#cv">Conversion and Lead-Generation (CV)</a></td><td class="n-crit"><a href="#CV-01">2</a></td><td>&ndash;</td><td class="n-med"><a href="#CV-03">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#vis">Product Credibility and Imagery (VIS)</a></td><td>&ndash;</td><td class="n-high"><a href="#VIS-01">2</a></td><td class="n-med"><a href="#VIS-03">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#forms">Forms (FRM)</a></td><td>&ndash;</td><td>&ndash;</td><td class="n-med"><a href="#FRM-01">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#mob">Mobile and Responsive (MOB)</a></td><td colspan="4" class="valid"><a href="#MOB-01" style="color:var(--verify)">Validated, no issues found</a></td></tr>
+      <tr><td><a href="#a11y">Accessibility (A11Y)</a></td><td class="n-crit"><a href="#A11Y-01">1</a></td><td>&ndash;</td><td class="n-med"><a href="#A11Y-02">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#motion">Motion and Interruption (MO)</a></td><td>&ndash;</td><td class="n-high"><a href="#MO-01">1</a></td><td class="n-med"><a href="#MO-02">1</a></td><td><a href="#MO-03">1</a></td></tr>
+      <tr><td><a href="#typ">Typography (TYP)</a></td><td>&ndash;</td><td class="n-high"><a href="#TYP-01">2</a></td><td>&ndash;</td><td><a href="#TYP-03">1</a></td></tr>
+      <tr><td><a href="#nav">Navigation and IA (NAV)</a></td><td>&ndash;</td><td class="n-high"><a href="#NAV-01">1</a></td><td>&ndash;</td><td>&ndash;</td></tr>
+      <tr><td><a href="#lnk">Links and Targets (LNK)</a></td><td>&ndash;</td><td class="n-high"><a href="#LNK-01">1</a></td><td class="n-med"><a href="#LNK-02">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#perf">Performance and Weight (PERF)</a></td><td>&ndash;</td><td class="n-high"><a href="#PERF-01">1</a></td><td class="n-med"><a href="#PERF-02">1</a></td><td><a href="#PERF-03">1</a></td></tr>
+      <tr><td><a href="#seo">SEO (SEO)</a></td><td>&ndash;</td><td class="n-high"><a href="#SEO-01">1</a></td><td class="n-med"><a href="#SEO-02">1</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#aeo">Answer and Agent Optimisation (AEO)</a></td><td>&ndash;</td><td>&ndash;</td><td class="n-med"><a href="#AEO-01">3</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#mar">Marketing Technology and Privacy (MAR)</a></td><td>&ndash;</td><td class="n-high"><a href="#MAR-01">1</a></td><td class="n-med"><a href="#MAR-02">2</a></td><td>&ndash;</td></tr>
+      <tr><td><a href="#cfg">Hosting and Caching (CFG)</a></td><td>&ndash;</td><td>&ndash;</td><td class="n-med"><a href="#CFG-01">1</a></td><td>&ndash;</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="cv">
+  <div class="eyebrow"><span class="num">04</span> Conversion and Lead-Generation &nbsp;&middot;&nbsp; primary lens</div>
+  <h2>The funnel leaks at the moment of intent</h2>
+  <div class="lead-rule"></div>
+  <p class="lead">A B2B marketing site exists to convert. Everything else ladders up to this.</p>
+
+  <div class="finding c-crit" id="CV-01"><div class="fh"><span class="id">CV-01</span><span class="sev crit">Critical</span><span class="ftitle">The Fabio chatbot auto-opens and pins over the page</span></div>
+    <p>On a <b>fresh</b> desktop visit to the <a href="https://ipfabric.io/" target="_blank" rel="noopener">homepage</a> the "Fabio, Multilingual Smart Bot" panel opens full-height, unprompted, and stays pinned through the whole scroll, about 25% of the viewport. Reproduced independently after clearing its suppression cookie. A bot should open on click, never on load.</p>
+    <p class="ev">On mobile the same widget collapses to a small "Ask Fabio" pill, so the aggressive auto-open is a desktop-specific choice that could simply match the mobile behaviour.</p>
+  </div>
+  <figure><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/cv01-fabio-hero.png" alt="IP Fabric homepage on first load with the Fabio chat panel auto-opened down the entire right column, hero product mock on the left">
+    <figcaption><b>CV-01.</b> First load, no interaction: the Fabio panel has taken the full right column unprompted, carrying an IP Fabric data-controller notice. The "Powered by Salespeak" branding appears separately, once a visitor engages the chat (see <a href="#MAR-02">MAR-02</a>).</figcaption></figure>
+
+  <div class="finding c-crit" id="CV-02"><div class="fh"><span class="id">CV-02</span><span class="sev crit">Critical</span><span class="ftitle">Primary demo CTAs leak visitors off-site in a new tab</span></div>
+    <p>On the <a href="https://ipfabric.io/ip-fabric-guided-demo/" target="_blank" rel="noopener">guided-demo page</a>, "Start Demo" and "Self-Guided Demo" are <code>&lt;a target="_blank"&gt;</code> to <code>share-eu1.hsforms.com</code> (six such CTAs on that page). The visitor lands in a new tab on a bare HubSpot domain, with no branding, no navigation, no way back, and a required "allow ipfabric.io to store and process my personal data" checkbox. This is the highest-friction point in the funnel. See also <a href="#FRM-01">FRM-01</a>.</p>
+  </div>
+
+  <div class="finding c-med" id="CV-03"><div class="fh"><span class="id">CV-03</span><span class="sev med">Medium</span><span class="ftitle">Two competing chat systems</span></div>
+    <p>Both Qualified (<code>js.qualified.com</code>) and Salespeak (<code>app.salespeak.ai</code>, the Fabio bot) load. Duplicated engagement widgets confuse the path and add weight.</p>
+  </div>
+</section>
+
+<section id="vis">
+  <div class="eyebrow"><span class="num">05</span> Product Credibility and Imagery &nbsp;&middot;&nbsp; theme</div>
+  <h2>Suggestive, not evidential</h2>
+  <div class="lead-rule"></div>
+  <div class="callout act"><span class="clabel">Recurring Theme</span><p>Mockups, icons and low-fidelity diagrams stand in for the real UI. This is the biggest trust and conversion problem, and it recurs across the site.</p></div>
+
+  <div class="callout"><span class="clabel" style="color:var(--gold)">Open Question &middot; Unconfirmed</span><p class="ctitle" style="color:var(--gold);font-style:italic">Did the people who built the site actually use, or even see, the product?</p><p>Taken together, the reliance on synthetic mockups, generic icons and placeholder diagrams, with almost no genuine screenshots of the running software, invites the question. This is an inference from what is on the page, not a statement of fact, but it is the impression a technical buyer forms, and it is worth the team putting beyond doubt with real product imagery.</p></div>
+
+  <div class="finding c-high" id="VIS-01"><div class="fh"><span class="id">VIS-01</span><span class="sev high">High</span><span class="ftitle">The hero product visual is a synthetic mock</span></div>
+    <p>The hero panel is a stylised, designed illustration (a mock "NetBox Sync Status" or "ServiceNow Ticket" diagram with placeholder rows), not a screenshot of the running product. For a network-assurance tool, the first impression shows an idea of the product rather than the product.</p>
+  </div>
+  <figure><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/home-desktop.png" alt="IP Fabric homepage hero with a stylised dark mock panel labelled NetBox Sync Status above a customer-logo carousel">
+    <figcaption><b>VIS-01.</b> The hero "product" area is a designed mock, not the real application. Genuine positive: strong customer logos below (Transgourmet, Air France, Airbus, Red Hat).</figcaption></figure>
+
+  <div class="finding c-high" id="VIS-02"><div class="fh"><span class="id">VIS-02</span><span class="sev high">High</span><span class="ftitle">Suggestive, low-fidelity imagery instead of the real UI</span></div>
+    <p>Feature grids use generic thin-line icons; the "Build Integrity Into Every Workflow" section on the <a href="https://ipfabric.io/" target="_blank" rel="noopener">homepage</a> uses faint greyed mock screenshots. Where real product does appear (a troubleshooting <a href="https://ipfabric.io/network-troubleshooting-incident-resolution/" target="_blank" rel="noopener">YouTube demo</a>, an APP-CRM topology diagram on solution pages) it is inconsistent and below the fold.</p>
+  </div>
+
+  <div class="finding c-med" id="VIS-03"><div class="fh"><span class="id">VIS-03</span><span class="sev med">Medium</span><span class="ftitle">Imagery quality is uneven, worst where it matters</span></div>
+    <p>Solution pages carry more real product than the homepage, so the credibility gap is worst exactly where first impressions form.</p>
+  </div>
+
+</section>
+
+<section id="forms">
+  <div class="eyebrow"><span class="num">06</span> Forms</div>
+  <h2>The destination is bare and off-brand</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-med" id="FRM-01"><div class="fh"><span class="id">FRM-01</span><span class="sev med">Medium</span><span class="ftitle">The off-domain form has no trust context</span></div>
+    <p>Separate from the off-domain, new-tab handoff itself (that is <a href="#CV-02">CV-02</a>), the destination is a bare white form on <code>hsforms.com</code>: no logo, no navigation, no reassurance, and a consent checkbox with no surrounding explanation. The best-practice alternative is an embedded, branded form on the IP Fabric page. As it stands this raises abandonment and reads like a phishing hop.</p>
+  </div>
+</section>
+
+<section id="mob">
+  <div class="eyebrow"><span class="num">07</span> Mobile and Responsive &nbsp;&middot;&nbsp; validated</div>
+  <h2>A genuine strength</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-pos" id="MOB-01"><div class="fh"><span class="id">MOB-01</span><span class="sev keep">Keep</span><span class="ftitle">Mobile reflows correctly, no overflow</span></div>
+    <p>Validated in Chrome DevTools device emulation (390&nbsp;px, mobile media queries active, so this is a genuine result rather than a screenshot artifact): document <code>scrollWidth</code> equals the 390&nbsp;px viewport with no horizontal overflow on the homepage and on inner solution pages. The layout collapses to a single column with a hamburger menu, large stacked buttons, the hero mock scaling to fit, and the chat collapsing to a small "Ask Fabio" pill rather than taking over the screen.</p>
+    <p class="ev">Minor: a proactive Fabio text bubble also appears on mobile (a smaller version of <a href="#CV-01">CV-01</a>), and the announcement bar truncates with an ellipsis, which is acceptable.</p>
+  </div>
+  <div class="figrow">
+    <figure class="mobshot"><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/mobile-home-emulated.png" alt="IP Fabric homepage under Chrome device emulation at 390px, single column, hamburger menu, hero mock fitting the width">
+      <figcaption><b>MOB-01.</b> Homepage, correctly emulated at 390&nbsp;px.</figcaption></figure>
+    <figure class="mobshot"><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/mobile-solution-emulated.png" alt="IP Fabric troubleshooting solution page under device emulation at 390px, clean single column with a fitted video embed">
+      <figcaption><b>MOB-01.</b> Inner solution page, same clean reflow.</figcaption></figure>
+  </div>
+</section>
+
+<section id="motion">
+  <div class="eyebrow"><span class="num">08</span> Motion and Interruption</div>
+  <h2>Too much moving at once</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="MO-01"><div class="fh"><span class="id">MO-01</span><span class="sev high">High</span><span class="ftitle">The hero stacks four or more simultaneous motion sources</span></div>
+    <p>An autoplay <code>&lt;video&gt;</code>, two Swiper carousels, a typewriter effect in the search box, and the chat launcher and panel animating in, all competing above the fold on desktop.</p>
+  </div>
+  <figure><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/hero-form-animation.png" alt="IP Fabric hero showing the ServiceNow ticket mock auto-populating its form fields, implementation plan and risk analysis rows, with the search box auto-typing and the Fabio panel open">
+    <figcaption><b>MO-01.</b> The hero ServiceNow-ticket mock auto-fills its form fields (implementation plan, phases, risk analysis), one of several simultaneous hero motions, while the search box auto-types and the Fabio panel sits open. The populated rows are placeholder mock data, not the live product (see <a href="#VIS-01">VIS-01</a>).</figcaption></figure>
+
+  <div class="finding c-med" id="MO-02"><div class="fh"><span class="id">MO-02</span><span class="sev med">Medium</span><span class="ftitle">Gimmicky auto-typing search placeholder</span></div>
+    <p>The "How Can We Help?" AI search box auto-types example prompts by itself, with no click required, on both desktop and mobile (confirmed under device emulation). Animating a primary input is distracting and can read as text a user did not enter.</p>
+  </div>
+
+  <div class="finding c-low" id="MO-03"><div class="fh"><span class="id">MO-03</span><span class="sev low">Low</span><span class="ftitle">Reduced-motion exists but is under-used</span></div>
+    <p>A <code>prefers-reduced-motion</code> query is present (good), but the volume of motion means it should be honoured more aggressively.</p>
+  </div>
+</section>
+
+<section id="typ">
+  <div class="eyebrow"><span class="num">09</span> Typography &nbsp;&middot;&nbsp; historical comparison</div>
+  <h2>A regression against the old site and the brand</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="TYP-01"><div class="fh"><span class="id">TYP-01</span><span class="sev high">High</span><span class="ftitle">Body copy has no web font</span></div>
+    <p>The computed <code>font-family</code> on <code>&lt;body&gt;</code> resolves to bare <code>sans-serif</code>, the operating-system default. Headings use Open Sans; body falls to the system font, which is inconsistent and generic.</p>
+  </div>
+  <div class="finding c-high" id="TYP-02"><div class="fh"><span class="id">TYP-02</span><span class="sev high">High</span><span class="ftitle">Regression from Inter to Open Sans plus a system fallback</span></div>
+    <p>The pre-rebuild site loaded and used <b>Inter</b> as its body typeface (<code>--wp--preset--font-family--body: Inter, sans-serif</code>, with 35 to 115 CSS references across snapshots from 2025 through June 2026). The new site dropped Inter entirely; only Open Sans loads now. Inter to Open Sans plus an unstyled system sans is a step down in modernity and intent.</p>
+    <p class="ev">Aside: IP Fabric's own document and brand collateral uses Inter, so the new site is off-brand against its own materials. Fair balance: the old site over-loaded fonts (Inter, Open Sans, Playfair Display, a handwriting face), so the goal is a considered single system, not more fonts.</p>
+  </div>
+  <div class="finding c-low" id="TYP-03"><div class="fh"><span class="id">TYP-03</span><span class="sev low">Low</span><span class="ftitle">Dead font-face declaration</span></div>
+    <p>A leftover <code>Avenir LT Std</code> <code>@font-face</code> is declared with no served font files.</p>
+  </div>
+</section>
+
+<section id="nav">
+  <div class="eyebrow"><span class="num">10</span> Navigation and Information Architecture</div>
+  <h2>Clickable on some, not others</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="NAV-01"><div class="fh"><span class="id">NAV-01</span><span class="sev high">High</span><span class="ftitle">Inconsistent nav affordances with dead-end menu roots</span></div>
+    <p>Platform, Solutions, Company and Support are <code>&lt;button&gt;</code> dropdown-togglers with no landing page, while Resources is a real <code>&lt;a href="/resource-center/"&gt;</code>. Users cannot reach a "Platform" overview, the four dropdown roots are dead-ends, and the mixed link-and-button behaviour is unpredictable (also a keyboard and screen-reader inconsistency).</p>
+  </div>
+</section>
+
+<section id="lnk">
+  <div class="eyebrow"><span class="num">11</span> Links and Targets</div>
+  <h2>Internal links open new tabs</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="LNK-01"><div class="fh"><span class="id">LNK-01</span><span class="sev high">High</span><span class="ftitle">Same-domain links open in new tabs</span></div>
+    <p>Seven unique internal links on the <a href="https://ipfabric.io/" target="_blank" rel="noopener">homepage</a> open with <code>target="_blank"</code> (injected by JavaScript at runtime, so absent from the raw HTML). Opening internal links in new tabs breaks the back button and spawns tab clutter. The full list:</p>
+    <ul>
+      <li><code>/blog/unlocking-aiops-and-infrastructure-automation/</code></li>
+      <li><code>/blog/how-under-armour-uses-ip-fabric-to-keep-big-projects-moving/</code></li>
+      <li><code>/blog/cmdb-health-ip-fabric-servicenow-integration/</code></li>
+      <li><code>/resource/major-league-baseball-a-network-automation-home-run/</code></li>
+      <li><code>/resource/u-haul/</code></li>
+      <li><code>/resource/modernizing-change-management/</code></li>
+      <li><code>/compliance-hub/</code></li>
+    </ul>
+    <p class="ev">External links (LinkedIn, YouTube) opening in a new tab is acceptable; internal ones should not.</p>
+  </div>
+  <div class="finding c-med" id="LNK-02"><div class="fh"><span class="id">LNK-02</span><span class="sev med">Medium</span><span class="ftitle">Noopener missing on new-tab links</span></div>
+    <p>51 <code>target="_blank"</code> links site-wide omit <code>rel="noopener"</code> or <code>noreferrer</code> (reverse-tabnabbing and performance hygiene).</p>
+  </div>
+</section>
+
+<section id="a11y">
+  <div class="eyebrow"><span class="num">12</span> Accessibility</div>
+  <h2>Images are undescribed at scale</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-crit" id="A11Y-01"><div class="fh"><span class="id">A11Y-01</span><span class="sev crit">Critical</span><span class="ftitle">About 58% of images have no alt text</span></div>
+    <p>761 of 1,313 crawled images (488 of 834 on the 71 real-content pages) have missing or empty <code>alt</code>; the <a href="https://ipfabric.io/compliance-hub/" target="_blank" rel="noopener">Compliance Hub</a> page alone is 198 of 256. A broad WCAG 2.2 &sect;1.1.1 failure with SEO consequences.</p>
+  </div>
+  <div class="finding c-med" id="A11Y-02"><div class="fh"><span class="id">A11Y-02</span><span class="sev med">Medium</span><span class="ftitle">Missing and skipped headings</span></div>
+    <p>About 10 real content pages (for example <code>network-assurance-security-compliance-controls</code>, <code>press-center</code>, the resource-type taxonomy pages) have no <code>&lt;h1&gt;</code>; the homepage jumps to an <code>&lt;h5&gt;</code> with no intervening levels.</p>
+  </div>
+  <div class="finding c-pos" id="A11Y-03"><div class="fh"><span class="id">A11Y-03</span><span class="sev keep">Keep</span><span class="ftitle">Zoom enabled, reduced-motion respected</span></div>
+    <p>The viewport does not block pinch-zoom and reduced motion is honoured in CSS. Keep these.</p>
+  </div>
+</section>
+
+<section id="perf">
+  <div class="eyebrow"><span class="num">13</span> Performance and Weight</div>
+  <h2>Heavy front-end on a fast pipe</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="PERF-01"><div class="fh"><span class="id">PERF-01</span><span class="sev high">High</span><span class="ftitle">Heavy front-end on a fast pipe</span></div>
+    <p>The homepage makes about 105 requests across roughly 25 third-party hosts and ships 57 <code>&lt;script&gt;</code> tags (30 external) plus 12 stylesheets, loading jQuery (legacy in 2026), GSAP and Swiper. Server response is fast (TTFB 202&nbsp;ms; DOMContentLoaded 519&nbsp;ms; load 2,266&nbsp;ms), so the weight is in the build, not the host.</p>
+  </div>
+  <div class="finding c-med" id="PERF-02"><div class="fh"><span class="id">PERF-02</span><span class="sev med">Medium</span><span class="ftitle">No lazy-loading, CLS risk</span></div>
+    <p>None of the 25 homepage images use <code>loading="lazy"</code>, and 4 hero images have no width or height (layout-shift risk).</p>
+  </div>
+  <div class="finding c-low" id="PERF-03"><div class="fh"><span class="id">PERF-03</span><span class="sev low">Low</span><span class="ftitle">Inline style attributes at scale</span></div>
+    <p>699 inline <code>style</code> attributes on the sample (about 10 per page), adding weight and working against a strict Content-Security-Policy.</p>
+  </div>
+</section>
+
+<section id="seo">
+  <div class="eyebrow"><span class="num">14</span> SEO</div>
+  <h2>Good bones, avoidable gaps</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="SEO-01"><div class="fh"><span class="id">SEO-01</span><span class="sev high">High</span><span class="ftitle">On-page hygiene gaps</span></div>
+    <p>Missing alt at scale (<a href="#A11Y-01">A11Y-01</a>), roughly 15 to 20 real pages with no meta description, about 14 missing a canonical, and about 10 with no H1.</p>
+  </div>
+  <div class="finding c-med" id="SEO-02"><div class="fh"><span class="id">SEO-02</span><span class="sev med">Medium</span><span class="ftitle">Duplicate titles</span></div>
+    <p>Blog pagination pages all share the title <code>Blog - IP Fabric</code>, which is not differentiated for search.</p>
+  </div>
+  <div class="finding c-pos" id="SEO-03"><div class="fh"><span class="id">SEO-03</span><span class="sev keep">Keep</span><span class="ftitle">Strong homepage basics</span></div>
+    <p>Good title length (59 characters), a canonical, 14 OpenGraph tags, 2 JSON-LD blocks, a single H1, and <code>lang="en-US"</code>. Extend these to all templates.</p>
+  </div>
+</section>
+
+<section id="aeo">
+  <div class="eyebrow"><span class="num">15</span> Answer and Agent Optimisation &nbsp;&middot;&nbsp; AEO / GEO</div>
+  <h2>Being citable and comparable by machines</h2>
+  <div class="lead-rule"></div>
+  <p class="lead" style="max-width:none">Buyers now ask AI assistants (ChatGPT, Claude, Perplexity, Google's AI overviews) to shortlist and research vendors, and those assistants ingest this site directly. AEO/GEO is about being accurately citable and comparable by machines, not only ranking in blue links. A product an agent cannot cleanly describe or price is a product it leaves off the shortlist.</p>
+  <div class="callout"><span class="clabel" style="color:var(--slate)">Tested Here</span><p>AI-crawler access (robots.txt), the structured data an agent can lift (schema.org), FAQ markup, whether content is readable without JavaScript, and whether the core buying facts (what it is, what it costs) are machine-extractable.</p></div>
+
+  <div class="finding c-pos" id="AEO-04"><div class="fh"><span class="id">AEO-04</span><span class="sev keep">Keep</span><span class="ftitle">Solid structured-data and FAQ foundations, AI crawlers allowed</span></div>
+    <p>Real strengths to build on. The site carries extensive schema.org markup (Organization, BreadcrumbList, WebSite with SearchAction, VideoObject, ImageObject) and, importantly for answer engines, 18 <code>FAQPage</code> blocks with roughly 95 Question and Answer pairs. Content is server-rendered, so an agent can read it without executing JavaScript, and robots.txt neither blocks nor throttles GPTBot, ClaudeBot, PerplexityBot or Google-Extended, so assistants are free to ingest it.</p>
+  </div>
+
+  <div class="finding c-med" id="AEO-01"><div class="fh"><span class="id">AEO-01</span><span class="sev med">Medium</span><span class="ftitle">The llms.txt is auto-generated boilerplate</span></div>
+    <p>The <a href="https://ipfabric.io/llms.txt" target="_blank" rel="noopener">llms.txt</a> is a Rank Math auto-generated link list: a title, a sitemap link and a list of blog posts. It does not state what the product is, who it is for, the problem it solves, or a capability summary, so it adds little over the XML sitemap. A hand-written llms.txt that leads with a crisp product definition and the key facts a buyer needs would give answer engines a clean, quotable source.</p>
+  </div>
+
+  <div class="finding c-med" id="AEO-02"><div class="fh"><span class="id">AEO-02</span><span class="sev med">Medium</span><span class="ftitle">No Product or SoftwareApplication schema</span></div>
+    <p>The site marks itself up as <code>ProfessionalService</code> (56 instances), not <code>SoftwareApplication</code> or <code>Product</code>. When an assistant is asked to compare network-assurance tools, product schema (category, features, offers, supported platforms, ratings) is what it reads to place a vendor in a shortlist. Using service rather than product markup leaves IP Fabric under-described exactly where machine comparison happens.</p>
+  </div>
+
+  <div class="finding c-med" id="AEO-03"><div class="fh"><span class="id">AEO-03</span><span class="sev med">Medium</span><span class="ftitle">Key buying facts are not machine-extractable (pricing)</span></div>
+    <p>The <a href="https://ipfabric.io/pricing/" target="_blank" rel="noopener">pricing page</a> ("Simple Pricing For Complex Networks") carries only "Contact Us", with no figures, tiers or units. Asked "how much is IP Fabric" or "which network-assurance tool fits a 5,000-device network", an agent finds nothing to cite and cannot rank the product on cost. Even indicative ranges, tier names, or a "starts at" figure would make it answerable and comparable.</p>
+  </div>
+</section>
+
+<section id="mar">
+  <div class="eyebrow"><span class="num">16</span> Marketing Technology and Privacy</div>
+  <h2>Tracker sprawl and vendor leakage</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-high" id="MAR-01"><div class="fh"><span class="id">MAR-01</span><span class="sev high">High</span><span class="ftitle">Tracker sprawl and consent exposure</span></div>
+    <p>Around 13 or more advertising, analytics and session-recording third parties load: Reddit, AdRoll, Bing, DoubleClick, LinkedIn, X (Twitter), Google Tag Manager, Microsoft Clarity, Smartlook, Salesloft, Qualified, Salespeak and HubSpot-EU. For an EU-headquartered company (IP Fabric s.r.o.), this is a GDPR and e-Privacy consent concern as well as a performance one.</p>
+  </div>
+  <div class="finding c-med" id="MAR-02"><div class="fh"><span class="id">MAR-02</span><span class="sev med">Medium</span><span class="ftitle">Vendor branding leaking</span></div>
+    <p>Once a visitor engages the central AI chat, the expanded "Conversation with IP Fabric" window shows a "Powered by Salespeak" footer. Third-party vendor branding on a primary conversion surface should be white-labelled or removed.</p>
+  </div>
+  <figure><img src="audit-2ffe699e-2e29-41b6-b8db-bbbc902730fd-assets/mar02-powered-by-salespeak.png" alt="Expanded IP Fabric chat conversation window with a Powered by Salespeak footer at the bottom">
+    <figcaption><b>MAR-02.</b> Engaging the chat opens a full conversation window carrying a "Powered by Salespeak" footer (bottom centre). It is not present on the initial auto-opened panel.</figcaption></figure>
+  <div class="finding c-med" id="MAR-03"><div class="fh"><span class="id">MAR-03</span><span class="sev med">Medium</span><span class="ftitle">Double session-recording</span></div>
+    <p>Both Microsoft Clarity and Smartlook record sessions, which is redundant and doubles the privacy surface.</p>
+  </div>
+</section>
+
+<section id="cfg">
+  <div class="eyebrow"><span class="num">17</span> Hosting and Caching</div>
+  <h2>A strong stack, under-used at the edge</h2>
+  <div class="lead-rule"></div>
+  <div class="finding c-med" id="CFG-01"><div class="fh"><span class="id">CFG-01</span><span class="sev med">Medium</span><span class="ftitle">HTML is not edge-cached</span></div>
+    <p>The document is served <code>cache-control: no-store, no-cache</code> with a <code>DYNAMIC</code> edge-cache status; only the origin cache is hitting. Full-page edge caching is available on this stack and unused.</p>
+  </div>
+  <div class="finding c-pos"><div class="fh"><span class="id">CFG</span><span class="sev keep">Keep</span><span class="ftitle">Modern stack</span></div>
+    <p>A managed WordPress stack behind a global CDN with HTTP/3. A strong base to build on.</p>
+  </div>
+</section>
+
+<section id="backlog">
+  <div class="eyebrow"><span class="num">18</span> Prioritised Backlog</div>
+  <h2>Severity first</h2>
+  <div class="lead-rule"></div>
+  <div class="tablewrap"><table class="bk">
+    <thead><tr><th>#</th><th>ID</th><th>Severity</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><a class="id" href="#CV-01">CV-01</a></td><td><span class="sev crit">Critical</span></td><td>Fabio chatbot auto-opens and pins over the page</td></tr>
+      <tr><td>2</td><td><a class="id" href="#CV-02">CV-02</a></td><td><span class="sev crit">Critical</span></td><td>Demo CTAs open HubSpot form off-domain in a new tab</td></tr>
+      <tr><td>3</td><td><a class="id" href="#A11Y-01">A11Y-01</a></td><td><span class="sev crit">Critical</span></td><td>About 58% of images have no alt text</td></tr>
+      <tr><td>4</td><td><a class="id" href="#VIS-01">VIS-01</a></td><td><span class="sev high">High</span></td><td>Hero product visual is a synthetic mock</td></tr>
+      <tr><td>5</td><td><a class="id" href="#VIS-02">VIS-02</a></td><td><span class="sev high">High</span></td><td>Suggestive low-fidelity imagery instead of real UI</td></tr>
+      <tr><td>6</td><td><a class="id" href="#TYP-01">TYP-01</a></td><td><span class="sev high">High</span></td><td>Body copy has no web font (system fallback)</td></tr>
+      <tr><td>7</td><td><a class="id" href="#TYP-02">TYP-02</a></td><td><span class="sev high">High</span></td><td>Regression from Inter to Open Sans</td></tr>
+      <tr><td>8</td><td><a class="id" href="#NAV-01">NAV-01</a></td><td><span class="sev high">High</span></td><td>Inconsistent nav with dead-end menu roots</td></tr>
+      <tr><td>9</td><td><a class="id" href="#LNK-01">LNK-01</a></td><td><span class="sev high">High</span></td><td>Seven same-domain links open in new tabs</td></tr>
+      <tr><td>10</td><td><a class="id" href="#MO-01">MO-01</a></td><td><span class="sev high">High</span></td><td>Four or more simultaneous motion sources on the hero</td></tr>
+      <tr><td>11</td><td><a class="id" href="#PERF-01">PERF-01</a></td><td><span class="sev high">High</span></td><td>105 requests, roughly 25 third parties, jQuery, GSAP, Swiper</td></tr>
+      <tr><td>12</td><td><a class="id" href="#SEO-01">SEO-01</a></td><td><span class="sev high">High</span></td><td>Missing alt, meta descriptions, canonicals, H1s</td></tr>
+      <tr><td>13</td><td><a class="id" href="#MAR-01">MAR-01</a></td><td><span class="sev high">High</span></td><td>Tracker sprawl and GDPR consent exposure</td></tr>
+      <tr><td>14</td><td><a class="id" href="#CV-03">CV-03</a></td><td><span class="sev med">Medium</span></td><td>Two competing chat systems</td></tr>
+      <tr><td>15</td><td><a class="id" href="#VIS-03">VIS-03</a></td><td><span class="sev med">Medium</span></td><td>Uneven imagery quality, worst on homepage</td></tr>
+      <tr><td>16</td><td><a class="id" href="#FRM-01">FRM-01</a></td><td><span class="sev med">Medium</span></td><td>Off-domain form lacks trust context</td></tr>
+      <tr><td>17</td><td><a class="id" href="#LNK-02">LNK-02</a></td><td><span class="sev med">Medium</span></td><td>51 new-tab links missing noopener</td></tr>
+      <tr><td>18</td><td><a class="id" href="#A11Y-02">A11Y-02</a></td><td><span class="sev med">Medium</span></td><td>Missing and skipped headings on key pages</td></tr>
+      <tr><td>19</td><td><a class="id" href="#PERF-02">PERF-02</a></td><td><span class="sev med">Medium</span></td><td>No lazy-loading, CLS risk</td></tr>
+      <tr><td>20</td><td><a class="id" href="#SEO-02">SEO-02</a></td><td><span class="sev med">Medium</span></td><td>Duplicate blog titles</td></tr>
+      <tr><td>21</td><td><a class="id" href="#AEO-01">AEO-01</a></td><td><span class="sev med">Medium</span></td><td>llms.txt is auto-generated boilerplate</td></tr>
+      <tr><td>22</td><td><a class="id" href="#AEO-02">AEO-02</a></td><td><span class="sev med">Medium</span></td><td>No Product / SoftwareApplication schema</td></tr>
+      <tr><td>23</td><td><a class="id" href="#AEO-03">AEO-03</a></td><td><span class="sev med">Medium</span></td><td>Pricing not machine-extractable</td></tr>
+      <tr><td>24</td><td><a class="id" href="#MAR-02">MAR-02</a></td><td><span class="sev med">Medium</span></td><td>"Powered by Salespeak" leaking on engaged chat</td></tr>
+      <tr><td>25</td><td><a class="id" href="#MAR-03">MAR-03</a></td><td><span class="sev med">Medium</span></td><td>Double session-recording (Clarity and Smartlook)</td></tr>
+      <tr><td>26</td><td><a class="id" href="#CFG-01">CFG-01</a></td><td><span class="sev med">Medium</span></td><td>HTML not edge-cached</td></tr>
+      <tr><td>27</td><td><a class="id" href="#MO-02">MO-02</a></td><td><span class="sev med">Medium</span></td><td>Gimmicky auto-typing search placeholder</td></tr>
+      <tr><td>28</td><td><a class="id" href="#TYP-03">TYP-03</a></td><td><span class="sev low">Low</span></td><td>Dead Avenir LT Std font-face</td></tr>
+      <tr><td>29</td><td><a class="id" href="#MO-03">MO-03</a></td><td><span class="sev low">Low</span></td><td>Reduced-motion exists but under-used</td></tr>
+      <tr><td>30</td><td><a class="id" href="#PERF-03">PERF-03</a></td><td><span class="sev low">Low</span></td><td>699 inline style attributes</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="good">
+  <div class="eyebrow"><span class="num">19</span> What Is Working</div>
+  <h2>Keep these</h2>
+  <div class="lead-rule"></div>
+  <div class="callout good">
+    <span class="clabel">Genuine Strengths</span>
+    <ul class="tight" style="margin-top:6px">
+      <li><b>Mobile experience:</b> clean single-column reflow, hamburger nav, large tap targets, no overflow (<a href="#MOB-01">MOB-01</a>).</li>
+      <li><b>Fast, modern hosting:</b> managed WordPress behind a global CDN with HTTP/3, TTFB about 202&nbsp;ms.</li>
+      <li><b>Structured-data and FAQ groundwork</b> for answer engines, with AI crawlers permitted (<a href="#AEO-04">AEO-04</a>).</li>
+      <li><b>Lean homepage DOM</b> (about 980 nodes) and correct homepage SEO basics (<a href="#SEO-03">SEO-03</a>).</li>
+      <li><b>Strong social proof:</b> Air France, Airbus, Red Hat, MLB, U-Haul, Under Armour.</li>
+      <li><b>Accessibility groundwork:</b> zoom not blocked, a reduced-motion query present (<a href="#A11Y-03">A11Y-03</a>).</li>
+    </ul>
+  </div>
+  <div class="callout blue">
+    <span class="clabel">The Bottom Line</span>
+    <p class="ctitle">The foundation is sound. The work is on the layer above it.</p>
+    <p>Stop the top layer, an uninvited bot, invisible product, off-site forms and generic type, from undercutting a fast, modern, well-hosted site.</p>
+  </div>
+</section>
+
+<section id="appendix">
+  <div class="eyebrow"><span class="num">20</span> Appendix: Method and Tools</div>
+  <h2>How this was measured</h2>
+  <div class="lead-rule"></div>
+  <p>Every finding is backed by a screenshot, a DOM or HTML fact, or a measured number, not opinion.</p>
+  <ul class="tight">
+    <li><b>Full-site mirror</b>, <code>httrack</code>, rate-limited, to a temporary directory (not committed): raw HTML of about 70 real content pages.</li>
+    <li><b>Static audit</b>, <code>audit_static.py</code> (reusable): site-wide alt, heading, meta and link-target counts.</li>
+    <li><b>Live behaviour</b>, real Chrome via automation: rendered link targets, fonts, motion inventory, third-party hosts, performance timing and screenshots.</li>
+    <li><b>Mobile validation</b>, Chrome DevTools Protocol device emulation (<code>mobile_check.py</code>, reusable): measured <code>scrollWidth</code> versus viewport and captured true emulated renders.</li>
+    <li><b>AEO/GEO checks</b>: robots.txt AI-crawler posture, schema.org type inventory, FAQ markup, pricing extractability.</li>
+    <li><b>Font history</b>, Wayback Machine raw snapshots: old versus new font stacks.</li>
+    <li><b>Headers and CDN</b>, <code>curl -I</code>: stack fingerprint and cache behaviour.</li>
+  </ul>
+</section>
+
+</div>
+
+<footer class="footer"><div class="wrap">
+  <p><b>IP Fabric Website Teardown</b>, 23 September 2026. Diagnostic only. Findings are indexed for reference (for example "re: LNK-01").</p>
+  <p>Evidence gathered via a site mirror, real-Chrome instrumentation, Chrome DevTools Protocol mobile emulation, a reusable static-audit script, and Wayback font history.</p>
+</div></footer>
+
+</body>
+</html>
