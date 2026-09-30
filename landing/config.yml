@@ -129,7 +129,7 @@ menu:
   main:
     - identifier: JSS
       name: Jumpstart
-      url: https://jumpstartsignal.com
+      url: /jumpstart/
       weight: 5
     - identifier: contact
       name: Contact
