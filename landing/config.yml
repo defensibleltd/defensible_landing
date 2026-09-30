@@ -73,17 +73,6 @@ params:
     imageWidth: 168
     imageHeight: 128
     imageTitle: Defensible Logo
-    buttons:
-      - name: PanSift
-        url: pansift
-      - name: Contact
-        url: contact
-      - name: Engage
-        url: engage
-      - name: Team
-        url: team
-      - name: Schools
-        url: schools
 
   # home-info mode
   homeInfoParams:
@@ -127,30 +116,34 @@ params:
 
 menu:
   main:
+    - identifier: engage
+      name: Engage
+      url: /engage/
+      weight: 10
+    - identifier: soc
+      name: SOC
+      url: /beyond_the_soc_part_1
+      weight: 20
+    - identifier: panSift
+      name: PanSift
+      url: pansift
+      weight: 30
     - identifier: JSS
       name: Jumpstart
       url: /jumpstart/
-      weight: 5
+      weight: 40
+    - identifier: schools
+      name: Schools
+      url: /schools/
+      weight: 45
+    - identifier: team
+      name: Team
+      url: /team/
+      weight: 50
     - identifier: contact
       name: Contact
       url: /contact/
       weight: 60
-    - identifier: engage
-      name: Engage
-      url: /engage/
-      weight: 30
-    - identifier: panSift
-      name: PanSift
-      url: pansift
-      weight: 10
-    - identifier: team
-      name: Team
-      url: /team/
-      weight: 40
-    - identifier: soc
-      name: SOC
-      url: /beyond_the_soc_part_1
-      weight: 40
 
 outputs:
     home:
