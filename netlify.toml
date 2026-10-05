@@ -41,7 +41,8 @@ HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
   from = "https://zoom.defensible.ie"
-  to = "https://zoom.us/j/8927508943"
+  # to = "https://zoom.us/j/8927508943"
+  to = "https://us05web.zoom.us/j/8927508943?pwd=bStOWjd4eEZGQ1lZbmU5blc1Z3YxZz09"
   status = 302
   force = true
 
